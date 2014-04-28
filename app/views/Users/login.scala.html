@@ -1,0 +1,18 @@
+@(form: Form[Login])
+
+@main {
+&gt;login
+} {
+	@helper.form(routes.Users.authenticate(), 'role -> "form"	) {
+		<p>
+	       <input type="email" name="email" placeholder="Email" value="@form("email").value">
+	   </p>
+	   <p>
+	       <input type="password" name="password" placeholder="Password">
+	   </p>
+	   <span class="text-danger">@if(form.hasErrors()){@form.globalError().message()}</span>
+	   <p>
+	       <button class="btn btn-success" type="submit">Login</button>
+	   </p>
+	}
+}

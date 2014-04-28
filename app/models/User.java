@@ -5,6 +5,7 @@ import java.util.*;
 import javax.persistence.*;
 
 import play.db.ebean.*;
+import play.data.Form;
 import play.data.format.*;
 import play.data.validation.*;
 
@@ -35,4 +36,20 @@ public class User extends Model {
         Long.class, User.class
     ); 
 
+    public User(String name, String password, String email) {
+    	this.name = name;
+    	this.password = password;
+    	this.email = email;
+    	this.save();
+    }
+    
+    public static Boolean authenticate(Form<Login> form) {
+    	List<User> users = User.find.where().eq("email", form.field("email").value()).eq("password",form.field("password").value()).findList();
+        if (users.isEmpty()) {
+            return false;
+        }
+        else {
+        	return true;
+        }
+    }
 }
