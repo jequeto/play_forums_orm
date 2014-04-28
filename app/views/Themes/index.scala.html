@@ -1,0 +1,26 @@
+@(forum: Forum, themes: List[Theme])
+
+@main {
+&gt;@forum.name
+} {
+	<h1>Forum: @forum.name</h1>
+	<h2>Themes:</h23>
+	
+	@if(themes.isEmpty()) {
+	  <h1>Nothing to display</h1>
+	} else {
+	  <h1>@themes.size() items!</h1>
+	  <table border="1">
+	  	<tr><th>Name</th><th>Creator</th><th>Creation Date</th>
+	  	</tr>
+	  	
+		@for(theme <- themes) {
+			<tr>
+			  	<td>@theme.name</a>"</td>
+				<td>@theme.user.name</td>
+				<td>@theme.creationDate</td>
+			</tr>
+		}
+		</table>
+	}
+}

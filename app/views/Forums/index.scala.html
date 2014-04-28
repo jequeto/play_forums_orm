@@ -1,0 +1,21 @@
+@(forums: List[models.Forum])
+
+@main {
+} {
+
+	<h1>Forum's List</h1>
+	
+	@if(forums.isEmpty()) {
+	  <h1>Nothing to display</h1>
+	} else {
+	  <h1>@forums.size() items!</h1>
+	  <table border="1">
+	  	<tr><th>Name</th><th>Description</th><th>Creator</th><th>Creation Date</th>
+	  	</tr>
+	  	
+		@for(f <- forums) {
+		  <tr><td><a href="@routes.Themes.index(f.id)">@f.name</a></td><td>@f.description</td><td>@f.user.name</td><td>@f.creationDate</td></tr>
+		} 
+		</table>
+		}	
+}

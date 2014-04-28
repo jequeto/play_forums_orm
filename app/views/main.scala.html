@@ -1,0 +1,28 @@
+@(breadcrumbs: Html)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>DAW2-Foros</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+        
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        
+        <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/bootstrap.min.js")" type="text/javascript"></script>
+        
+        
+    </head>
+    <body>
+    	<header>
+    		<h1>DAW2 - Forums</h1>
+    		<div class="breadcrumbs">
+    		   <a href="@routes.Forums.index()">Inicio</a>@breadcrumbs
+    		</div>
+    	</header>
+        <div class="content">@content</div>
+        <footer></footer>
+    </body>
+</html>
