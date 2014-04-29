@@ -12,18 +12,25 @@ import models.*;
 public class Users extends Controller {
 	
 	public static Result login() {
-	    return ok(views.html.Users.login.render(Form.form(Login.class)));
+		flash("alert", "Login provisional");
+	    return ok(views.html.Users.login.render(Form.form(models.Login.class)));
 	}
 	
+	
 	public static Result authenticate() {
-		Form<Login> loginForm = Form.form(Login.class).bindFromRequest();
+		
+		Form<models.Login> loginForm = Form.form(models.Login.class).bindFromRequest();
+		
 		if (User.authenticate(loginForm))  {
-			
-			return ok("Validado");
+			session().clear();
+			session("userEmail", loginForm.field("email").value());
+			request().setUsername(loginForm.field("email").value());
+			flash("alert", "Login successfull");
+			return redirect(routes.Forums.index());
 		}
 		else {
 			loginForm.reject("Email or password error");
-			return ok(views.html.Users.login.render(loginForm));
+			return badRequest(views.html.Users.login.render(loginForm));
 //			return ok("Fallido");
 		}
 	}

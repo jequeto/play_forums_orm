@@ -15,14 +15,30 @@
         
         
     </head>
-    <body>
+    <body onload="onload();">
+    
     	<header>
     		<h1>DAW2 - Forums</h1>
     		<div class="breadcrumbs">
-    		   <a href="@routes.Forums.index()">Inicio</a>@breadcrumbs
+    		   <a href="@routes.Forums.index()">Home</a>@breadcrumbs
     		</div>
     	</header>
-        <div class="content">@content</div>
-        <footer></footer>
+        
+        <div class="content">
+        	@content
+        </div>
+        
+        <footer class="section">
+        	<p class="text-muted">(C) jequeto, last update April 29, 2014</p>
+        </footer>
+        
+        <script type="text/javascript">
+        	function onload() {
+        		@if(flash.contains("alert")) {
+        			alert("@(flash.get("alert"))");
+        		}
+        	}
+        </script>
+        
     </body>
 </html>

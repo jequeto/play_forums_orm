@@ -3,7 +3,9 @@ package controllers;
 import java.util.*;
 
 import play.*;
+import play.data.*;
 import play.mvc.*;
+
 import views.html.*;
 import models.*;
 
@@ -30,10 +32,15 @@ public class Forums extends Controller {
         return ok(views.html.Forums.index.render(forums));
     }
 
-
-    public static Result save() {
-    	  flash("success", "The item has been created");
-    	  return redirect("/");
+    
+    public static Result formInsert() {
+    	Form<Forum> formForum = Form.form(Forum.class);
+    	return ok("");
+    }
+    
+    
+    public static Result formInsertValidate() {
+    	return ok("");
     }
 
 }

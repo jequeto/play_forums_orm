@@ -36,6 +36,12 @@ public class User extends Model {
         Long.class, User.class
     ); 
 
+    
+    public User() {
+    	
+    }
+    
+    
     public User(String name, String password, String email) {
     	this.name = name;
     	this.password = password;
