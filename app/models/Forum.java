@@ -30,7 +30,7 @@ public class Forum extends Model {
     
     public Date creationDate; // = new Date();
     
-    @OneToMany(cascade=CascadeType.ALL)
+    @OneToMany(cascade=CascadeType.REMOVE)
     public List<Theme> themes;
     
     @ManyToOne

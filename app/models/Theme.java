@@ -23,11 +23,11 @@ public class Theme extends Model {
     @Formats.DateTime(pattern="dd/MM/yyyy")
     public Date creationDate; // = new Date();
     
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.REMOVE)
     @Constraints.Required
     public Forum forum;
     
-    @OneToMany(cascade=CascadeType.ALL)
+    @OneToMany(cascade=CascadeType.REMOVE)
     public List<Message> messages;
     
     

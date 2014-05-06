@@ -21,15 +21,16 @@
     	<header>
     		<h1>DAW2 - Forums</h1>
     		<div id="user">
-    			@** if(request().username() != null) { **@
+    			    			
     			@if(session().get("userEmail") != null) {
     				@request().username()
                     @session().get("userEmail")
     				<a href='@routes.Users.logout()'>Sing out</a>
     			} else {
-    				Guess 
-                    
-    				<a href='@routes.Users.login()'>Sing in</a>
+    				@request().username() Guess 
+                    @if(request().uri() != "/Forums/login") {
+    					<a href='@routes.Users.login()'>Sing in</a>
+    				}
     			}
     		</div>
     		<div class="breadcrumbs">
