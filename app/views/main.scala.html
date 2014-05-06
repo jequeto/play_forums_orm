@@ -5,8 +5,9 @@
 <html>
     <head>
         <title>DAW2-Foros</title>
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
         
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
         
@@ -19,6 +20,18 @@
     
     	<header>
     		<h1>DAW2 - Forums</h1>
+    		<div id="user">
+    			@** if(request().username() != null) { **@
+    			@if(session().get("userEmail") != null) {
+    				@request().username()
+                    @session().get("userEmail")
+    				<a href='@routes.Users.logout()'>Sing out</a>
+    			} else {
+    				Guess 
+                    
+    				<a href='@routes.Users.login()'>Sing in</a>
+    			}
+    		</div>
     		<div class="breadcrumbs">
     		   <a href="@routes.Forums.index()">Home</a>@breadcrumbs
     		</div>

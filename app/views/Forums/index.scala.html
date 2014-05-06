@@ -1,21 +1,47 @@
 @(forums: List[models.Forum])
 
+@import helper._
+
 @main {
 } {
 
 	<h1>Forum's List</h1>
-	
+	<table class="table table-striped table-hover table-bordered">
+	  	<tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Creator</th>
+            <th>Creation Date</th>
+            <th>Actions</th>
+	  	</tr>
+	  	
 	@if(forums.isEmpty()) {
-	  <h1>Nothing to display</h1>
+		<tr>
+            <td colspan="5">
+	  			<h2>Nothing to display</h2>
+	  		</td>
+	  	</tr>
 	} else {
 	  <h1>@forums.size() items!</h1>
-	  <table class="table table-striped table-hover table-bordered">
-	  	<tr><th>Name</th><th>Description</th><th>Creator</th><th>Creation Date</th>
-	  	</tr>
+	 
 	  	
 		@for(f <- forums) {
 		  <tr><td><a href="@routes.Themes.index(f.id)">@f.name</a></td><td>@f.description</td><td>@f.user.name</td><td>@f.creationDate</td></tr>
 		} 
-		</table>
-		}	
+        
+	}
+		<tr>
+        	<td colspan="5">
+             	<p>Insert a new forum</p>
+             	<form method="POST" action="@routes.Forums.formInsertValidate()">
+                    <label for="name">New Forum Name: </label>
+                    <input type="text" id="name" name="name">
+                    <label for="name">Description: </label>
+                    <input type="text" id="description" name="description">
+                    <input type="submit" name="enviar" value="Insertar">
+                    
+                </form>
+            </td>
+    	</tr>
+	</table>	
 }

@@ -49,6 +49,7 @@ public class User extends Model {
     	this.save();
     }
     
+    
     public static Boolean authenticate(Form<Login> form) {
     	List<User> users = User.find.where().eq("email", form.field("email").value()).eq("password",form.field("password").value()).findList();
         if (users.isEmpty()) {
@@ -58,4 +59,7 @@ public class User extends Model {
         	return true;
         }
     }
+    
+    
+    
 }

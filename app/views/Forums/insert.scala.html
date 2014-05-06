@@ -1,0 +1,14 @@
+@(forumForm: Form[ForumForm])
+
+@import helper._
+
+@main {
+} {
+	<h1>Forum's Insert</h1>
+	@form(action=routes.Forums.formInsertValidate()) {
+		@helper.inputText(forumForm("name"))
+		@helper.inputText(forumForm("description"))
+		<input class="btn btn-success" type="submit" value="Insert" />
+		<a class="btn btn-danger" href="@routes.Forums.index()">Cancelar</a>
+	}
+}

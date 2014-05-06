@@ -28,8 +28,7 @@ public class Theme extends Model {
     public Forum forum;
     
     @OneToMany(cascade=CascadeType.ALL)
-    @Constraints.Required
-    public Message message;
+    public List<Message> messages;
     
     
     @ManyToOne

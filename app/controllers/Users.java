@@ -12,8 +12,14 @@ import models.*;
 public class Users extends Controller {
 	
 	public static Result login() {
-		flash("alert", "Login provisional");
+//		flash("alert", "Login provisional");
 	    return ok(views.html.Users.login.render(Form.form(models.Login.class)));
+	}
+	
+	public static Result logout() {
+		flash("alert", "You are logout");
+		session().clear();
+	    return redirect(routes.Users.login());
 	}
 	
 	
@@ -23,6 +29,7 @@ public class Users extends Controller {
 		
 		if (User.authenticate(loginForm))  {
 			session().clear();
+			
 			session("userEmail", loginForm.field("email").value());
 			request().setUsername(loginForm.field("email").value());
 			flash("alert", "Login successfull");

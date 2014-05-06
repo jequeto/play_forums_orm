@@ -18,6 +18,7 @@ public class Forum extends Model {
     public Long id;
     
     @Constraints.Required
+    @Constraints.MinLength(2)
     public String name;
     
     
@@ -26,11 +27,11 @@ public class Forum extends Model {
     
     @Constraints.Required
     @Formats.DateTime(pattern="dd/MM/yyyy")
+    
     public Date creationDate; // = new Date();
     
     @OneToMany(cascade=CascadeType.ALL)
-    @Constraints.Required
-    public Theme theme;
+    public List<Theme> themes;
     
     @ManyToOne
     @Constraints.Required
@@ -38,6 +39,8 @@ public class Forum extends Model {
   
     public static Finder<Long,Forum> find = new Finder<Long,Forum>(
         Long.class, Forum.class
-    ); 
+    );
+    
+    
 
 }

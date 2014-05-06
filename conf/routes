@@ -11,6 +11,9 @@ GET     /Forums 	                    controllers.Forums.index()
 GET     /Forums/login 	                controllers.Users.login()
 POST	/Forums/login 	                controllers.Users.authenticate()
 
+GET     /Forums/logout 	                controllers.Users.logout()
+
+POST	/Forums/formInsertValidate      controllers.Forums.formInsertValidate()
 
 GET     /Forums/:forumId             	controllers.Themes.index(forumId: Long)
 GET     /Forums/:forumId/:themeId    	controllers.Messages.index(forumId: Long, themeId: Long)
