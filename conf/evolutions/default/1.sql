@@ -40,10 +40,12 @@ create table theme (
 
 create table user (
   id                        bigint not null,
-  name                      varchar(255),
+  name                      varchar(255) not null,
   password                  varchar(255),
-  email                     varchar(255),
+  email                     varchar(255) not null,
   creation_date             timestamp,
+  constraint uq_user_name unique (name),
+  constraint uq_user_email unique (email),
   constraint pk_user primary key (id))
 ;
 

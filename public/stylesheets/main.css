@@ -2,3 +2,25 @@
 body {
 	margin: 5px;
 }
+
+header {
+	background-color: #00CCFF;
+}
+
+div#header_left {
+	
+}
+
+div#header_center {
+	
+}
+
+div#header_right {
+	text-align: right;
+}
+
+div#breadcrumbs {
+	margin: 5px 0px;
+	background-color: #00FFFF;	
+}
+

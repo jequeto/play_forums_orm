@@ -19,14 +19,14 @@ public class Forums extends Controller {
     }
 
     
-    public static Result formInsert() {
+    public static Result insert() {
     	Form<Forum> forumForm = Form.form(Forum.class);
     	
     	return ok("");
     }
     
     
-    public static Result formInsertValidate() {    	
+    public static Result insertValidate() {    	
     	
     	Form<models.ForumForm> forumForm = Form.form(models.ForumForm.class).bindFromRequest();
     	
@@ -54,5 +54,19 @@ public class Forums extends Controller {
 	    	return redirect(routes.Forums.index());
     	}
     }
+    
+    @Security.Authenticated(Authenticator.class)
+    public static Result update(Long forumId) {
+    	// Html(Controller.ctx().getClass())
+    	return ok("update: "+forumId.toString());
+    }
+    
+    @Security.Authenticated(Authenticator.class)
+    public static Result delete(Long forumId) {
+    	// Html(Controller.ctx().getClass())
+    	return ok("delete: "+forumId.toString());
+    }
+    
+    
 
 }

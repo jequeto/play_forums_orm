@@ -3,6 +3,7 @@ package models;
 import java.util.*;
 
 import javax.persistence.*;
+//import javax.persistence.Column;
 
 import play.db.ebean.*;
 import play.data.Form;
@@ -19,6 +20,7 @@ public class User extends Model {
     public Long id;
   
     @Constraints.Required
+    @Column(unique=true, nullable=false)
     public String name;
     
     @Constraints.Required
@@ -26,6 +28,7 @@ public class User extends Model {
     
     @Constraints.Email
     @Constraints.Required
+    @Column(unique=true, nullable=false)
     public String email;
     
     @Constraints.Required
@@ -46,6 +49,7 @@ public class User extends Model {
     	this.name = name;
     	this.password = password;
     	this.email = email;
+    	this.creationDate = new Date();
     	this.save();
     }
     
@@ -58,6 +62,7 @@ public class User extends Model {
         else {
         	return true;
         }
+//      returns( ! users.isEmpty());
     }
     
     

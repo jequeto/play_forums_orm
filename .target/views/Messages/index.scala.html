@@ -1,0 +1,27 @@
+@(forum: Forum, theme: Theme, messages: List[Message])
+
+@main {
+&gt;<a href="@routes.Themes.index(forum.id)">@forum.name</a>&gt;@theme.name
+} {
+	<h1>Forum: <b><a href="@routes.Themes.index(forum.id)">@forum.name</a></b></h1>
+	<h2>Theme: <b>@theme.name</b></h2>
+	<h3>Messages</h3>
+	
+	@if(messages.isEmpty()) {
+	  <h1>Nothing to display</h1>
+	} else {
+	  <h1>@messages.size() items!</h1>
+	  <table border="1">
+	  	<tr><th>Text</th><th>Creator</th><th>Creation Date</th>
+	  	</tr>
+	  	
+		@for(message <- messages) {
+			<tr>
+			  	<td>@message.text</a>"</td>
+				<td>@message.user.name</td>
+				<td>@message.creationDate</td>
+			</tr>
+		}
+		</table>
+	}
+}
