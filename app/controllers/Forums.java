@@ -12,6 +12,7 @@ import models.*;
 
 public class Forums extends Controller {
 
+	@Security.Authenticated(Secured.class) 
     public static Result index() {
        
     	List<models.Forum> forums = models.Forum.find.all();

@@ -4,7 +4,7 @@
 
 # Home page
 GET     /                           	controllers.Application.index()
-
+GET		/actionInfo						controllers.Application.actionInfo()
 
 GET     /Forums 	                    controllers.Forums.index()
 

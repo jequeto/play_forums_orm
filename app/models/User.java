@@ -40,6 +40,12 @@ public class User extends Model {
     ); 
 
     
+    public static User findByEmail(String email) {
+    	
+    	return User.find.where().eq("email", email).findUnique();
+    			
+    }
+    
     public User() {
     	
     }

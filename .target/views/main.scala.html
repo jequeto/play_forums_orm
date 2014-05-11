@@ -18,30 +18,33 @@
         
     </head>
     <body onload="onload();">
-    
-    	<header class="row">
-		    <div id="header_left" class="col-md-4">
-				<img src="@routes.Assets.at("images/logo.jpg")" width="85%" alt="Logo" />
+	    
+    	<header>
+	        <div id="breadcrumbs" class="col-md-12">
+	        	<a href="@routes.Forums.index()">
+		    		<img src="@routes.Assets.at("images/logo.jpg")" height="25px" alt="Logo" class="miniLogo" />
+		    		<span class="glyphicon glyphicon-home"></span>
+		    		Home</a>@breadcrumbs
+				<div id="breadcrumbs_right" class="col-md-4">    			    			
+					@if(session().get("userEmail") != null) {
+						@request().username()
+				        @session().get("userEmail")
+						<a href='@routes.Users.logout()'>Sing out</a>
+					} else {
+						@request().username() Guess 
+				        @if(request().uri() != "/Forums/login") {
+							<a href='@routes.Users.login()'>Sing in</a>
+						}
+					}
+				</div>
 			</div>
-    		<div id="header_center" class="col-md-4">
+		    <div id="header_left" class="col-md-4">
+				<img src="@routes.Assets.at("images/logo.jpg")" height="150px" alt="Logo" />
+			</div>
+    		<div id="header_center" class="col-md-8">
     			<h1>DAW2 - Forums</h1>
-    		</div>
-    		<div id="header_right" class="col-md-4">    			    			
-    			@if(session().get("userEmail") != null) {
-    				@request().username()
-                    @session().get("userEmail")
-    				<a href='@routes.Users.logout()'>Sing out</a>
-    			} else {
-    				@request().username() Guess 
-                    @if(request().uri() != "/Forums/login") {
-    					<a href='@routes.Users.login()'>Sing in</a>
-    				}
-    			}
-    		</div>
+    		</div>		
     		<div style="clear: both"></div>
-    		<div id="breadcrumbs" class="col-md-12">
-    		   <a href="@routes.Forums.index()">Home</a>@breadcrumbs
-    		</div>
     	</header>
         
         <div class="content">
@@ -54,6 +57,7 @@
         
         <div id="globals">
         	<pre>
+        	request().getClass(): @request.getClass()
         	request().username(): @request.username()
         	request().acceptedTypes(): @request().acceptedTypes()
         	request().acceptLanguages(): @request().acceptLanguages()

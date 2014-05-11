@@ -1,0 +1,13 @@
+@(t: Throwable)
+
+
+
+@main {
+&gt;errorPage
+} {
+	<h2>Error page</h2>
+	<p>@t.getMessage()</p>
+	<div>
+		@t.printStackTrace()
+	</div>
+}

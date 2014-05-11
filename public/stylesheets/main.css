@@ -4,9 +4,26 @@ body {
 }
 
 header {
+	padding: 5px;
 	background-color: #00CCFF;
 }
 
+div#breadcrumbs {
+	margin-bottom: 5px;
+	padding: 5px;
+	background-color: #5F5F5F;	
+	color: white
+}
+
+div#breadcrumbs * {
+	color: white;
+}
+
+div#breadcrumbs_right {
+	
+	float: right;
+	text-align: right;
+}
 div#header_left {
 	
 }
@@ -19,8 +36,7 @@ div#header_right {
 	text-align: right;
 }
 
-div#breadcrumbs {
-	margin: 5px 0px;
-	background-color: #00FFFF;	
+div#globals {
+	margin-top: 20px;
 }
 
