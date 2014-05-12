@@ -13,7 +13,7 @@ public class Users extends Controller {
 	
 	public static Result login() {
 //		flash("alert", "Login provisional");
-	    return ok(views.html.Users.login.render(Form.form(models.Login.class)));
+	    return ok(views.html.Users.login.render(Form.form(forms.Login.class)));
 	}
 	
 	public static Result logout() {
@@ -25,7 +25,7 @@ public class Users extends Controller {
 	
 	public static Result authenticate() {
 		
-		Form<models.Login> loginForm = Form.form(models.Login.class).bindFromRequest();
+		Form<forms.Login> loginForm = Form.form(forms.Login.class).bindFromRequest();
 		
 		if (User.authenticate(loginForm))  {
 			session().clear();
@@ -40,6 +40,13 @@ public class Users extends Controller {
 			return badRequest(views.html.Users.login.render(loginForm));
 //			return ok("Fallido");
 		}
+	}
+	
+	
+	public static Result unAuthorized() {
+		
+		return badRequest(views.html.Users.unAuthorized.render());
+		
 	}
 	
 	

@@ -34,7 +34,10 @@ public class User extends Model {
     @Constraints.Required
     @Formats.DateTime(pattern="dd/MM/yyyy")
     public Date creationDate; // = new Date();
-  
+    
+//    @ManyToMany
+//    public List<Forum> moderatedForums;
+//  
     public static Finder<Long,User> find = new Finder<Long,User>(
         Long.class, User.class
     ); 
@@ -60,7 +63,7 @@ public class User extends Model {
     }
     
     
-    public static Boolean authenticate(Form<Login> form) {
+    public static Boolean authenticate(Form<forms.Login> form) {
     	List<User> users = User.find.where().eq("email", form.field("email").value()).eq("password",form.field("password").value()).findList();
         if (users.isEmpty()) {
             return false;

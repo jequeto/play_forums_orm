@@ -1,12 +1,13 @@
 package controllers;
 
 import play.*;
-import play.mvc.*; 
+import play.mvc.*;
+
 
 import views.html.*;
 
-import java.lang.reflect.Method;
 
+@With(Authorized.class)
 public class Application extends Controller {
 
     public static Result index() {
@@ -14,7 +15,7 @@ public class Application extends Controller {
         return redirect(routes.Forums.index());
     }
 
-    
+    @Check("permiso")
     public static Result actionInfo() {
  
     	return ok(views.html.Application.actionInfo.render(null,null,null));

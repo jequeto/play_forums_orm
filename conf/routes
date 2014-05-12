@@ -10,8 +10,9 @@ GET     /Forums 	                    controllers.Forums.index()
 
 GET     /Forums/login 	                controllers.Users.login()
 POST	/Forums/login 	                controllers.Users.authenticate()
-
 GET     /Forums/logout 	                controllers.Users.logout()
+GET		/Forums/Users/unauthorized		controllers.Users.unAuthorized()
+
 
 POST	/Forums/insert					controllers.Forums.insertValidate()
 
@@ -26,6 +27,8 @@ GET     /Forums/:forumId/:themeId    	controllers.Messages.index(forumId: Long, 
 
 GET		/Forums/:forumId/Themes/insert	controllers.Themes.insert(forumId: Long)
 POST	/Forums/:forumId/Themes/insert	controllers.Themes.insertValidate(forumId: Long)
+
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

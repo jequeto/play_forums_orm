@@ -18,25 +18,29 @@ public class Forum extends Model {
     public Long id;
     
     @Constraints.Required
-    @Constraints.MinLength(2)
+    @Constraints.MinLength(1)
+    @Column(unique=true)
     public String name;
     
-    
     public String description;
-    
-    
+        
     @Constraints.Required
     @Formats.DateTime(pattern="dd/MM/yyyy")
-    
     public Date creationDate; // = new Date();
+   
+    @ManyToOne
+    @Constraints.Required
+    public User creatorUser;
     
     @OneToMany(cascade=CascadeType.REMOVE)
     public List<Theme> themes;
     
-    @ManyToOne
-    @Constraints.Required
-    public User user;
+    
+    
+    @ManyToMany(cascade=CascadeType.REMOVE)
+    public List<User> moderators;
   
+    
     public static Finder<Long,Forum> find = new Finder<Long,Forum>(
         Long.class, Forum.class
     );

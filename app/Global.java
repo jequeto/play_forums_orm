@@ -25,7 +25,8 @@ public class Global extends GlobalSettings {
         // Check if the database is empty
         if (User.find.findRowCount() == 0) {
 //      	Ebean.save((List) Yaml.load("initial-data.yml"));
-        	User user = new User("jesus", "jesus00", "jesus@email.com");
+        	User user = new User("admin", "admin00", "admin@email.com");
+        	user = new User("jesus", "jesus00", "jesus@email.com");
         }
         
     }

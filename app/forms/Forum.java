@@ -1,13 +1,11 @@
-package models;
+package forms;
 
-import java.util.*;
-import play.data.*;
 import play.data.validation.*;
 
-public class ForumForm {
+public class Forum {
 	
 	@Constraints.Required
-//	@Constraints.Min(1)
+	@Constraints.MinLength(1)
     public String name;
     
 

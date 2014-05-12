@@ -18,6 +18,7 @@ public class Message extends Model {
     public Long id;
   
     @Constraints.Required
+    @Column(nullable=false)
     public String text;
     
     @Constraints.Required

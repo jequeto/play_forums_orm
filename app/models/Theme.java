@@ -17,6 +17,7 @@ public class Theme extends Model {
     public Long id;
   
     @Constraints.Required
+    @Column(unique=true, nullable=false)
     public String name;
     
     @Constraints.Required

@@ -6,6 +6,7 @@ import play.*;
 import play.mvc.*;
 import views.html.*;
 import models.*;
+import play.data.Form;
 
 
 public class Themes extends Controller {
@@ -20,7 +21,7 @@ public class Themes extends Controller {
 
     public static Result save() {
     	  flash("success", "The item has been created");
-    	  return redirect("/");
+    	  return TODO;
     }
     
 
@@ -30,6 +31,9 @@ public class Themes extends Controller {
     
     
     public static Result insertValidate(Long forumId) {
+    	
+    	Form<Theme> themeForm = Form.form(Theme.class).bindFromRequest("name");
+    	
     	return TODO;
     }
 
