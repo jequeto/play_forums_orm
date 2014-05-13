@@ -2,6 +2,7 @@ package forms;
 
 import play.data.validation.*;
 
+
 public class Forum {
 	
 	@Constraints.Required
