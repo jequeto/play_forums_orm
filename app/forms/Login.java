@@ -1,4 +1,4 @@
-package forms;
+package forms.User;
 
 import java.util.*;
 
