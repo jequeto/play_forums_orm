@@ -2,12 +2,12 @@ package controllers;
 
 import play.*;
 import play.mvc.*;
-
+import annotations.*;
 
 import views.html.*;
 
 
-@With(Authorized.class)
+
 public class Application extends Controller {
 
     public static Result index() {
@@ -15,7 +15,7 @@ public class Application extends Controller {
         return redirect(routes.Forums.index());
     }
 
-    @Check("permiso")
+    @VerboseAnnotation(false)
     public static Result actionInfo() {
  
     	return ok(views.html.Application.actionInfo.render(null,null,null));

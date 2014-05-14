@@ -12,7 +12,7 @@ import play.data.Form;
 public class Themes extends Controller {
 
     public static Result index(Long forumId) {
-    	
+    	User.find.setAutofetch(true);
     	Forum forum = Forum.find.byId(forumId);
     	List<Theme> themes = Theme.findByForumId(forumId);
         return ok(views.html.Themes.index.render(forum, themes));
@@ -30,12 +30,22 @@ public class Themes extends Controller {
     }
     
     
-    public static Result insertValidate(Long forumId) {
+    public static Result insertValidate() {
     	
-    	Form<Theme> themeForm = Form.form(Theme.class).bindFromRequest("name");
+    	Form<forms.Theme> themeForm = Form.form(forms.Theme.class).bindFromRequest("id, form_id, name, description");
+//    	
+    	if (themeForm.hasErrors()) {
+    		
+    		return badRequest(views.html.Themes.insert.render(themeForm));
+    	}
+    	else {
+    		models.Theme theme = new models.Theme();
+    		
+    		flash("alert", "The new theme has sussefully added");
+    		return redirect(routes.Themes.index(Long.valueOf(themeForm.field("forum_id").value())));
+    	}
     	
-    	return TODO;
+    	
     }
-
 
 }

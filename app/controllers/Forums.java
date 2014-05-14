@@ -17,8 +17,12 @@ public class Forums extends Controller {
 	
 	@Security.Authenticated(Secured.class) 
     public static Result index() {
-       
-    	List<models.Forum> forums = models.Forum.find.all();
+//		The next two lines don't fetch creatorUser and themes from forum
+//		User.find.setAutofetch(true);
+//    	List<models.Forum> forums = models.Forum.find.all();
+		
+    	List<models.Forum> forums = models.Forum.find.fetch("themes").fetch("creatorUser").findList();
+//    	List<models.Forum> forums = models.Forum.find.setAutofetch(true).findList();
         return ok(views.html.Forums.index.render(forums));
         
     }
@@ -33,12 +37,15 @@ public class Forums extends Controller {
     
     public static Result insertValidate() {    	
     	
-    	Form<forms.Forum> forumForm = Form.form(forms.Forum.class).bindFromRequest();
+    	Form<forms.ForumInsert> forumForm = Form.form(forms.ForumInsert.class).bindFromRequest();
     	
     	if (forumForm.hasErrors()) {
     		return badRequest(views.html.Forums.insert.render(forumForm));
     	}
     	else {
+//    		if (Forum.isUniqueInsert("name",forumForm.field("name").value())) {
+//    			return badRequest(views.html.Forums.insert.render(forumForm));
+//    		}
 	    	models.Forum forum = new models.Forum();
 	    	forum.name = forumForm.field("name").value();
 	    	forum.description = forumForm.field("description").value();

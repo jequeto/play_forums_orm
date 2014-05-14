@@ -19,19 +19,20 @@
     </head>
     <body onload="onload();">
 	    
-    	<header>
+    	<header class="page-header">
 	        <div id="breadcrumbs" class="col-md-12">
 	        	<a href="@routes.Forums.index()">
 		    		<img src="@routes.Assets.at("images/logo.jpg")" height="25px" alt="Logo" class="miniLogo" />
 		    		<span class="glyphicon glyphicon-home"></span>
-		    		Home</a>@breadcrumbs
+		    		Home
+		    	</a>
+		    	@breadcrumbs
 				<div id="breadcrumbs_right" class="col-md-4">    			    			
 					@if(session().get("userEmail") != null) {
-						@request().username()
-				        @session().get("userEmail")
+				        @session().get("userEmail") - 
 						<a href='@routes.Users.logout()'>Sing out</a>
 					} else {
-						@request().username() Guess 
+						Guess - 
 				        @if(request().uri() != "/Forums/login") {
 							<a href='@routes.Users.login()'>Sing in</a>
 						}
@@ -55,7 +56,8 @@
         	<p class="text-muted">(C) jequeto, last update April 29, 2014</p>
         </footer>
         
-        <div id="globals">
+        <div class="section" id="globals">
+        	<h3>Some information of the header of the HTTP packet received.</h2>
         	<pre>
         	request().getClass(): @request.getClass()
         	request().username(): @request.username()

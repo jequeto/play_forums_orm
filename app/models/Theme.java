@@ -42,7 +42,9 @@ public class Theme extends Model {
     ); 
     
     public static List<Theme> findByForumId(Long forumId) {
+    	
     	return Theme.find.where().eq("forum_id", forumId).findList();
+    	
     }
 
 }
