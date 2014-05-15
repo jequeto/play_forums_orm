@@ -2,16 +2,14 @@ package forms;
 
 import java.util.*;
 
-
-import javax.persistence.*;
-
-import models.Forum;
 import play.data.*;
 import play.data.format.*;
 import play.data.validation.*;
 import play.db.ebean.*;
 
+import javax.persistence.*;
 
+import models.Forum;
 
 @SuppressWarnings("serial")
 public class ThemeBase extends Model{

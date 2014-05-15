@@ -12,17 +12,18 @@
             <th>Description</th>
             <th>Creator</th>
             <th>Creation Date</th>
+            <th>Themes count</th>
             <th>Actions</th>
 	  	</tr>
 	  	
 	@if(forums.isEmpty()) {
 		<tr>
-            <td colspan="5">
+            <td colspan="6">
 	  			<p>Nothing to display</p>
 	  		</td>
 	  	</tr>
 	} else {
-	  <h1>@forums.size() items!</h1>
+	  <h3>@forums.size() forums!</h3>
 	 
 	  	
 		@for(f <- forums) {
@@ -31,23 +32,24 @@
 				<td>@f.description</td>
 				<td>@f.creatorUser.name</td>
 				<td>@f.creationDate</td>
+				<td>@f.themes.size()</td>
 				<td>
-					<a class="btn btn-primary" href="@routes.Forums.update(f.id)">Modificar</a>
-					<a class="btn btn-primary" href="@routes.Forums.delete(f.id)">Borrar</a>
+					<a class="btn btn-warning" href="@routes.Forums.update(f.id)">Modificar</a>
+					<a class="btn btn-danger" href="@routes.Forums.delete(f.id)">Borrar</a>
 				</td>
 			</tr>
 		} 
         
 	}
 		<tr>
-        	<td colspan="5">
+        	<td colspan="6">
              	<p>Insert a new forum</p>
              	<form method="POST" action="@routes.Forums.insertValidate()">
                     <label for="name">New Forum Name: </label>
                     <input type="text" id="name" name="name">
                     <label for="name">Description: </label>
                     <input type="text" id="description" name="description">
-                    <input type="submit" name="enviar" value="Insertar">
+                    <input type="submit" class="btn btn-success" name="enviar" value="Insertar">
                     
                 </form>
             </td>

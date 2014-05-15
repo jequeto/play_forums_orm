@@ -10,7 +10,7 @@ public class ForumUpdate extends forms.ForumBase {
 		
 		public List<ValidationError> validate() {
 		    List<ValidationError> errors = new ArrayList<ValidationError>();
-		    if (! models.Forum.isUniqueUpdatet(parent.id, "name", parent.name)) {
+		    if (! models.Forum.isUniqueUpdate(this.id, "name", this.name)) {
 		        errors.add(new ValidationError("name", "This name is already registered."));
 		    }
 		    return errors.isEmpty() ? null : errors;

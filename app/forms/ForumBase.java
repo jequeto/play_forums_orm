@@ -5,12 +5,16 @@ import java.util.*;
 import play.data.*;
 import play.data.format.*;
 import play.data.validation.*;
-//import models.Forum; // It's not possible to import because this class has the same name (Form)
+import play.db.ebean.*;
 
+import javax.persistence.*;
 
 
 public class ForumBase {
 	
+    @Id
+    public Long id;
+    
 	@Constraints.Required
 	@Constraints.MinLength(1)
     public String name;

@@ -25,7 +25,7 @@ public class Users extends Controller {
 	
 	public static Result authenticate() {
 		
-		Form<forms.User.Login> loginForm = Form.form(forms.User.Login.class).bindFromRequest();
+		Form<forms.Login> loginForm = Form.form(forms.Login.class).bindFromRequest();
 		
 		if (User.authenticate(loginForm))  {
 			session().clear();

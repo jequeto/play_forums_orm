@@ -32,7 +32,7 @@ public class Themes extends Controller {
     
     public static Result insertValidate() {
     	
-    	Form<forms.Theme> themeForm = Form.form(forms.Theme.class).bindFromRequest("id, form_id, name, description");
+    	Form<forms.Theme> themeForm = Form.form(forms.Theme.class).bindFromRequest("form_id, form_name, name");
 //    	
     	if (themeForm.hasErrors()) {
     		
@@ -40,6 +40,11 @@ public class Themes extends Controller {
     	}
     	else {
     		models.Theme theme = new models.Theme();
+            theme.name = themeForm.field("name").value();
+            theme.forum = models.Forum.find.byId(Long.valueOf(themeForm.field("forum_id").value()));
+            theme.user = User.findByEmail(session().get("userEmail"));
+            theme.creationDate = new Date();
+            theme.save();
     		
     		flash("alert", "The new theme has sussefully added");
     		return redirect(routes.Themes.index(Long.valueOf(themeForm.field("forum_id").value())));
