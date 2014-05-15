@@ -12,7 +12,7 @@ import javax.persistence.*;
 import models.Forum;
 
 @SuppressWarnings("serial")
-public class ThemeBase extends Model{
+public class ThemeBase {
     
     @Id
     public Long id;

@@ -12,6 +12,9 @@
 		@helper.input(form("forum_id")) { (id, name, value, args) =>
             <input type="hidden" name="@name" id="@id" @toHtmlArgs(args)>
         }
+		@helper.input(form("forum_ name")) { (id, name, value, args) =>
+        <input type="hidden" name="@name" id="@id" @toHtmlArgs(args)>
+		}
 		@helper.inputText(form("name"))
         <input type="submit" value="Submit"/>
 	}

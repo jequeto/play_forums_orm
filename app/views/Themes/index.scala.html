@@ -28,8 +28,8 @@
 		<td colspan="5">
 	     	<p>Insert a new theme</p>
 	     	<form method="POST" action="@routes.Themes.insertValidate()">
-	     		<input type="hidden" name="forum_id" value="@forum.id"/>
-                <input type="hidden" name="forum_name" value="@forum.name"/>
+	     		<input type="hidden" id="forum_id" name="forum_id" value="@forum.id"/>
+                <input type="hidden" id="forum_name" name="forum_name" value="@forum.name"/>
 	            <label for="name">New Theme Name: </label>
 	            <input type="text" id="name" name="name">
 	            <label for="description">Description: </label>

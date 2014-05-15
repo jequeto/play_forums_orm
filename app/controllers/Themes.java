@@ -12,7 +12,6 @@ import play.data.Form;
 public class Themes extends Controller {
 
     public static Result index(Long forumId) {
-    	User.find.setAutofetch(true);
     	Forum forum = Forum.find.byId(forumId);
     	List<Theme> themes = Theme.findByForumId(forumId);
         return ok(views.html.Themes.index.render(forum, themes));
