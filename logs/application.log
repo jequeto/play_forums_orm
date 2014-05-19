@@ -1,0 +1,12 @@
+2014-05-15 13:32:17,810 - [INFO] - from play in pool-12-thread-2 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2014-05-15 13:32:35,868 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+JDBC URL = jdbc:h2:/play_db/forums/h2-db-file, Username = sa, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-15 13:32:42,461 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:/play_db/forums/h2-db-file
+
+2014-05-15 13:32:48,656 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+

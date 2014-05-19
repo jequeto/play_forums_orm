@@ -2,6 +2,7 @@
 import java.util.*;
 
 import play.*;
+import play.db.*;
 import play.libs.*;
 import play.libs.F.*;
 import play.mvc.*;
@@ -26,7 +27,9 @@ public class Global extends GlobalSettings {
         if (User.find.findRowCount() == 0) {
 //      	Ebean.save((List) Yaml.load("initial-data.yml"));
         	User user = new User("admin", "admin00", "admin@email.com");
+            user.save();
         	user = new User("jesus", "jesus00", "jesus@email.com");
+            user.save();
         }
         
     }

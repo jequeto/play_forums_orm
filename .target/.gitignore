@@ -1,8 +1,9 @@
-/Global.class
-/controllers
-/models
 /ApplicationTest.class
+/Global.class
 /IntegrationTest$1.class
 /IntegrationTest.class
+/annotations
+/controllers
 /forms
+/models
 /views

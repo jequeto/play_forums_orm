@@ -1,0 +1,31 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           			controllers.Application.index()
+GET		/actionInfo								controllers.Application.actionInfo()
+
+GET     /forums/forums 	                    	controllers.forums/forums.index()
+
+GET     /forums/forums/login 	                controllers.Users.login()
+POST	/forums/forums/login 	                controllers.Users.authenticate()
+
+GET     /forums/forums/logout 	                controllers.Users.logout()
+
+POST	/forums/forums/insert					controllers.forums/forums.insertValidate()
+
+GET     /forums/forums/update		 	    	controllers.forums/forums.update(forumId: Long)
+
+GET     /forums/forums/delete/:forumId 	    	controllers.forums/forums.delete(forumId: Long)
+
+
+GET     /forums/forums/themes	             	controllers.Themes.index(forumId: Long)
+GET     /forums/forums/themes/messages	    	controllers.Messages.index(forumId: Long, themeId: Long)
+
+
+POST	/forums/forums/themes/insert			controllers.Themes.insert(forumId: Long)
+POST	/forums/forums/themes/insert	controllers.Themes.insertValidate(forumId: Long)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

@@ -41,10 +41,23 @@ public class Forum extends Model {
     public List<User> moderators;
   
     
-    public static Finder<Long,Forum> find = new Finder<Long,Forum>(
-        Long.class, Forum.class
-    );
+    public static Finder<Long,Forum> find = new Finder<Long,Forum>(Long.class, Forum.class);
     
     
+    public static Boolean isUniqueInsert(String colum, String newValue) {
+    	// If It selects null, the new value is unique in the table
+    	Forum forum = Forum.find.where().eq(colum, newValue).findUnique();
+    	return(forum == null);
+    	
+    }
+    
+    
+    public static Boolean isUniqueUpdate(Long id, String colum, String newValue) {
+    	
+    	// If It selects null, the new value is unique in the table for update
+    	Forum forum = Forum.find.where().eq(colum, newValue).ne("id", id).findUnique();
+    	return(forum == null);
+    	
+    }
 
 }

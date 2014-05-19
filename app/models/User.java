@@ -59,7 +59,7 @@ public class User extends Model {
     	this.password = password;
     	this.email = email;
     	this.creationDate = new Date();
-    	this.save();
+//    	this.save();
     }
     
     

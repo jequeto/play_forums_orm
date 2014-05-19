@@ -19,19 +19,20 @@
     </head>
     <body onload="onload();">
 	    
-    	<header>
+    	<header class="page-header">
 	        <div id="breadcrumbs" class="col-md-12">
 	        	<a href="@routes.Forums.index()">
 		    		<img src="@routes.Assets.at("images/logo.jpg")" height="25px" alt="Logo" class="miniLogo" />
 		    		<span class="glyphicon glyphicon-home"></span>
-		    		Home</a>@breadcrumbs
+		    		Home
+		    	</a>
+		    	@breadcrumbs
 				<div id="breadcrumbs_right" class="col-md-4">    			    			
 					@if(session().get("userEmail") != null) {
-						@request().username()
-				        @session().get("userEmail")
+				        @session().get("userEmail") - 
 						<a href='@routes.Users.logout()'>Sing out</a>
 					} else {
-						@request().username() Guess 
+						Guess - 
 				        @if(request().uri() != "/Forums/login") {
 							<a href='@routes.Users.login()'>Sing in</a>
 						}
@@ -55,22 +56,23 @@
         	<p class="text-muted">(C) jequeto, last update April 29, 2014</p>
         </footer>
         
-        <div id="globals">
-        	<pre>
-        	request().getClass(): @request.getClass()
-        	request().username(): @request.username()
-        	request().acceptedTypes(): @request().acceptedTypes()
-        	request().acceptLanguages(): @request().acceptLanguages()
-        	request().cookies(): @request().cookies() 
-        	request().headers(): @request().headers()
-        	request().host(): @request().host()
-        	request().method(): @request().method()
-        	request().path(): @request().path()
-        	request().queryString(): @request().queryString()
-        	request().remoteAddress(): @request().remoteAddress()
-        	request().uri(): @request().uri()
-        	request().version(): @request().version()
-        	</pre>
+        <div class="section" id="globals">
+<pre>
+<h4>Some information of the header of the received HTTP packet.</h4>
+request().getClass(): @request.getClass()
+request().username(): @request.username()
+request().acceptedTypes(): @request().acceptedTypes()
+request().acceptLanguages(): @request().acceptLanguages()
+request().cookies(): @request().cookies() 
+request().headers(): @request().headers()
+request().host(): @request().host()
+request().method(): @request().method()
+request().path(): @request().path()
+request().queryString(): @request().queryString()
+request().remoteAddress(): @request().remoteAddress()
+request().uri(): @request().uri()
+request().version(): @request().version()
+</pre>
         </div>
         
         <script type="text/javascript">
