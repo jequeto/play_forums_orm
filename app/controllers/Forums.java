@@ -29,7 +29,7 @@ public class Forums extends Controller {
 
     
     public static Result insert() {
-    	Form<Forum> forumForm = Form.form(Forum.class);
+    	Form<models.Forum> forumForm = Form.form(models.Forum.class);
 
     	return ok("");
     }
@@ -64,8 +64,34 @@ public class Forums extends Controller {
     
 
     public static Result update(Long forumId) {
-    	// Html(Controller.ctx().getClass())
-    	return ok("update: "+forumId.toString());
+    	models.Forum forum = models.Forum.find.byId(forumId);
+    	forms.ForumUpdate formUpdate = new forms.ForumUpdate();
+    	formUpdate.id = forum.id;
+    	formUpdate.name = forum.name;
+    	formUpdate.description = forum.description;
+    	Form<forms.ForumUpdate> forumForm = Form.form(forms.ForumUpdate.class).fill(formUpdate);
+    	return ok(views.html.Forums.update.render(forumForm));
+//    	return ok("update: "+forumId.toString());
+    }
+    
+    
+    public static Result updateValidate(Long forumId) {
+    	Form<forms.ForumUpdate> forumForm = Form.form(forms.ForumUpdate.class).bindFromRequest();
+//    	return ok( forumForm.toString());
+    	if (forumForm.hasErrors()) {
+    		return badRequest(views.html.Forums.update.render(forumForm));
+    	}
+    	else {
+    		models.Forum forum = models.Forum.find.byId(forumId);
+    		forum.name = forumForm.field("name").value();
+	    	forum.description = forumForm.field("description").value();
+	    	forum.update();
+	    	
+	    	flash("alert", "Forum has being modified");
+//	    	return redirect(routes.Forums.index());
+	    	return ok( forum.toString());
+    	}
+    	
     }
     
     

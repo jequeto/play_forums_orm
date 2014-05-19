@@ -5,7 +5,7 @@
 @main {
 &gt;<a href="@routes.Themes.index(Long.valueOf(form.field("forum_id").value()))">@form.field("forum_name").value()</a>
 } {
-	@helper.form(action=routes.Themes.insertValidate(), 'class -> "form") {
+	@helper.form(action=routes.Themes.insertValidate(Long.valueOf(form.field("forum_id").value())), 'class -> "form") {
         @helper.input(form("id")) { (id, name, value, args) =>
             <input type="hidden" name="@name" id="@id" @toHtmlArgs(args)>
         }

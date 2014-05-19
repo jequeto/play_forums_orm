@@ -1,12 +1,426 @@
-2014-05-19 20:32:02,587 - [INFO] - from play in pool-35-thread-1 
+2014-05-20 00:43:19,100 - [INFO] - from play in pool-59-thread-4 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2014-05-19 20:32:26,391 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+2014-05-20 00:43:33,351 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
 JDBC URL = jdbc:h2:/play_db/forums/h2-db-file, Username = sa, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
 
-2014-05-19 20:32:33,741 - [INFO] - from play in play-internal-execution-context-1 
+2014-05-20 00:43:41,710 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:/play_db/forums/h2-db-file
 
-2014-05-19 20:32:40,595 - [INFO] - from play in play-internal-execution-context-1 
+2014-05-20 00:43:47,131 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-05-20 00:48:08,778 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6i9in5j6h - Internal server error, for (POST) [/forums_orm/forums/update/34] ->
+
+play.PlayExceptions$UnexpectedException: Unexpected exception[The compilation failed without reporting any problem!]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$17.apply(PlayReloader.scala:306) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$17.apply(PlayReloader.scala:306) ~[na:na]
+	at scala.Option.getOrElse(Option.scala:120) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:305) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[na:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[na:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[na:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[na:na]
+	at com.typesafe.trace.FutureRunnable.run(FutureTrace.scala:119) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[na:na]
+sbt.compiler.CompileFailed: null
+	at sbt.compiler.JavaCompiler$JavaTool0.compile(JavaCompiler.scala:77) ~[na:na]
+	at sbt.compiler.JavaTool$class.apply(JavaCompiler.scala:35) ~[na:na]
+	at sbt.compiler.JavaCompiler$JavaTool0.apply(JavaCompiler.scala:63) ~[na:na]
+	at sbt.compiler.JavaCompiler$class.compile(JavaCompiler.scala:21) ~[na:na]
+	at sbt.compiler.JavaCompiler$JavaTool0.compile(JavaCompiler.scala:63) ~[na:na]
+	at sbt.compiler.AggressiveCompile$$anonfun$3$$anonfun$compileJava$1$1.apply$mcV$sp(AggressiveCompile.scala:126) ~[na:na]
+	at sbt.compiler.AggressiveCompile$$anonfun$3$$anonfun$compileJava$1$1.apply(AggressiveCompile.scala:126) ~[na:na]
+	at sbt.compiler.AggressiveCompile$$anonfun$3$$anonfun$compileJava$1$1.apply(AggressiveCompile.scala:126) ~[na:na]
+	at sbt.compiler.AggressiveCompile.sbt$compiler$AggressiveCompile$$timed(AggressiveCompile.scala:159) ~[na:na]
+	at sbt.compiler.AggressiveCompile$$anonfun$3.compileJava$1(AggressiveCompile.scala:125) ~[na:na]
+	at sbt.compiler.AggressiveCompile$$anonfun$3.apply(AggressiveCompile.scala:142) ~[na:na]
+	at sbt.compiler.AggressiveCompile$$anonfun$3.apply(AggressiveCompile.scala:86) ~[na:na]
+	at sbt.inc.IncrementalCompile$$anonfun$doCompile$1.apply(Compile.scala:38) ~[na:na]
+	at sbt.inc.IncrementalCompile$$anonfun$doCompile$1.apply(Compile.scala:36) ~[na:na]
+	at sbt.inc.Incremental$.cycle(Incremental.scala:73) ~[na:na]
+	at sbt.inc.Incremental$$anonfun$1.apply(Incremental.scala:33) ~[na:na]
+	at sbt.inc.Incremental$$anonfun$1.apply(Incremental.scala:32) ~[na:na]
+	at sbt.inc.Incremental$.manageClassfiles(Incremental.scala:41) ~[na:na]
+	at sbt.inc.Incremental$.compile(Incremental.scala:32) ~[na:na]
+	at sbt.inc.IncrementalCompile$.apply(Compile.scala:26) ~[na:na]
+	at sbt.compiler.AggressiveCompile.compile2(AggressiveCompile.scala:150) ~[na:na]
+	at sbt.compiler.AggressiveCompile.compile1(AggressiveCompile.scala:70) ~[na:na]
+	at sbt.compiler.AggressiveCompile.apply(AggressiveCompile.scala:45) ~[na:na]
+	at sbt.Compiler$.apply(Compiler.scala:70) ~[na:na]
+	at sbt.Defaults$.sbt$Defaults$$compileTaskImpl(Defaults.scala:722) ~[na:na]
+	at sbt.Defaults$$anonfun$compileTask$1.apply(Defaults.scala:716) ~[na:na]
+	at sbt.Defaults$$anonfun$compileTask$1.apply(Defaults.scala:716) ~[na:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[na:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166) ~[na:1.7.0_25]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) ~[na:1.7.0_25]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+
+2014-05-20 00:49:14,556 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+Shutting down connection pool...
+
+2014-05-20 00:49:14,559 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2014-05-20 00:49:16,234 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+Connection pool has been shutdown.
+
+2014-05-20 00:49:16,234 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+Connection pool has been shut down
+
+2014-05-20 00:49:16,377 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+JDBC URL = jdbc:h2:/play_db/forums/h2-db-file, Username = sa, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-20 00:49:22,068 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:/play_db/forums/h2-db-file
+
+2014-05-20 00:49:27,262 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-05-20 00:49:41,425 - [ERROR] - from play in play-internal-execution-context-1 
+Cannot invoke the action, eventually got an error: java.lang.NumberFormatException: For input string: ""
+
+2014-05-20 00:49:41,500 - [ERROR] - from application in play-internal-execution-context-1 
+
+
+! @6i9inb0ch - Internal server error, for (POST) [/forums_orm/forums/update/34] ->
+
+play.api.Application$$anon$1: Execution exception[[NumberFormatException: For input string: ""]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[na:na]
+	at play.api.DefaultApplication.handleError(Application.scala:399) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) ~[na:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) ~[na:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody0(Execution.scala:43) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody1$advice(Execution.scala:138) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:1) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete_aroundBody2(Promise.scala:248) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise$AjcClosure3.run(Promise.scala:1) ~[na:na]
+	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0proceed(FutureTraceAspect.aj:148) ~[na:na]
+	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0(FutureTraceAspect.aj:150) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:244) ~[na:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) ~[na:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[na:na]
+Caused by: java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65) ~[na:1.7.0_25]
+	at java.lang.Long.parseLong(Long.java:453) ~[na:1.7.0_25]
+	at java.lang.Long.valueOf(Long.java:540) ~[na:1.7.0_25]
+	at views.html.Forums.update$.apply(update.template.scala:37) ~[na:na]
+	at views.html.Forums.update$.render(update.template.scala:49) ~[na:na]
+	at views.html.Forums.update.render(update.template.scala) ~[na:na]
+	at controllers.Forums.updateValidate(Forums.java:82) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$10$$anonfun$apply$10.apply(routes_routing.scala:177) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$10$$anonfun$apply$10.apply(routes_routing.scala:177) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[na:na]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[na:na]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[na:na]
+	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[na:na]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[na:na]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[na:na]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[na:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[na:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39) ~[na:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:385) ~[na:na]
+	... 4 common frames omitted
+
+2014-05-20 00:50:29,710 - [ERROR] - from play in play-internal-execution-context-1 
+Cannot invoke the action, eventually got an error: java.lang.NumberFormatException: For input string: ""
+
+2014-05-20 00:50:29,733 - [ERROR] - from application in play-internal-execution-context-1 
+
+
+! @6i9indjlp - Internal server error, for (POST) [/forums_orm/forums/update/34] ->
+
+play.api.Application$$anon$1: Execution exception[[NumberFormatException: For input string: ""]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[na:na]
+	at play.api.DefaultApplication.handleError(Application.scala:399) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) ~[na:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) ~[na:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody0(Execution.scala:43) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody1$advice(Execution.scala:138) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:1) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete_aroundBody2(Promise.scala:248) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise$AjcClosure3.run(Promise.scala:1) ~[na:na]
+	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0proceed(FutureTraceAspect.aj:148) ~[na:na]
+	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0(FutureTraceAspect.aj:150) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:244) ~[na:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) ~[na:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[na:na]
+Caused by: java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65) ~[na:1.7.0_25]
+	at java.lang.Long.parseLong(Long.java:453) ~[na:1.7.0_25]
+	at java.lang.Long.valueOf(Long.java:540) ~[na:1.7.0_25]
+	at views.html.Forums.update$.apply(update.template.scala:37) ~[na:na]
+	at views.html.Forums.update$.render(update.template.scala:49) ~[na:na]
+	at views.html.Forums.update.render(update.template.scala) ~[na:na]
+	at controllers.Forums.updateValidate(Forums.java:82) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$10$$anonfun$apply$10.apply(routes_routing.scala:177) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$10$$anonfun$apply$10.apply(routes_routing.scala:177) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[na:na]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[na:na]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[na:na]
+	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[na:na]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[na:na]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[na:na]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[na:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[na:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39) ~[na:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:385) ~[na:na]
+	... 4 common frames omitted
+
+2014-05-20 00:52:52,858 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6i9inlnck - Internal server error, for (GET) [/forums_orm/forums/update/34] ->
+
+play.PlayExceptions$UnexpectedException: Unexpected exception[The compilation failed without reporting any problem!]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$17.apply(PlayReloader.scala:306) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$17.apply(PlayReloader.scala:306) ~[na:na]
+	at scala.Option.getOrElse(Option.scala:120) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:305) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[na:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[na:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[na:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[na:na]
+	at com.typesafe.trace.FutureRunnable.run(FutureTrace.scala:119) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[na:na]
+sbt.compiler.CompileFailed: null
+	at sbt.compiler.JavaCompiler$JavaTool0.compile(JavaCompiler.scala:77) ~[na:na]
+	at sbt.compiler.JavaTool$class.apply(JavaCompiler.scala:35) ~[na:na]
+	at sbt.compiler.JavaCompiler$JavaTool0.apply(JavaCompiler.scala:63) ~[na:na]
+	at sbt.compiler.JavaCompiler$class.compile(JavaCompiler.scala:21) ~[na:na]
+	at sbt.compiler.JavaCompiler$JavaTool0.compile(JavaCompiler.scala:63) ~[na:na]
+	at sbt.compiler.AggressiveCompile$$anonfun$3$$anonfun$compileJava$1$1.apply$mcV$sp(AggressiveCompile.scala:126) ~[na:na]
+	at sbt.compiler.AggressiveCompile$$anonfun$3$$anonfun$compileJava$1$1.apply(AggressiveCompile.scala:126) ~[na:na]
+	at sbt.compiler.AggressiveCompile$$anonfun$3$$anonfun$compileJava$1$1.apply(AggressiveCompile.scala:126) ~[na:na]
+	at sbt.compiler.AggressiveCompile.sbt$compiler$AggressiveCompile$$timed(AggressiveCompile.scala:159) ~[na:na]
+	at sbt.compiler.AggressiveCompile$$anonfun$3.compileJava$1(AggressiveCompile.scala:125) ~[na:na]
+	at sbt.compiler.AggressiveCompile$$anonfun$3.apply(AggressiveCompile.scala:142) ~[na:na]
+	at sbt.compiler.AggressiveCompile$$anonfun$3.apply(AggressiveCompile.scala:86) ~[na:na]
+	at sbt.inc.IncrementalCompile$$anonfun$doCompile$1.apply(Compile.scala:38) ~[na:na]
+	at sbt.inc.IncrementalCompile$$anonfun$doCompile$1.apply(Compile.scala:36) ~[na:na]
+	at sbt.inc.Incremental$.cycle(Incremental.scala:73) ~[na:na]
+	at sbt.inc.Incremental$$anonfun$1.apply(Incremental.scala:33) ~[na:na]
+	at sbt.inc.Incremental$$anonfun$1.apply(Incremental.scala:32) ~[na:na]
+	at sbt.inc.Incremental$.manageClassfiles(Incremental.scala:41) ~[na:na]
+	at sbt.inc.Incremental$.compile(Incremental.scala:32) ~[na:na]
+	at sbt.inc.IncrementalCompile$.apply(Compile.scala:26) ~[na:na]
+	at sbt.compiler.AggressiveCompile.compile2(AggressiveCompile.scala:150) ~[na:na]
+	at sbt.compiler.AggressiveCompile.compile1(AggressiveCompile.scala:70) ~[na:na]
+	at sbt.compiler.AggressiveCompile.apply(AggressiveCompile.scala:45) ~[na:na]
+	at sbt.Compiler$.apply(Compiler.scala:70) ~[na:na]
+	at sbt.Defaults$.sbt$Defaults$$compileTaskImpl(Defaults.scala:722) ~[na:na]
+	at sbt.Defaults$$anonfun$compileTask$1.apply(Defaults.scala:716) ~[na:na]
+	at sbt.Defaults$$anonfun$compileTask$1.apply(Defaults.scala:716) ~[na:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[na:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166) ~[na:1.7.0_25]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) ~[na:1.7.0_25]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+
+2014-05-20 00:54:05,369 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-4 
+Shutting down connection pool...
+
+2014-05-20 00:54:05,371 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2014-05-20 00:54:06,616 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-4 
+Connection pool has been shutdown.
+
+2014-05-20 00:54:06,617 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-4 
+Connection pool has been shut down
+
+2014-05-20 00:54:06,774 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-4 
+JDBC URL = jdbc:h2:/play_db/forums/h2-db-file, Username = sa, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-20 00:54:11,947 - [INFO] - from play in play-internal-execution-context-4 
+database [default] connected at jdbc:h2:/play_db/forums/h2-db-file
+
+2014-05-20 00:54:15,681 - [INFO] - from play in play-internal-execution-context-4 
+Application started (Dev)
+
+2014-05-20 00:56:08,066 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-4 
+Shutting down connection pool...
+
+2014-05-20 00:56:08,067 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2014-05-20 00:56:09,763 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-4 
+Connection pool has been shutdown.
+
+2014-05-20 00:56:09,763 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-4 
+Connection pool has been shut down
+
+2014-05-20 00:56:10,062 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-4 
+JDBC URL = jdbc:h2:/play_db/forums/h2-db-file, Username = sa, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-20 00:56:15,803 - [INFO] - from play in play-internal-execution-context-4 
+database [default] connected at jdbc:h2:/play_db/forums/h2-db-file
+
+2014-05-20 00:56:18,479 - [INFO] - from play in play-internal-execution-context-4 
+Application started (Dev)
+
+2014-05-20 01:00:33,463 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-4 
+Shutting down connection pool...
+
+2014-05-20 01:00:33,465 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2014-05-20 01:00:35,214 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-4 
+Connection pool has been shutdown.
+
+2014-05-20 01:00:35,214 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-4 
+Connection pool has been shut down
+
+2014-05-20 01:00:35,360 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-4 
+JDBC URL = jdbc:h2:/play_db/forums/h2-db-file, Username = sa, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-20 01:00:41,083 - [INFO] - from play in play-internal-execution-context-4 
+database [default] connected at jdbc:h2:/play_db/forums/h2-db-file
+
+2014-05-20 01:00:45,226 - [INFO] - from play in play-internal-execution-context-4 
+Application started (Dev)
+
+2014-05-20 01:05:02,995 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-10 
+Shutting down connection pool...
+
+2014-05-20 01:05:03,003 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2014-05-20 01:05:04,228 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-10 
+Connection pool has been shutdown.
+
+2014-05-20 01:05:04,229 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-10 
+Connection pool has been shut down
+
+2014-05-20 01:05:04,370 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-10 
+JDBC URL = jdbc:h2:/play_db/forums/h2-db-file, Username = sa, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-20 01:05:10,601 - [INFO] - from play in play-internal-execution-context-10 
+database [default] connected at jdbc:h2:/play_db/forums/h2-db-file
+
+2014-05-20 01:05:14,401 - [INFO] - from play in play-internal-execution-context-10 
+Application started (Dev)
+
+2014-05-20 01:08:14,838 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-17 
+Shutting down connection pool...
+
+2014-05-20 01:08:14,843 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2014-05-20 01:08:16,168 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-17 
+Connection pool has been shutdown.
+
+2014-05-20 01:08:16,169 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-17 
+Connection pool has been shut down
+
+2014-05-20 01:08:16,414 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-17 
+JDBC URL = jdbc:h2:/play_db/forums/h2-db-file, Username = sa, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-20 01:08:23,252 - [INFO] - from play in play-internal-execution-context-17 
+database [default] connected at jdbc:h2:/play_db/forums/h2-db-file
+
+2014-05-20 01:08:27,999 - [INFO] - from play in play-internal-execution-context-17 
 Application started (Dev)
 

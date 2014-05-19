@@ -3,32 +3,33 @@
 # ~~~~
 
 # Home page
-GET     /                           	controllers.Application.index()
-GET		/actionInfo						controllers.Application.actionInfo()
+GET     /                           		controllers.Application.index()
+GET		/actionInfo							controllers.Application.actionInfo()
 
-GET     /Forums 	                    controllers.Forums.index()
+GET     /forums_orm 	                    controllers.Forums.index()
 
-GET     /Forums/login 	                controllers.Users.login()
-POST	/Forums/login 	                controllers.Users.authenticate()
-GET     /Forums/logout 	                controllers.Users.logout()
-GET		/Forums/Users/unauthorized		controllers.Users.unAuthorized()
-
-
-POST	/Forums/insert					controllers.Forums.insertValidate()
-
-GET     /Forums/update/:forumId 	    controllers.Forums.update(forumId: Long)
-
-GET     /Forums/delete/:forumId 	    controllers.Forums.delete(forumId: Long)
+GET     /forums_orm/login 	                controllers.Users.login()
+POST	/forums_orm/login 	                controllers.Users.authenticate()
+GET     /forums_orm/logout 	                controllers.Users.logout()
+GET		/forums_orm/unauthorized			controllers.Users.unAuthorized()
 
 
-GET     /Forums/:forumId             	controllers.Themes.index(forumId: Long)
-GET     /Forums/:forumId/:themeId    	controllers.Messages.index(forumId: Long, themeId: Long)
+POST	/forums_orm/forums/insert			controllers.Forums.insertValidate()
+
+GET     /forums_orm/forums/update/:forumId 	    controllers.Forums.update(forumId: Long)
+POST    /forums_orm/forums/update/:forumId 	    controllers.Forums.updateValidate(forumId: Long)
+
+GET     /forums_orm/forums/delete/:forumId 	    controllers.Forums.delete(forumId: Long)
 
 
-GET		/Forums/:forumId/Themes/insert	controllers.Themes.insert(forumId: Long)
-POST	/Forums/Themes/insert	controllers.Themes.insertValidate()
+GET     /forums_orm/forums/:forumId/themes 		       	controllers.Themes.index(forumId: Long)
+GET     /forums_orm/forums/:forumId/themes/:themeId    	controllers.Messages.index(forumId: Long, themeId: Long)
+
+
+GET		/forums_orm/forums/:forumId/themes/insert		controllers.Themes.insert(forumId: Long)
+POST	/forums_orm/forums/:forumId/themes/insert		controllers.Themes.insertValidate(forumId: Long)
 
 
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /assets/*file             			controllers.Assets.at(path="/public", file)

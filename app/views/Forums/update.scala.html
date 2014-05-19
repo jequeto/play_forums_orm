@@ -1,0 +1,18 @@
+@(forumForm: Form[forms.ForumUpdate])
+
+@import helper._
+
+@main {
+ &gt; @forumForm.field("id").value() &gt; forum's update
+} {
+	<h2>Update a forum:</h2>
+	@form(action=routes.Forums.updateValidate(Long.valueOf(forumForm.field("id").value()))) {
+		@helper.input(forumForm("id")) { (id, name, value, args) =>
+    		<input type="hidden" name="@name" id="@id" value="@value" @toHtmlArgs(args) >
+		} 
+		@helper.inputText(forumForm("name"))
+		@helper.inputText(forumForm("description"))
+		<input class="btn btn-success" type="submit" value="Update" />
+		<a class="btn btn-danger" href="@routes.Forums.index()">Cancelar</a>
+	}
+}

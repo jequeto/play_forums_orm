@@ -29,7 +29,7 @@ public class Themes extends Controller {
     }
     
     
-    public static Result insertValidate() {
+    public static Result insertValidate(Long forumId) {
     	
     	Form<forms.Theme> themeForm = Form.form(forms.Theme.class).bindFromRequest("form_id, form_name, name");
 //    	

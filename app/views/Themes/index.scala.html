@@ -27,7 +27,7 @@
 		<tr>
 		<td colspan="5">
 	     	<p>Insert a new theme</p>
-	     	<form method="POST" action="@routes.Themes.insertValidate()">
+	     	<form method="POST" action="@routes.Themes.insertValidate(forum.id)">
 	     		<input type="hidden" id="forum_id" name="forum_id" value="@forum.id"/>
                 <input type="hidden" id="forum_name" name="forum_name" value="@forum.name"/>
 	            <label for="name">New Theme Name: </label>
