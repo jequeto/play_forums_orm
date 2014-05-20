@@ -1,7 +1,10 @@
 [0m[[0mdebug[0m] [0mCopy resource mappings: [0m
-[0m[[0mdebug[0m] [0m	(E:\eclipse_workspace\play_forums_orm\conf\application.conf,E:\eclipse_workspace\play_forums_orm\target\scala-2.10\classes\application.conf)[0m
 [0m[[0mdebug[0m] [0m	(E:\eclipse_workspace\play_forums_orm\conf\evolutions,E:\eclipse_workspace\play_forums_orm\target\scala-2.10\classes\evolutions)[0m
 [0m[[0mdebug[0m] [0m	(E:\eclipse_workspace\play_forums_orm\conf\test-data.yml,E:\eclipse_workspace\play_forums_orm\target\scala-2.10\classes\test-data.yml)[0m
+[0m[[0mdebug[0m] [0m	(E:\eclipse_workspace\play_forums_orm\conf\routes_prueba_no_valida,E:\eclipse_workspace\play_forums_orm\target\scala-2.10\classes\routes_prueba_no_valida)[0m
+[0m[[0mdebug[0m] [0m	(E:\eclipse_workspace\play_forums_orm\conf\application.conf,E:\eclipse_workspace\play_forums_orm\target\scala-2.10\classes\application.conf)[0m
 [0m[[0mdebug[0m] [0m	(E:\eclipse_workspace\play_forums_orm\conf\routes,E:\eclipse_workspace\play_forums_orm\target\scala-2.10\classes\routes)[0m
 [0m[[0mdebug[0m] [0m	(E:\eclipse_workspace\play_forums_orm\conf\evolutions\default,E:\eclipse_workspace\play_forums_orm\target\scala-2.10\classes\evolutions\default)[0m
+[0m[[0mdebug[0m] [0m	(E:\eclipse_workspace\play_forums_orm\conf\evolutions\mysql,E:\eclipse_workspace\play_forums_orm\target\scala-2.10\classes\evolutions\mysql)[0m
 [0m[[0mdebug[0m] [0m	(E:\eclipse_workspace\play_forums_orm\conf\evolutions\default\1.sql,E:\eclipse_workspace\play_forums_orm\target\scala-2.10\classes\evolutions\default\1.sql)[0m
+[0m[[0mdebug[0m] [0m	(E:\eclipse_workspace\play_forums_orm\conf\evolutions\mysql\1.sql,E:\eclipse_workspace\play_forums_orm\target\scala-2.10\classes\evolutions\mysql\1.sql)[0m

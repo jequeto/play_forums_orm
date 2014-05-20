@@ -3,23 +3,20 @@
 # ~~~~
 
 # Home page
-GET     /                           		controllers.Application.index()
-GET		/actionInfo							controllers.Application.actionInfo()
+GET     /                           			controllers.Application.index()
+GET		/actionInfo								controllers.Application.actionInfo()
 
-GET     /forums_orm 	                    controllers.Forums.index()
+GET     /forums_orm/login 	               		controllers.Users.login()
+POST	/forums_orm/login 	                	controllers.Users.authenticate()
+GET     /forums_orm/logout 	                	controllers.Users.logout()
+GET		/forums_orm/unauthorized				controllers.Users.unAuthorized()
 
-GET     /forums_orm/login 	                controllers.Users.login()
-POST	/forums_orm/login 	                controllers.Users.authenticate()
-GET     /forums_orm/logout 	                controllers.Users.logout()
-GET		/forums_orm/unauthorized			controllers.Users.unAuthorized()
-
-
-POST	/forums_orm/forums/insert			controllers.Forums.insertValidate()
-
+GET     /forums_orm/forums                  	controllers.Forums.index()
+POST	/forums_orm/forums/insert				controllers.Forums.insertValidate()
 GET     /forums_orm/forums/update/:forumId 	    controllers.Forums.update(forumId: Long)
 POST    /forums_orm/forums/update/:forumId 	    controllers.Forums.updateValidate(forumId: Long)
-
 GET     /forums_orm/forums/delete/:forumId 	    controllers.Forums.delete(forumId: Long)
+POST    /forums_orm/forums/delete/:forumId 	    controllers.Forums.deleteValidate(forumId: Long)
 
 
 GET     /forums_orm/forums/:forumId/themes 		       	controllers.Themes.index(forumId: Long)

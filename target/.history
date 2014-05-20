@@ -15,3 +15,5 @@ compile
 run
 h2-browser
 run
+eclipse
+h2-browser

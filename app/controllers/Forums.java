@@ -2,6 +2,8 @@ package controllers;
 
 import java.util.*;
 
+import com.avaje.ebean.Ebean;
+
 import play.*;
 import play.data.*;
 import play.mvc.*;
@@ -65,6 +67,7 @@ public class Forums extends Controller {
 
     public static Result update(Long forumId) {
     	models.Forum forum = models.Forum.find.byId(forumId);
+//    	return ok(forum.toString());
     	forms.ForumUpdate formUpdate = new forms.ForumUpdate();
     	formUpdate.id = forum.id;
     	formUpdate.name = forum.name;
@@ -84,22 +87,45 @@ public class Forums extends Controller {
     	else {
     		models.Forum forum = models.Forum.find.byId(forumId);
     		forum.name = forumForm.field("name").value();
-	    	forum.description = forumForm.field("description").value();
-	    	forum.update();
+//	    	forum.description = forumForm.field("description").value();
+	    	forum.description = "Fija";
+	    	forum.save("");
+//	    	forum.update();
+//	    	Ebean.update(forum);
+	    	
 	    	
 	    	flash("alert", "Forum has being modified");
 //	    	return redirect(routes.Forums.index());
-	    	return ok( forum.toString());
+	    	return ok(forum.toString());
     	}
     	
     }
     
     
     public static Result delete(Long forumId) {
-    	// Html(Controller.ctx().getClass())
-    	return ok("delete: "+forumId.toString());
+    	models.Forum forum = models.Forum.find.byId(forumId);
+//    	return ok(forum.toString());
+    	forms.ForumBase formDelete = new forms.ForumBase();
+    	formDelete.id = forum.id;
+    	formDelete.name = forum.name;
+    	formDelete.description = forum.description;
+    	Form<forms.ForumBase> forumForm = Form.form(forms.ForumBase.class).fill(formDelete);
+    	return ok(views.html.Forums.delete.render(forumForm));
+//    	return ok("update: "+forumId.toString());
+//    	return ok("delete: "+forumId.toString());
     }
     
+    public static Result deleteValidate(Long forumId) {
+    	models.Forum forum = models.Forum.find.byId(forumId);
+    	forum.delete();
+//    	Ebean.update(forum);
+    	
+    	
+    	flash("alert", "Forum has being deleted");
+//    	return redirect(routes.Forums.index());
+    	return ok(forum.toString());
+//    	return TODO;
+    }
     
 
 }

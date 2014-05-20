@@ -59,5 +59,12 @@ public class Forum extends Model {
     	return(forum == null);
     	
     }
+    
+    @Override
+    public String toString() {
+    	
+    	return "{ id: "+id.toString()+", name: "+name+", description: "+description+" creationDate: "+creationDate.toString()+" }";
+    	
+    }
 
 }
