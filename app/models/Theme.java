@@ -15,6 +15,9 @@ public class Theme extends Model {
         
     @Id
     public Long id;
+    
+    @Version
+    protected Long version;
   
     @Constraints.Required
     @Column(unique=true, nullable=false)
@@ -24,11 +27,11 @@ public class Theme extends Model {
     @Formats.DateTime(pattern="dd/MM/yyyy")
     public Date creationDate; // = new Date();
     
-    @ManyToOne(cascade=CascadeType.REMOVE)
+    @ManyToOne(cascade=CascadeType.ALL)
     @Constraints.Required
     public Forum forum;
     
-    @OneToMany(cascade=CascadeType.REMOVE)
+    @OneToMany(cascade=CascadeType.ALL)
     public List<Message> messages;
     
     
@@ -46,5 +49,64 @@ public class Theme extends Model {
     	return Theme.find.setAutofetch(true).where().eq("forum_id", forumId).findList();
     	
     }
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getVersion() {
+		return version;
+	}
+
+	public void setVersion(Long version) {
+		this.version = version;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public Forum getForum() {
+		return forum;
+	}
+
+	public void setForum(Forum forum) {
+		this.forum = forum;
+	}
+
+	public List<Message> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(List<Message> messages) {
+		this.messages = messages;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+    
+    
+    
 
 }

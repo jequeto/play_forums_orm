@@ -17,6 +17,9 @@ public class Forum extends Model {
     @Id
     public Long id;
     
+    @Version
+    protected Long version;
+    
     @Constraints.Required
     @Constraints.MinLength(1)
     @Column(unique=true)
@@ -32,12 +35,10 @@ public class Forum extends Model {
     @Constraints.Required
     public User creatorUser;
     
-    @OneToMany(cascade=CascadeType.REMOVE)
-    public List<Theme> themes;
+    @OneToMany(cascade=CascadeType.ALL)
+    public List<Theme> themes;  
     
-    
-    
-    @ManyToMany(cascade=CascadeType.REMOVE)
+    @ManyToMany(cascade=CascadeType.ALL)
     public List<User> moderators;
   
     
@@ -67,4 +68,86 @@ public class Forum extends Model {
     	
     }
 
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public Long getVersion() {
+		return version;
+	}
+
+
+	public void setVersion(Long version) {
+		this.version = version;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+
+	public User getCreatorUser() {
+		return creatorUser;
+	}
+
+
+	public void setCreatorUser(User creatorUser) {
+		this.creatorUser = creatorUser;
+	}
+
+
+	public List<Theme> getThemes() {
+		return themes;
+	}
+
+
+	public void setThemes(List<Theme> themes) {
+		this.themes = themes;
+	}
+
+
+	public List<User> getModerators() {
+		return moderators;
+	}
+
+
+	public void setModerators(List<User> moderators) {
+		this.moderators = moderators;
+	}
+
+    
+    
 }

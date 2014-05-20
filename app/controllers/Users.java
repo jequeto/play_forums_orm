@@ -12,8 +12,12 @@ import models.*;
 public class Users extends Controller {
 	
 	public static Result login() {
-//		flash("alert", "Login provisional");
-	    return ok(views.html.Users.login.render(Form.form(forms.Login.class)));
+		if (session().get("userEmail") == null) {
+			return ok(views.html.Users.login.render(Form.form(forms.Login.class)));
+		}
+		else {
+			return redirect(routes.Forums.index());
+		}
 	}
 	
 	public static Result logout() {

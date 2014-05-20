@@ -17,6 +17,7 @@ create table forum (
   description               varchar(255),
   creation_date             datetime,
   creator_user_id           bigint,
+  version                   bigint not null,
   constraint uq_forum_name unique (name),
   constraint pk_forum primary key (id))
 ;
@@ -27,12 +28,14 @@ create table message (
   creation_date             datetime,
   theme_id                  bigint,
   user_id                   bigint,
+  version                   bigint not null,
   constraint pk_message primary key (id))
 ;
 
 create table permission (
   id                        bigint auto_increment not null,
   name                      varchar(255) not null,
+  version                   bigint not null,
   constraint uq_permission_name unique (name),
   constraint pk_permission primary key (id))
 ;
@@ -40,6 +43,7 @@ create table permission (
 create table role (
   id                        bigint auto_increment not null,
   name                      varchar(255) not null,
+  version                   bigint not null,
   constraint uq_role_name unique (name),
   constraint pk_role primary key (id))
 ;
@@ -50,6 +54,7 @@ create table theme (
   creation_date             datetime,
   forum_id                  bigint,
   user_id                   bigint,
+  version                   bigint not null,
   constraint uq_theme_name unique (name),
   constraint pk_theme primary key (id))
 ;
@@ -60,6 +65,7 @@ create table user (
   password                  varchar(255),
   email                     varchar(255) not null,
   creation_date             datetime,
+  version                   bigint not null,
   constraint uq_user_name unique (name),
   constraint uq_user_email unique (email),
   constraint pk_user primary key (id))

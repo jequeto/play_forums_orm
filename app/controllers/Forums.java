@@ -68,12 +68,18 @@ public class Forums extends Controller {
     public static Result update(Long forumId) {
     	models.Forum forum = models.Forum.find.byId(forumId);
 //    	return ok(forum.toString());
-    	forms.ForumUpdate formUpdate = new forms.ForumUpdate();
-    	formUpdate.id = forum.id;
-    	formUpdate.name = forum.name;
-    	formUpdate.description = forum.description;
-    	Form<forms.ForumUpdate> forumForm = Form.form(forms.ForumUpdate.class).fill(formUpdate);
-    	return ok(views.html.Forums.update.render(forumForm));
+    	if (forum != null) {
+	    	forms.ForumUpdate formUpdate = new forms.ForumUpdate();
+	    	formUpdate.id = forum.id;
+	    	formUpdate.name = forum.name;
+	    	formUpdate.description = forum.description;
+	    	Form<forms.ForumUpdate> forumForm = Form.form(forms.ForumUpdate.class).fill(formUpdate);
+	    	return ok(views.html.Forums.update.render(forumForm));
+    	}
+    	else {
+    		flash("alert", "The forum selected for update don't exists.");
+    		return redirect(routes.Forums.index());
+    	}
 //    	return ok("update: "+forumId.toString());
     }
     
@@ -85,46 +91,45 @@ public class Forums extends Controller {
     		return badRequest(views.html.Forums.update.render(forumForm));
     	}
     	else {
+//    		models.Forum forum = models.Forum.find.setAutofetch(true).where().eq("id",forumId).findUnique();
     		models.Forum forum = models.Forum.find.byId(forumId);
-    		forum.name = forumForm.field("name").value();
-//	    	forum.description = forumForm.field("description").value();
-	    	forum.description = "Fija";
-	    	forum.save("");
-//	    	forum.update();
-//	    	Ebean.update(forum);
-	    	
+    		
+    		forum.setName(forumForm.field("name").value());
+	    	forum.setDescription(forumForm.field("description").value());
+    		
+	    	forum.update();
 	    	
 	    	flash("alert", "Forum has being modified");
-//	    	return redirect(routes.Forums.index());
-	    	return ok(forum.toString());
+	    	return redirect(routes.Forums.index());
+//	    	return ok(forum.toString());
     	}
     	
     }
     
     
     public static Result delete(Long forumId) {
+    	
     	models.Forum forum = models.Forum.find.byId(forumId);
-//    	return ok(forum.toString());
+
     	forms.ForumBase formDelete = new forms.ForumBase();
     	formDelete.id = forum.id;
     	formDelete.name = forum.name;
     	formDelete.description = forum.description;
     	Form<forms.ForumBase> forumForm = Form.form(forms.ForumBase.class).fill(formDelete);
     	return ok(views.html.Forums.delete.render(forumForm));
-//    	return ok("update: "+forumId.toString());
-//    	return ok("delete: "+forumId.toString());
+
     }
     
+    
     public static Result deleteValidate(Long forumId) {
-    	models.Forum forum = models.Forum.find.byId(forumId);
-    	forum.delete();
-//    	Ebean.update(forum);
     	
+    	models.Forum forum = models.Forum.find.byId(forumId);
+  
+    	forum.delete();
     	
     	flash("alert", "Forum has being deleted");
-//    	return redirect(routes.Forums.index());
-    	return ok(forum.toString());
-//    	return TODO;
+    	return redirect(routes.Forums.index());
+
     }
     
 

@@ -1,6 +1,6 @@
-// @SOURCE:E:/eclipse_workspace/play_forums_orm/conf/routes
-// @HASH:399a19b9319beab71287cef059c6bf4be381a41e
-// @DATE:Tue May 20 14:17:48 CEST 2014
+// @SOURCE:G:/eclipse_workspace/play_forums_orm/conf/routes
+// @HASH:11783332dd864a5647462899f1807046a79be93c
+// @DATE:Tue May 20 22:14:34 CEST 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -14,6 +14,7 @@ import Router.queryString
 
 
 // @LINE:32
+// @LINE:29
 // @LINE:27
 // @LINE:26
 // @LINE:23
@@ -73,6 +74,19 @@ def authenticate(): Call = {
 // @LINE:9
 def login(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "forums_orm/login")
+}
+                                                
+    
+}
+                          
+
+// @LINE:29
+class ReversePermissions {
+    
+
+// @LINE:29
+def crud(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "forums_orm/permissions/crud")
 }
                                                 
     
@@ -191,6 +205,7 @@ def index(): Call = {
 
 
 // @LINE:32
+// @LINE:29
 // @LINE:27
 // @LINE:26
 // @LINE:23
@@ -273,6 +288,24 @@ def login : JavascriptReverseRoute = JavascriptReverseRoute(
    """
       function() {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "forums_orm/login"})
+      }
+   """
+)
+                        
+    
+}
+              
+
+// @LINE:29
+class ReversePermissions {
+    
+
+// @LINE:29
+def crud : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Permissions.crud",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "forums_orm/permissions/crud"})
       }
    """
 )
@@ -453,6 +486,7 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
 
 
 // @LINE:32
+// @LINE:29
 // @LINE:27
 // @LINE:26
 // @LINE:23
@@ -513,6 +547,19 @@ def authenticate(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 // @LINE:9
 def login(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Users.login(), HandlerDef(this, "controllers.Users", "login", Seq(), "GET", """""", _prefix + """forums_orm/login""")
+)
+                      
+    
+}
+                          
+
+// @LINE:29
+class ReversePermissions {
+    
+
+// @LINE:29
+def crud(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Permissions.crud(), HandlerDef(this, "controllers.Permissions", "crud", Seq(), "GET", """""", _prefix + """forums_orm/permissions/crud""")
 )
                       
     
