@@ -1,6 +1,6 @@
 // @SOURCE:G:/eclipse_workspace/play_forums_orm/conf/routes
-// @HASH:11783332dd864a5647462899f1807046a79be93c
-// @DATE:Tue May 20 22:14:34 CEST 2014
+// @HASH:98e4865a2cbfa977ad9006bdb5d14efabfe157cd
+// @DATE:Wed May 21 20:34:45 CEST 2014
 
 package controllers;
 

@@ -23,8 +23,14 @@ GET     /forums_orm/forums/:forumId/themes 		       	controllers.Themes.index(fo
 GET     /forums_orm/forums/:forumId/themes/:themeId    	controllers.Messages.index(forumId: Long, themeId: Long)
 
 
-GET		/forums_orm/forums/:forumId/themes/insert		controllers.Themes.insert(forumId: Long)
-POST	/forums_orm/forums/:forumId/themes/insert		controllers.Themes.insertValidate(forumId: Long)
+GET		/forums_orm/forums/:forumId/themes/insert				controllers.Themes.insert(forumId: Long)
+POST	/forums_orm/forums/:forumId/themes/insert				controllers.Themes.insertValidate(forumId: Long)
+GET		/forums_orm/forums/:forumId/themes/delete/:themeId		controllers.Themes.delete(forumId: Long, themeId: Long)
+GET		/forums_orm/forums/:forumId/themes/update/:themeId		controllers.Themes.update(forumId: Long, themeId: Long)
+POST	/forums_orm/forums/:forumId/themes/update/:themeId		controllers.Themes.updateValidate(forumId: Long, themeId: Long)
+
+
+
 
 GET		/forums_orm/permissions/crud					controllers.Permissions.crud()
 

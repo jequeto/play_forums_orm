@@ -1,21 +1,27 @@
-@(form: Form[forms.Theme])
-
-
+@(form: Form[forms.ThemeInsert])
 
 @main {
-&gt;<a href="@routes.Themes.index(Long.valueOf(form.field("forum_id").value()))">@form.field("forum_name").value()</a>
+&nbsp;-&gt;&nbsp;<a href="@routes.Themes.index(Long.valueOf(form.field("forum_id").value()))">
+					Forum: @form.field("forum_name").value()
+				</a>&nbsp;-&gt;&nbsp;inserting a theme
 } {
-	@helper.form(action=routes.Themes.insertValidate(Long.valueOf(form.field("forum_id").value())), 'class -> "form") {
-        @helper.input(form("id")) { (id, name, value, args) =>
-            <input type="hidden" name="@name" id="@id" @toHtmlArgs(args)>
-        }
-		@helper.input(form("forum_id")) { (id, name, value, args) =>
-            <input type="hidden" name="@name" id="@id" @toHtmlArgs(args)>
-        }
-		@helper.input(form("forum_ name")) { (id, name, value, args) =>
-        <input type="hidden" name="@name" id="@id" @toHtmlArgs(args)>
-		}
-		@helper.inputText(form("name"))
-        <input type="submit" value="Submit"/>
+	<h2>Forum: @form.field("forum_name").value()</h2>
+	<h3>Inserting a new theme</h3>
+	@helper.form(
+			action=routes.Themes.insertValidate(Long.valueOf(form.field("forum_id").value()))
+			, 'class -> "form horizonal"
+		) {
+			
+		<input type="hidden" id="id" name=" id" value="@form.field("id").value()"/>
+		<input type="hidden" id="forum_id" name="forum_id" value="@form.field("forum_id").value()"/>
+		<input type="hidden" id="forum_name" name="forum_name" value="@form.field("forum_name").value()"/>
+		@helper.inputText(form("name")
+        		, '_label -> "New Theme Name:"
+        		, 'placeholder ->"Write a theme"
+        		, '_showConstraints -> true
+        		)
+		
+		<input type="submit" name="enviar" value="Insert" class="btn btn-success"/>
+        <a href="@routes.Themes.index(Long.valueOf(form.field("forum_id").value()))" class="btn btn-primary">Cancel</a>
 	}
 }

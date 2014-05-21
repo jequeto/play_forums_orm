@@ -4,18 +4,18 @@
 # --- !Ups
 
 create table connection (
-  id                        bigint auto_increment not null,
-  init_date_time            datetime,
-  close_date_time           datetime,
+  id                        bigint not null,
+  init_date_time            timestamp,
+  close_date_time           timestamp,
   user_id                   bigint,
   constraint pk_connection primary key (id))
 ;
 
 create table forum (
-  id                        bigint auto_increment not null,
+  id                        bigint not null,
   name                      varchar(255),
   description               varchar(255),
-  creation_date             datetime,
+  creation_date             timestamp,
   creator_user_id           bigint,
   version                   bigint not null,
   constraint uq_forum_name unique (name),
@@ -23,9 +23,9 @@ create table forum (
 ;
 
 create table message (
-  id                        bigint auto_increment not null,
+  id                        bigint not null,
   text                      varchar(255) not null,
-  creation_date             datetime,
+  creation_date             timestamp,
   theme_id                  bigint,
   user_id                   bigint,
   version                   bigint not null,
@@ -33,7 +33,7 @@ create table message (
 ;
 
 create table permission (
-  id                        bigint auto_increment not null,
+  id                        bigint not null,
   name                      varchar(255) not null,
   version                   bigint not null,
   constraint uq_permission_name unique (name),
@@ -41,7 +41,7 @@ create table permission (
 ;
 
 create table role (
-  id                        bigint auto_increment not null,
+  id                        bigint not null,
   name                      varchar(255) not null,
   version                   bigint not null,
   constraint uq_role_name unique (name),
@@ -49,22 +49,22 @@ create table role (
 ;
 
 create table theme (
-  id                        bigint auto_increment not null,
+  id                        bigint not null,
   name                      varchar(255) not null,
-  creation_date             datetime,
+  creation_date             timestamp,
   forum_id                  bigint,
-  user_id                   bigint,
+  creator_user_id           bigint,
   version                   bigint not null,
   constraint uq_theme_name unique (name),
   constraint pk_theme primary key (id))
 ;
 
 create table user (
-  id                        bigint auto_increment not null,
+  id                        bigint not null,
   name                      varchar(255) not null,
   password                  varchar(255),
   email                     varchar(255) not null,
-  creation_date             datetime,
+  creation_date             timestamp,
   version                   bigint not null,
   constraint uq_user_name unique (name),
   constraint uq_user_email unique (email),
@@ -83,6 +83,20 @@ create table role_permission (
   permission_id                  bigint not null,
   constraint pk_role_permission primary key (role_id, permission_id))
 ;
+create sequence connection_seq;
+
+create sequence forum_seq;
+
+create sequence message_seq;
+
+create sequence permission_seq;
+
+create sequence role_seq;
+
+create sequence theme_seq;
+
+create sequence user_seq;
+
 alter table connection add constraint fk_connection_user_1 foreign key (user_id) references user (id) on delete restrict on update restrict;
 create index ix_connection_user_1 on connection (user_id);
 alter table forum add constraint fk_forum_creatorUser_2 foreign key (creator_user_id) references user (id) on delete restrict on update restrict;
@@ -93,8 +107,8 @@ alter table message add constraint fk_message_user_4 foreign key (user_id) refer
 create index ix_message_user_4 on message (user_id);
 alter table theme add constraint fk_theme_forum_5 foreign key (forum_id) references forum (id) on delete restrict on update restrict;
 create index ix_theme_forum_5 on theme (forum_id);
-alter table theme add constraint fk_theme_user_6 foreign key (user_id) references user (id) on delete restrict on update restrict;
-create index ix_theme_user_6 on theme (user_id);
+alter table theme add constraint fk_theme_creatorUser_6 foreign key (creator_user_id) references user (id) on delete restrict on update restrict;
+create index ix_theme_creatorUser_6 on theme (creator_user_id);
 
 
 
@@ -108,25 +122,39 @@ alter table role_permission add constraint fk_role_permission_permission_02 fore
 
 # --- !Downs
 
-SET FOREIGN_KEY_CHECKS=0;
+SET REFERENTIAL_INTEGRITY FALSE;
 
-drop table connection;
+drop table if exists connection;
 
-drop table forum;
+drop table if exists forum;
 
-drop table forum_user;
+drop table if exists forum_user;
 
-drop table message;
+drop table if exists message;
 
-drop table permission;
+drop table if exists permission;
 
-drop table role;
+drop table if exists role;
 
-drop table role_permission;
+drop table if exists role_permission;
 
-drop table theme;
+drop table if exists theme;
 
-drop table user;
+drop table if exists user;
 
-SET FOREIGN_KEY_CHECKS=1;
+SET REFERENTIAL_INTEGRITY TRUE;
+
+drop sequence if exists connection_seq;
+
+drop sequence if exists forum_seq;
+
+drop sequence if exists message_seq;
+
+drop sequence if exists permission_seq;
+
+drop sequence if exists role_seq;
+
+drop sequence if exists theme_seq;
+
+drop sequence if exists user_seq;
 

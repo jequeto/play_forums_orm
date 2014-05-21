@@ -23,10 +23,10 @@ import views.html._
 object notFoundPage extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template1[String,play.api.templates.HtmlFormat.Appendable] {
 
     /**/
-    def apply/*1.2*/(text: String):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*1.2*/(text: String = ""):play.api.templates.HtmlFormat.Appendable = {
         _display_ {
 
-Seq[Any](format.raw/*1.16*/("""
+Seq[Any](format.raw/*1.21*/("""
 
 
 
@@ -48,10 +48,10 @@ Seq[Any](format.raw/*1.16*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue May 20 17:45:03 CEST 2014
+                    DATE: Wed May 21 20:56:04 CEST 2014
                     SOURCE: G:/eclipse_workspace/play_forums_orm/app/views/notFoundPage.scala.html
-                    HASH: 848fb79850c2a560ca506e326bf051daf490bd32
-                    MATRIX: 781->1|889->15|932->24|943->28|981->30|1029->61|1067->63|1125->86|1150->90
+                    HASH: 646ed456eb57d83c93e00f674eec26499bb2c260
+                    MATRIX: 781->1|894->20|937->29|948->33|986->35|1034->66|1072->68|1130->91|1155->95
                     LINES: 26->1|29->1|33->5|33->5|33->5|35->7|35->7|36->8|36->8
                     -- GENERATED --
                 */

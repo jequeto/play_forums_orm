@@ -11,18 +11,22 @@ import javax.persistence.*;
 
 import models.Forum;
 
-@SuppressWarnings("serial")
+
 public class ThemeBase {
     
     @Id
     public Long id;
   
     @Constraints.Required
+    @Constraints.MinLength(1)
     public String name;
 
 	@Constraints.Required
     public Long forum_id;
     
+	/**
+	 * Use to transport forum's name to the view.
+	 */
 	@Constraints.Required
     public String forum_name;
 	
@@ -60,5 +64,33 @@ public class ThemeBase {
 		this.forum_name = forum_name;
 	}
     
+	
+	public class ThemeInsert extends ThemeBase {
+		
+		public List<ValidationError> validate() {
+		    List<ValidationError> errors = new ArrayList<ValidationError>();
+		    if (! models.Theme.isUniqueInsertName(this.forum_id, this.name)) {
+		        errors.add(new ValidationError("name", "This name is already registered."));
+		    }
+		    return errors.isEmpty() ? null : errors;
+		   
+		}
+		
+	}
+	
+	
+	public class ThemeUpdate extends ThemeBase {
+		
+		public List<ValidationError> validate() {
+		    List<ValidationError> errors = new ArrayList<ValidationError>();
+		    if (! models.Theme.isUniqueUpdateName(this.id, this.forum_id, this.name)) {
+		        errors.add(new ValidationError("name", "This name is already registered."));
+		    }
+		    return errors.isEmpty() ? null : errors;
+		   
+		}
+		
+	}
+	
 	
 }

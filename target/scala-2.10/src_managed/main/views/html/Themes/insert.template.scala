@@ -20,49 +20,55 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object insert extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template1[Form[forms.Theme],play.api.templates.HtmlFormat.Appendable] {
+object insert extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template1[Form[forms.ThemeInsert],play.api.templates.HtmlFormat.Appendable] {
 
     /**/
-    def apply/*1.2*/(form: Form[forms.Theme]):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*1.2*/(form: Form[forms.ThemeInsert]):play.api.templates.HtmlFormat.Appendable = {
         _display_ {
 
-Seq[Any](format.raw/*1.27*/("""
+Seq[Any](format.raw/*1.33*/("""
 
-
-
-"""),_display_(Seq[Any](/*5.2*/main/*5.6*/ {_display_(Seq[Any](format.raw/*5.8*/("""
-&gt;<a href=""""),_display_(Seq[Any](/*6.15*/routes/*6.21*/.Themes.index(Long.valueOf(form.field("forum_id").value())))),format.raw/*6.80*/("""">"""),_display_(Seq[Any](/*6.83*/form/*6.87*/.field("forum_name").value())),format.raw/*6.115*/("""</a>
+"""),_display_(Seq[Any](/*3.2*/main/*3.6*/ {_display_(Seq[Any](format.raw/*3.8*/("""
+&nbsp;-&gt;&nbsp;<a href=""""),_display_(Seq[Any](/*4.28*/routes/*4.34*/.Themes.index(Long.valueOf(form.field("forum_id").value())))),format.raw/*4.93*/("""">
+					Forum: """),_display_(Seq[Any](/*5.14*/form/*5.18*/.field("forum_name").value())),format.raw/*5.46*/("""
+				</a>&nbsp;-&gt;&nbsp;inserting a theme
 """)))}/*7.2*/ {_display_(Seq[Any](format.raw/*7.4*/("""
-	"""),_display_(Seq[Any](/*8.3*/helper/*8.9*/.form(action=routes.Themes.insertValidate(Long.valueOf(form.field("forum_id").value())), 'class -> "form")/*8.115*/ {_display_(Seq[Any](format.raw/*8.117*/("""
-        """),_display_(Seq[Any](/*9.10*/helper/*9.16*/.input(form("id"))/*9.34*/ { (id, name, value, args) =>_display_(Seq[Any](format.raw/*9.63*/("""
-            <input type="hidden" name=""""),_display_(Seq[Any](/*10.41*/name)),format.raw/*10.45*/("""" id=""""),_display_(Seq[Any](/*10.52*/id)),format.raw/*10.54*/("""" """),_display_(Seq[Any](/*10.57*/toHtmlArgs(args))),format.raw/*10.73*/(""">
-        """)))})),format.raw/*11.10*/("""
-		"""),_display_(Seq[Any](/*12.4*/helper/*12.10*/.input(form("forum_id"))/*12.34*/ { (id, name, value, args) =>_display_(Seq[Any](format.raw/*12.63*/("""
-            <input type="hidden" name=""""),_display_(Seq[Any](/*13.41*/name)),format.raw/*13.45*/("""" id=""""),_display_(Seq[Any](/*13.52*/id)),format.raw/*13.54*/("""" """),_display_(Seq[Any](/*13.57*/toHtmlArgs(args))),format.raw/*13.73*/(""">
-        """)))})),format.raw/*14.10*/("""
-		"""),_display_(Seq[Any](/*15.4*/helper/*15.10*/.input(form("forum_ name"))/*15.37*/ { (id, name, value, args) =>_display_(Seq[Any](format.raw/*15.66*/("""
-        <input type="hidden" name=""""),_display_(Seq[Any](/*16.37*/name)),format.raw/*16.41*/("""" id=""""),_display_(Seq[Any](/*16.48*/id)),format.raw/*16.50*/("""" """),_display_(Seq[Any](/*16.53*/toHtmlArgs(args))),format.raw/*16.69*/(""">
-		""")))})),format.raw/*17.4*/("""
-		"""),_display_(Seq[Any](/*18.4*/helper/*18.10*/.inputText(form("name")))),format.raw/*18.34*/("""
-        <input type="submit" value="Submit"/>
-	""")))})),format.raw/*20.3*/("""
+	<h2>Forum: """),_display_(Seq[Any](/*8.14*/form/*8.18*/.field("forum_name").value())),format.raw/*8.46*/("""</h2>
+	<h3>Inserting a new theme</h3>
+	"""),_display_(Seq[Any](/*10.3*/helper/*10.9*/.form(
+			action=routes.Themes.insertValidate(Long.valueOf(form.field("forum_id").value()))
+			, 'class -> "form horizonal"
+		)/*13.4*/ {_display_(Seq[Any](format.raw/*13.6*/("""
+			
+		<input type="hidden" id="id" name=" id" value=""""),_display_(Seq[Any](/*15.51*/form/*15.55*/.field("id").value())),format.raw/*15.75*/(""""/>
+		<input type="hidden" id="forum_id" name="forum_id" value=""""),_display_(Seq[Any](/*16.62*/form/*16.66*/.field("forum_id").value())),format.raw/*16.92*/(""""/>
+		<input type="hidden" id="forum_name" name="forum_name" value=""""),_display_(Seq[Any](/*17.66*/form/*17.70*/.field("forum_name").value())),format.raw/*17.98*/(""""/>
+		"""),_display_(Seq[Any](/*18.4*/helper/*18.10*/.inputText(form("name")
+        		, '_label -> "New Theme Name:"
+        		, 'placeholder ->"Write a theme"
+        		, '_showConstraints -> true
+        		))),format.raw/*22.12*/("""
+		
+		<input type="submit" name="enviar" value="Insert" class="btn btn-success"/>
+        <a href=""""),_display_(Seq[Any](/*25.19*/routes/*25.25*/.Themes.index(Long.valueOf(form.field("forum_id").value())))),format.raw/*25.84*/("""" class="btn btn-primary">Cancel</a>
+	""")))})),format.raw/*26.3*/("""
 """)))})))}
     }
     
-    def render(form:Form[forms.Theme]): play.api.templates.HtmlFormat.Appendable = apply(form)
+    def render(form:Form[forms.ThemeInsert]): play.api.templates.HtmlFormat.Appendable = apply(form)
     
-    def f:((Form[forms.Theme]) => play.api.templates.HtmlFormat.Appendable) = (form) => apply(form)
+    def f:((Form[forms.ThemeInsert]) => play.api.templates.HtmlFormat.Appendable) = (form) => apply(form)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue May 20 17:45:04 CEST 2014
+                    DATE: Wed May 21 20:25:17 CEST 2014
                     SOURCE: G:/eclipse_workspace/play_forums_orm/app/views/Themes/insert.scala.html
-                    HASH: 744ec7951444ccb56b72488242d02c6ff04d4095
-                    MATRIX: 793->1|912->26|955->35|966->39|1004->41|1055->57|1069->63|1149->122|1187->125|1199->129|1249->157|1273->164|1311->166|1349->170|1362->176|1477->282|1517->284|1563->295|1577->301|1603->319|1669->348|1747->390|1773->394|1816->401|1840->403|1879->406|1917->422|1961->434|2001->439|2016->445|2049->469|2116->498|2194->540|2220->544|2263->551|2287->553|2326->556|2364->572|2408->584|2448->589|2463->595|2499->622|2566->651|2640->689|2666->693|2709->700|2733->702|2772->705|2810->721|2847->727|2887->732|2902->738|2948->762|3030->813
-                    LINES: 26->1|29->1|33->5|33->5|33->5|34->6|34->6|34->6|34->6|34->6|34->6|35->7|35->7|36->8|36->8|36->8|36->8|37->9|37->9|37->9|37->9|38->10|38->10|38->10|38->10|38->10|38->10|39->11|40->12|40->12|40->12|40->12|41->13|41->13|41->13|41->13|41->13|41->13|42->14|43->15|43->15|43->15|43->15|44->16|44->16|44->16|44->16|44->16|44->16|45->17|46->18|46->18|46->18|48->20
+                    HASH: 2c9dcd0211940ef1bad477ff1739afc0f7b04e35
+                    MATRIX: 799->1|924->32|963->37|974->41|1012->43|1076->72|1090->78|1170->137|1222->154|1234->158|1283->186|1347->233|1385->235|1435->250|1447->254|1496->282|1573->324|1587->330|1725->460|1764->462|1857->519|1870->523|1912->543|2014->609|2027->613|2075->639|2181->709|2194->713|2244->741|2287->749|2302->755|2485->916|2624->1019|2639->1025|2720->1084|2791->1124
+                    LINES: 26->1|29->1|31->3|31->3|31->3|32->4|32->4|32->4|33->5|33->5|33->5|35->7|35->7|36->8|36->8|36->8|38->10|38->10|41->13|41->13|43->15|43->15|43->15|44->16|44->16|44->16|45->17|45->17|45->17|46->18|46->18|50->22|53->25|53->25|53->25|54->26
                     -- GENERATED --
                 */
             

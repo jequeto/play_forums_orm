@@ -37,7 +37,7 @@ public class Theme extends Model {
     
     @ManyToOne
     @Constraints.Required
-    public User user;
+    public User creatorUser;
     
   
     public static Finder<Long,Theme> find = new Finder<Long,Theme>(
@@ -46,7 +46,33 @@ public class Theme extends Model {
     
     public static List<Theme> findByForumId(Long forumId) {
     	
-    	return Theme.find.setAutofetch(true).where().eq("forum_id", forumId).findList();
+    	return Theme.find
+    			.fetch("creatorUser")
+    			.fetch("messages")
+    			.where().eq("forum_id", forumId)
+    			.findList();
+    	
+    }
+    
+    
+    public static Boolean isUniqueInsertName(Long forum_id, String newValue) {
+    	// If It selects null, the new value is unique in the table
+    	Theme theme = Theme.find.where().eq("name", newValue).eq("forum_id", forum_id).findUnique();
+    	return(theme == null);
+    	
+    }
+    
+    
+    public static Boolean isUniqueUpdateName(Long id, Long forum_id, String newValue) {
+    	
+    	// If It selects null, the new value is unique in the table for update
+    	Theme theme = Theme.find
+    			.where()
+    			.eq("name", newValue)
+    			.eq("forum_id", forum_id)
+    			.ne("id", id)
+    			.findUnique();
+    	return(theme == null);
     	
     }
 
@@ -98,12 +124,12 @@ public class Theme extends Model {
 		this.messages = messages;
 	}
 
-	public User getUser() {
-		return user;
+	public User getCreatorUser() {
+		return creatorUser;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setCreatorUser(User user) {
+		this.creatorUser = user;
 	}
     
     

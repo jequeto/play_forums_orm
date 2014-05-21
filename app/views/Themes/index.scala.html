@@ -1,42 +1,57 @@
-@(forum: Forum, themes: List[Theme])
+@(forum: Forum, themes: List[Theme], formInsert: Form[_root_.forms.ThemeInsert])
 
 @main {
-&gt;@forum.name
+&nbsp;-&gt;&nbsp;forum: @forum.name</a>&nbsp;-&gt;&nbsp;themes
 } {
 	<h2>Forum: @forum.name</h2>
 	<h3>Themes:</h3>
 	<table class="table table-striped table-hover table-bordered">
-  		<tr><th>Name</th><th>Creator</th><th>Creation Date</th><th>Action</th>
-  	</tr>
+  		<tr>
+  			<th>Name</th>
+  			<th>Creator</th>
+  			<th>Creation Date</th>
+  			<th>Messages count</th>
+  			<th>Actions</th>
+  		</tr>
 	@if(forum.themes.isEmpty()) {
 		<tr>
-        <td colspan="4">
+        <td colspan="5">
         	<p>Nothing to display</p>
         </td>
         </tr>
 	} else {
 		@for(theme <- forum.themes) {
 			<tr>
-			  	<td>@theme.name</a>"</td>
-				<td>@theme.user.name</td>
+			  	<td>@theme.name</a></td>
+				<td>@theme.creatorUser.name</td>
 				<td>@theme.creationDate</td>
-				<td></td>
+				<td>@theme.messages.size()</td>
+				<td>
+					<a class="btn btn-warning" href="@routes.Themes.update(forum.id, theme.id)">Modificar</a>
+					<a class="btn btn-danger" href="@routes.Themes.delete(forum.id, theme.id)">Borrar</a>
+				</td>
 			</tr>
 		}
 	}
 		<tr>
 		<td colspan="5">
 	     	<p>Insert a new theme</p>
-	     	<form method="POST" action="@routes.Themes.insertValidate(forum.id)">
+	     	@helper.form(action=routes.Themes.insertValidate(forum.id)
+	     			, 'class -> "form horizonal"
+	     	) {
+	     		<input type="hidden" id="id" name=" id" value=""/>
 	     		<input type="hidden" id="forum_id" name="forum_id" value="@forum.id"/>
                 <input type="hidden" id="forum_name" name="forum_name" value="@forum.name"/>
-	            <label for="name">New Theme Name: </label>
-	            <input type="text" id="name" name="name">
-	            <label for="description">Description: </label>
-	            <input type="text" id="description" name="description">
-	            <input type="submit" name="enviar" value="Insert">
 	            
-	        </form>
+	            @helper.inputText(formInsert("name")
+	            		, '_label -> "New Theme Name: "
+	            		, 'placeholder ->"Write a theme"
+	            		, '_showConstraints -> false
+	            		)
+	            
+	            <input type="submit" name="enviar" value="Insert" class="btn btn-success"/>
+	            
+	     	}
 	    </td>
     	</tr>
 	</table>
