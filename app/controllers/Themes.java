@@ -7,6 +7,7 @@ import play.mvc.*;
 import views.html.*;
 import models.*;
 import play.data.Form;
+import play.data.Form.*;
 
 import forms.ThemeInsert;
 
@@ -29,16 +30,9 @@ public class Themes extends Controller {
     }
 
 
-    public static Result save() {
-    	  flash("success", "The item has been created");
-    	  return TODO;
-    }
-    
-
     public static Result insert(Long forumId) {
     	return TODO;
     }
-    
     
     public static Result insertValidate(Long forumId) {
     	
@@ -65,7 +59,16 @@ public class Themes extends Controller {
     
     public static Result update(Long forumId, Long themeId) {
     	
-    	return TODO;
+    	Theme theme = Theme.find.fetch("forum").where().eq("id", themeId).findUnique();
+    	Map<String,String> data = new HashMap();
+    	data.put("id", Long.toString(theme.id));
+    	data.put("forum_id", Long.toString(theme.forum.id));
+    	data.put("forum_name", theme.forum.name);
+    	data.put("name", theme.name);
+    	
+    	Form<forms.ThemeUpdate> formUpdate = Form.form(forms.ThemeUpdate.class).bind(data);
+//    	return ok(formUpdate.toString());
+    	return ok(views.html.Themes.update.render(formUpdate));
     	
     }
     

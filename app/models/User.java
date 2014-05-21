@@ -5,10 +5,10 @@ import java.util.*;
 import javax.persistence.*;
 
 import play.db.ebean.*;
-import play.data.Form;
 import play.data.format.*;
 import play.data.validation.*;
 
+import models.*;
 
 @Entity
 @SuppressWarnings("serial")
@@ -65,7 +65,7 @@ public class User extends Model {
     }
     
     
-    public static Boolean authenticate(Form<forms.Login> form) {
+    public static Boolean authenticate(play.data.Form<forms.Login> form) {
     	List<User> users = User.find.where().eq("email", form.field("email").value()).eq("password",form.field("password").value()).findList();
         if (users.isEmpty()) {
             return false;

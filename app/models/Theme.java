@@ -48,7 +48,8 @@ public class Theme extends Model {
     	
     	return Theme.find
     			.fetch("creatorUser")
-    			.fetch("messages")
+    			.fetch("forum")
+    			.fetch("messages")  			
     			.where().eq("forum_id", forumId)
     			.findList();
     	
