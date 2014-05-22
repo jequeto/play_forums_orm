@@ -27,7 +27,7 @@ public class Theme extends Model {
     @Formats.DateTime(pattern="dd/MM/yyyy")
     public Date creationDate; // = new Date();
     
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne
     @Constraints.Required
     public Forum forum;
     
@@ -131,6 +131,15 @@ public class Theme extends Model {
 
 	public void setCreatorUser(User user) {
 		this.creatorUser = user;
+	}
+
+	
+	@Override
+	public String toString() {
+		return "Theme [id=" + id + ", version=" + version + ", name=" + name
+				+ ", creationDate=" + creationDate + ", forum=" 
+				+ ", messages=" + ", creatorUser=" 
+				+ "]";
 	}
     
     

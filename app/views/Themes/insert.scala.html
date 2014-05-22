@@ -12,16 +12,17 @@
 			, 'class -> "form horizonal"
 		) {
 			
-		<input type="hidden" id="id" name=" id" value="@form.field("id").value()"/>
+		<input type="hidden" id="id" name="id" value="@form.field("id").value()"/>
 		<input type="hidden" id="forum_id" name="forum_id" value="@form.field("forum_id").value()"/>
 		<input type="hidden" id="forum_name" name="forum_name" value="@form.field("forum_name").value()"/>
 		@helper.inputText(form("name")
+				,'size -> "50"
         		, '_label -> "New Theme Name:"
         		, 'placeholder ->"Write a theme"
         		, '_showConstraints -> true
-        		)
+        )
 		
-		<input type="submit" name="enviar" value="Insert" class="btn btn-success"/>
+		<input type="submit" value="Insert" class="btn btn-success"/>
         <a href="@routes.Themes.index(Long.valueOf(form.field("forum_id").value()))" class="btn btn-primary">Cancel</a>
 	}
 }

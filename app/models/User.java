@@ -65,17 +65,19 @@ public class User extends Model {
     }
     
     
-    public static Boolean authenticate(play.data.Form<forms.Login> form) {
-    	List<User> users = User.find.where().eq("email", form.field("email").value()).eq("password",form.field("password").value()).findList();
-        if (users.isEmpty()) {
-            return false;
-        }
-        else {
-        	return true;
-        }
-//      returns( ! users.isEmpty());
+    public static User authenticate(play.data.Form<forms.Login> form) {
+    	
+    	User user = User.find
+            .where()
+            .eq("email", form.field("email").value())
+            .eq("password",form.field("password").value())
+            .findUnique();
+        
+    	return user;
+    	
     }
 
+    
 	public Long getId() {
 		return id;
 	}

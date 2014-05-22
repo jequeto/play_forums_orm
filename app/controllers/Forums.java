@@ -31,9 +31,11 @@ public class Forums extends Controller {
 
     
     public static Result insert() {
-    	Form<models.Forum> forumForm = Form.form(models.Forum.class);
+    	
+    	Form<forms.ForumInsert> forumForm = Form.form(forms.ForumInsert.class);
 
-    	return ok("");
+    	return ok(views.html.Forums.insert.render(forumForm));
+    	
     }
     
     
@@ -45,9 +47,6 @@ public class Forums extends Controller {
     		return badRequest(views.html.Forums.insert.render(forumForm));
     	}
     	else {
-//    		if (Forum.isUniqueInsert("name",forumForm.field("name").value())) {
-//    			return badRequest(views.html.Forums.insert.render(forumForm));
-//    		}
 	    	models.Forum forum = new models.Forum();
 	    	forum.name = forumForm.field("name").value();
 	    	forum.description = forumForm.field("description").value();
@@ -66,8 +65,9 @@ public class Forums extends Controller {
     
 
     public static Result update(Long forumId) {
+    	
     	models.Forum forum = models.Forum.find.byId(forumId);
-//    	return ok(forum.toString());
+
     	if (forum != null) {
 	    	forms.ForumUpdate formUpdate = new forms.ForumUpdate();
 	    	formUpdate.id = forum.id;
@@ -80,28 +80,26 @@ public class Forums extends Controller {
     		flash("alert", "The forum selected for update don't exists.");
     		return redirect(routes.Forums.index());
     	}
-//    	return ok("update: "+forumId.toString());
+
     }
     
     
     public static Result updateValidate(Long forumId) {
+    	
     	Form<forms.ForumUpdate> forumForm = Form.form(forms.ForumUpdate.class).bindFromRequest();
-//    	return ok( forumForm.toString());
+
     	if (forumForm.hasErrors()) {
     		return badRequest(views.html.Forums.update.render(forumForm));
     	}
     	else {
-//    		models.Forum forum = models.Forum.find.setAutofetch(true).where().eq("id",forumId).findUnique();
     		models.Forum forum = models.Forum.find.byId(forumId);
     		
     		forum.setName(forumForm.field("name").value());
 	    	forum.setDescription(forumForm.field("description").value());
-    		
 	    	forum.update();
 	    	
 	    	flash("alert", "Forum has being modified");
 	    	return redirect(routes.Forums.index());
-//	    	return ok(forum.toString());
     	}
     	
     }
@@ -110,11 +108,11 @@ public class Forums extends Controller {
     public static Result delete(Long forumId) {
     	
     	models.Forum forum = models.Forum.find.byId(forumId);
-
     	forms.ForumBase formDelete = new forms.ForumBase();
     	formDelete.id = forum.id;
     	formDelete.name = forum.name;
     	formDelete.description = forum.description;
+    	
     	Form<forms.ForumBase> forumForm = Form.form(forms.ForumBase.class).fill(formDelete);
     	return ok(views.html.Forums.delete.render(forumForm));
 
@@ -131,6 +129,5 @@ public class Forums extends Controller {
     	return redirect(routes.Forums.index());
 
     }
-    
 
 }

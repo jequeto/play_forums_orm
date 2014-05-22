@@ -11,6 +11,7 @@ import models.*;
 
 public class Users extends Controller {
 	
+	
 	public static Result login() {
 		if (session().get("userEmail") == null) {
 			return ok(views.html.Users.login.render(Form.form(forms.Login.class)));
@@ -19,6 +20,7 @@ public class Users extends Controller {
 			return redirect(routes.Forums.index());
 		}
 	}
+	
 	
 	public static Result logout() {
 		flash("alert", "You are logout");
@@ -31,10 +33,11 @@ public class Users extends Controller {
 		
 		Form<forms.Login> loginForm = Form.form(forms.Login.class).bindFromRequest();
 		
-		if (User.authenticate(loginForm))  {
+		User user = User.authenticate(loginForm); 
+		if (user != null)  {
 			session().clear();
-			
 			session("userEmail", loginForm.field("email").value());
+			session("userId", Long.toString(user.id));
 			request().setUsername(loginForm.field("email").value());
 			flash("alert", "Login successfull");
 			return redirect(routes.Forums.index());
@@ -44,6 +47,7 @@ public class Users extends Controller {
 			return badRequest(views.html.Users.login.render(loginForm));
 //			return ok("Fallido");
 		}
+		
 	}
 	
 	

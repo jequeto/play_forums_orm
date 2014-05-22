@@ -1,0 +1,29 @@
+@(form: Form[forms.ThemeBase])
+
+@main {
+	&nbsp;-&gt;&nbsp;<a href="@routes.Themes.index(Long.valueOf(form.field("forum_id").value()))">
+	Forum: @form.field("forum_name").value()
+</a>&nbsp;-&gt;&nbsp;deleting a theme
+} {
+	<h2>Forum: @form.field("forum_name").value()</h2>
+	<h3>Deleting a theme</h3>
+	@helper.form(
+				action=routes.Themes.deleteValidate(Long.valueOf( form.field("id").value() )
+				)
+				, 'class -> "form horizontal"
+	) {
+			
+		<input type="hidden" id="id" name="id" value="@form.field("id").value()"/>
+		<input type="hidden" id="forum_id" name="forum_id" value="@form.field("forum_id").value()"/>
+		<input type="hidden" id="forum_name" name="forum_name" value="@form.field("forum_name").value()"/>		
+		@helper.inputText(form("name")
+        		, 'size -> "100"
+        		, '_label -> "Theme Name:"
+        		, '_showConstraints -> false
+        		, 'readonly -> "readonly"
+        		)
+		
+		<input type="submit" value="Delete" class="btn btn-danger"/>
+        <a href="@routes.Themes.index(Long.valueOf(form.field("forum_id").value()))" class="btn btn-primary">Cancel</a>
+	}
+}

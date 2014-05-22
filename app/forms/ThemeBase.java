@@ -62,35 +62,6 @@ public class ThemeBase {
 
 	public void setForum_name(String forum_name) {
 		this.forum_name = forum_name;
-	}
-    
-	
-	public class ThemeInsert extends ThemeBase {
-		
-		public List<ValidationError> validate() {
-		    List<ValidationError> errors = new ArrayList<ValidationError>();
-		    if (! models.Theme.isUniqueInsertName(this.forum_id, this.name)) {
-		        errors.add(new ValidationError("name", "This name is already registered."));
-		    }
-		    return errors.isEmpty() ? null : errors;
-		   
-		}
-		
-	}
-	
-	
-	public class ThemeUpdate extends ThemeBase {
-		
-		public List<ValidationError> validate() {
-		    List<ValidationError> errors = new ArrayList<ValidationError>();
-		    if (! models.Theme.isUniqueUpdateName(this.id, this.forum_id, this.name)) {
-		        errors.add(new ValidationError("name", "This name is already registered."));
-		    }
-		    return errors.isEmpty() ? null : errors;
-		   
-		}
-		
-	}
-	
+	}	
 	
 }

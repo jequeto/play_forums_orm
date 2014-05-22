@@ -7,24 +7,21 @@
 } {
 	<h2>Forum: @form.field("forum_name").value()</h2>
 	<h3>Updating a theme</h3>
-	@helper.form(
-			action=routes.Themes.updateValidate(
-					Long.valueOf(form.field("forum_id").value())
-					,Long.valueOf(form.field("theme_id").value())
-					)
+	@helper.form(	action=routes.Themes.updateValidate(Long.valueOf( form.field("id").value()))
 					, 'class -> "form horizontal"
 	) {
 			
-		<input type="hidden" id="id" name=" id" value="@form.field("id").value()"/>
+		<input type="hidden" id="id" name="id" value="@form.field("id").value()"/>
 		<input type="hidden" id="forum_id" name="forum_id" value="@form.field("forum_id").value()"/>
 		<input type="hidden" id="forum_name" name="forum_name" value="@form.field("forum_name").value()"/>
 		@helper.inputText(form("name")
+        		, 'size -> "100"
         		, '_label -> "Theme Name:"
         		, 'placeholder ->"Write a theme"
         		, '_showConstraints -> true
         		)
 		
-		<input type="submit" name="enviar" value="Update" class="btn btn-success"/>
+		<input type="submit" value="Update" class="btn btn-success"/>
         <a href="@routes.Themes.index(Long.valueOf(form.field("forum_id").value()))" class="btn btn-primary">Cancel</a>
 	}
 }

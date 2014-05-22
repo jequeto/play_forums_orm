@@ -28,7 +28,7 @@ public class Message extends Model {
     @Formats.DateTime(pattern="dd/MM/yyyy")
     public Date creationDate; // = new Date();
     
-    @ManyToOne(cascade=CascadeType.REMOVE)
+    @ManyToOne
     @Constraints.Required
     public Theme theme;
     
