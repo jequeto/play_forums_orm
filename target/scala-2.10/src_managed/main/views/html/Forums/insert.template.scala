@@ -52,7 +52,7 @@ Seq[Any](format.raw/*1.38*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue May 20 17:45:04 CEST 2014
+                    DATE: Thu May 22 17:49:14 CEST 2014
                     SOURCE: G:/eclipse_workspace/play_forums_orm/app/views/Forums/insert.scala.html
                     HASH: 220e61a132e4a5b41fb62e8d8006a1fa29daaf39
                     MATRIX: 799->1|946->37|976->59|1013->62|1024->66|1062->68|1102->91|1140->93|1205->124|1256->167|1295->169|1335->174|1350->180|1401->209|1441->214|1456->220|1514->256|1653->359|1668->365|1705->380|1754->398

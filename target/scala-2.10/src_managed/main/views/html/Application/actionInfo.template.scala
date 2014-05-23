@@ -43,7 +43,7 @@ Seq[Any](format.raw/*1.59*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue May 20 17:45:04 CEST 2014
+                    DATE: Thu May 22 17:49:14 CEST 2014
                     SOURCE: G:/eclipse_workspace/play_forums_orm/app/views/Application/actionInfo.scala.html
                     HASH: 0e278f3eedf314144d0efab2659dbf6c19b962a6
                     MATRIX: 805->1|956->58|1031->98|1063->109|1120->131|1151->141|1204->159|1231->165

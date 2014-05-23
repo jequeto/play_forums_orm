@@ -4,7 +4,7 @@
 		module="play_forums_orm-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20140521191703"
+		publication="20140523095353"
 		e:scalaVersion="2.10" e:sbtVersion="0.13"
 	>
 		<description>

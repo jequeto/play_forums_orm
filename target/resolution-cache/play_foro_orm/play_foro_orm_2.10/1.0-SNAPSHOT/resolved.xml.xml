@@ -4,7 +4,7 @@
 		module="play_foro_orm_2.10"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20140521191250"
+		publication="20140523095422"
 	>
 		<description>
 		play_foro_orm

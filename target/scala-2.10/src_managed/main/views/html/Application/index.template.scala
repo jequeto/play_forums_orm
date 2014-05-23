@@ -44,7 +44,7 @@ Seq[Any](format.raw/*1.19*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue May 20 17:45:04 CEST 2014
+                    DATE: Thu May 22 17:49:14 CEST 2014
                     SOURCE: G:/eclipse_workspace/play_forums_orm/app/views/Application/index.scala.html
                     HASH: ce64061613f75440f16ba5c9bf9b11af7c732d0d
                     MATRIX: 786->1|897->18|934->21|945->25|983->27|1002->29|1040->31|1080->37|1094->43|1148->76|1180->78

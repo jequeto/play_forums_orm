@@ -40,18 +40,19 @@ Seq[Any](format.raw/*1.33*/("""
 			, 'class -> "form horizonal"
 		)/*13.4*/ {_display_(Seq[Any](format.raw/*13.6*/("""
 			
-		<input type="hidden" id="id" name=" id" value=""""),_display_(Seq[Any](/*15.51*/form/*15.55*/.field("id").value())),format.raw/*15.75*/(""""/>
+		<input type="hidden" id="id" name="id" value=""""),_display_(Seq[Any](/*15.50*/form/*15.54*/.field("id").value())),format.raw/*15.74*/(""""/>
 		<input type="hidden" id="forum_id" name="forum_id" value=""""),_display_(Seq[Any](/*16.62*/form/*16.66*/.field("forum_id").value())),format.raw/*16.92*/(""""/>
 		<input type="hidden" id="forum_name" name="forum_name" value=""""),_display_(Seq[Any](/*17.66*/form/*17.70*/.field("forum_name").value())),format.raw/*17.98*/(""""/>
 		"""),_display_(Seq[Any](/*18.4*/helper/*18.10*/.inputText(form("name")
+				,'size -> "50"
         		, '_label -> "New Theme Name:"
         		, 'placeholder ->"Write a theme"
         		, '_showConstraints -> true
-        		))),format.raw/*22.12*/("""
+        ))),format.raw/*23.10*/("""
 		
-		<input type="submit" name="enviar" value="Insert" class="btn btn-success"/>
-        <a href=""""),_display_(Seq[Any](/*25.19*/routes/*25.25*/.Themes.index(Long.valueOf(form.field("forum_id").value())))),format.raw/*25.84*/("""" class="btn btn-primary">Cancel</a>
-	""")))})),format.raw/*26.3*/("""
+		<input type="submit" value="Insert" class="btn btn-success"/>
+        <a href=""""),_display_(Seq[Any](/*26.19*/routes/*26.25*/.Themes.index(Long.valueOf(form.field("forum_id").value())))),format.raw/*26.84*/("""" class="btn btn-primary">Cancel</a>
+	""")))})),format.raw/*27.3*/("""
 """)))})))}
     }
     
@@ -64,11 +65,11 @@ Seq[Any](format.raw/*1.33*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Wed May 21 20:25:17 CEST 2014
+                    DATE: Thu May 22 23:38:24 CEST 2014
                     SOURCE: G:/eclipse_workspace/play_forums_orm/app/views/Themes/insert.scala.html
-                    HASH: 2c9dcd0211940ef1bad477ff1739afc0f7b04e35
-                    MATRIX: 799->1|924->32|963->37|974->41|1012->43|1076->72|1090->78|1170->137|1222->154|1234->158|1283->186|1347->233|1385->235|1435->250|1447->254|1496->282|1573->324|1587->330|1725->460|1764->462|1857->519|1870->523|1912->543|2014->609|2027->613|2075->639|2181->709|2194->713|2244->741|2287->749|2302->755|2485->916|2624->1019|2639->1025|2720->1084|2791->1124
-                    LINES: 26->1|29->1|31->3|31->3|31->3|32->4|32->4|32->4|33->5|33->5|33->5|35->7|35->7|36->8|36->8|36->8|38->10|38->10|41->13|41->13|43->15|43->15|43->15|44->16|44->16|44->16|45->17|45->17|45->17|46->18|46->18|50->22|53->25|53->25|53->25|54->26
+                    HASH: e8aa996d619478d112c6a220c64d6177b002949a
+                    MATRIX: 799->1|924->32|963->37|974->41|1012->43|1076->72|1090->78|1170->137|1222->154|1234->158|1283->186|1347->233|1385->235|1435->250|1447->254|1496->282|1573->324|1587->330|1725->460|1764->462|1856->518|1869->522|1911->542|2013->608|2026->612|2074->638|2180->708|2193->712|2243->740|2286->748|2301->754|2502->933|2627->1022|2642->1028|2723->1087|2794->1127
+                    LINES: 26->1|29->1|31->3|31->3|31->3|32->4|32->4|32->4|33->5|33->5|33->5|35->7|35->7|36->8|36->8|36->8|38->10|38->10|41->13|41->13|43->15|43->15|43->15|44->16|44->16|44->16|45->17|45->17|45->17|46->18|46->18|51->23|54->26|54->26|54->26|55->27
                     -- GENERATED --
                 */
             
