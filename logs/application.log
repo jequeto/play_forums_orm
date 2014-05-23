@@ -1,521 +1,826 @@
-2014-05-22 23:48:47,813 - [INFO] - from play in pool-52-thread-2 
+2014-05-23 09:54:31,158 - [INFO] - from play in pool-4-thread-1 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2014-05-22 23:49:05,572 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+2014-05-23 09:55:53,340 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
 JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
 
-2014-05-22 23:49:06,450 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+2014-05-23 09:55:53,565 - [ERROR] - from com.jolbox.bonecp.hooks.AbstractConnectionHook in play-internal-execution-context-1 
+Failed to obtain initial connection Sleeping for 0ms and trying again. Attempts left: 0. Exception: null.Message:Aborted connection 4 to db: 'forums' user: 'forums' host: 'localhost' (init_connect command failed)
 
-2014-05-22 23:49:10,908 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2014-05-23 09:55:53,590 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6iahc8pm3 - Internal server error, for (GET) [/] ->
+
+play.api.Configuration$$anon$1: Configuration error[Cannot connect to database [default]]
+	at play.api.Configuration$.play$api$Configuration$$configError(Configuration.scala:92) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Configuration.reportError(Configuration.scala:570) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.db.BoneCPPlugin$$anonfun$onStart$1.apply(DB.scala:252) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at play.api.db.BoneCPPlugin$$anonfun$onStart$1.apply(DB.scala:243) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.TraversableLike$class.map(TraversableLike.scala:244) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.AbstractTraversable.map(Traversable.scala:105) ~[scala-library-2.10.3.jar:na]
+	at play.api.db.BoneCPPlugin.onStart(DB.scala:243) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:18) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$.start(Play.scala:87) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:139) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:112) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:112) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:110) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.util.Success.flatMap(Try.scala:200) ~[scala-library-2.10.3.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Aborted connection 4 to db: 'forums' user: 'forums' host: 'localhost' (init_connect command failed)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_45]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source) ~[na:1.7.0_45]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source) ~[na:1.7.0_45]
+	at java.lang.reflect.Constructor.newInstance(Unknown Source) ~[na:1.7.0_45]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.Util.getInstance(Util.java:386) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1013) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3609) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3541) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2002) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2163) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2618) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2568) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.StatementImpl.executeQuery(StatementImpl.java:1557) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.loadServerVariables(ConnectionImpl.java:3868) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.initializePropsFromServer(ConnectionImpl.java:3407) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2384) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2153) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:792) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47) ~[mysql-connector-java-5.1.18.jar:na]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_45]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source) ~[na:1.7.0_45]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source) ~[na:1.7.0_45]
+	at java.lang.reflect.Constructor.newInstance(Unknown Source) ~[na:1.7.0_45]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:381) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305) ~[mysql-connector-java-5.1.18.jar:na]
+	at java.sql.DriverManager.getConnection(Unknown Source) ~[na:1.7.0_45]
+	at java.sql.DriverManager.getConnection(Unknown Source) ~[na:1.7.0_45]
+	at com.jolbox.bonecp.BoneCP.obtainRawInternalConnection(BoneCP.java:363) ~[bonecp-0.8.0.RELEASE.jar:na]
+	at com.jolbox.bonecp.BoneCP.<init>(BoneCP.java:416) ~[bonecp-0.8.0.RELEASE.jar:na]
+	at com.jolbox.bonecp.BoneCPDataSource.getConnection(BoneCPDataSource.java:120) ~[bonecp-0.8.0.RELEASE.jar:na]
+	at play.api.db.BoneCPPlugin$$anonfun$onStart$1.apply(DB.scala:245) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	... 30 common frames omitted
+
+2014-05-23 09:55:53,590 - [ERROR] - from application in New I/O worker #4 
+
+
+! @6iahc8pm3 - Internal server error, for (GET) [/] ->
+
+play.api.Configuration$$anon$1: Configuration error[Cannot connect to database [default]]
+	at play.api.Configuration$.play$api$Configuration$$configError(Configuration.scala:92) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Configuration.reportError(Configuration.scala:570) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.db.BoneCPPlugin$$anonfun$onStart$1.apply(DB.scala:252) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at play.api.db.BoneCPPlugin$$anonfun$onStart$1.apply(DB.scala:243) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.TraversableLike$class.map(TraversableLike.scala:244) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.AbstractTraversable.map(Traversable.scala:105) ~[scala-library-2.10.3.jar:na]
+	at play.api.db.BoneCPPlugin.onStart(DB.scala:243) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:18) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$.start(Play.scala:87) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:139) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:112) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:112) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:110) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.util.Success.flatMap(Try.scala:200) ~[scala-library-2.10.3.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Aborted connection 4 to db: 'forums' user: 'forums' host: 'localhost' (init_connect command failed)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_45]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source) ~[na:1.7.0_45]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source) ~[na:1.7.0_45]
+	at java.lang.reflect.Constructor.newInstance(Unknown Source) ~[na:1.7.0_45]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.Util.getInstance(Util.java:386) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1013) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3609) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3541) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2002) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2163) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2618) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2568) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.StatementImpl.executeQuery(StatementImpl.java:1557) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.loadServerVariables(ConnectionImpl.java:3868) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.initializePropsFromServer(ConnectionImpl.java:3407) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2384) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2153) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:792) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47) ~[mysql-connector-java-5.1.18.jar:na]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_45]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source) ~[na:1.7.0_45]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source) ~[na:1.7.0_45]
+	at java.lang.reflect.Constructor.newInstance(Unknown Source) ~[na:1.7.0_45]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:381) ~[mysql-connector-java-5.1.18.jar:na]
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305) ~[mysql-connector-java-5.1.18.jar:na]
+	at java.sql.DriverManager.getConnection(Unknown Source) ~[na:1.7.0_45]
+	at java.sql.DriverManager.getConnection(Unknown Source) ~[na:1.7.0_45]
+	at com.jolbox.bonecp.BoneCP.obtainRawInternalConnection(BoneCP.java:363) ~[bonecp-0.8.0.RELEASE.jar:na]
+	at com.jolbox.bonecp.BoneCP.<init>(BoneCP.java:416) ~[bonecp-0.8.0.RELEASE.jar:na]
+	at com.jolbox.bonecp.BoneCPDataSource.getConnection(BoneCPDataSource.java:120) ~[bonecp-0.8.0.RELEASE.jar:na]
+	at play.api.db.BoneCPPlugin$$anonfun$onStart$1.apply(DB.scala:245) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	... 30 common frames omitted
+
+2014-05-23 09:58:22,709 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+JDBC URL = jdbc:h2:/play_db/forums/h2-db-file, Username = sa, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-23 09:58:28,420 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:/play_db/forums/h2-db-file
+
+2014-05-23 09:58:31,832 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
 
-2014-05-22 23:49:10,918 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2014-05-23 09:58:31,834 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 
             select id, hash, apply_script, revert_script from play_evolutions order by id
         
 
-2014-05-22 23:49:11,420 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-1 
+2014-05-23 09:58:32,068 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-1 
 select count(*) from user t0
 
-2014-05-22 23:49:11,444 - [INFO] - from play in play-internal-execution-context-1 
+2014-05-23 09:58:32,435 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2014-05-22 23:50:17,828 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-7 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t1.id c5, t1.name c6, t1.password c7, t1.email c8, t1.creation_date c9, t1.version c10, t2.id c11, t2.name c12, t2.creation_date c13, t2.version c14, t2.forum_id c15, t2.creator_user_id c16 from forum t0 left outer join user t1 on t1.id = t0.creator_user_id  left outer join theme t2 on t2.forum_id = t0.id  order by t0.id
-
-2014-05-22 23:50:32,916 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-9 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t0.creator_user_id c5 from forum t0 where t0.id = 1  
-
-2014-05-22 23:50:32,939 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-9 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t2.id c4, t2.name c5, t2.description c6, t2.creation_date c7, t2.version c8, t2.creator_user_id c9, t1.id c10, t1.name c11, t1.password c12, t1.email c13, t1.creation_date c14, t1.version c15, t3.id c16, t3.text c17, t3.creation_date c18, t3.version c19, t3.theme_id c20, t3.user_id c21 from theme t0 left outer join forum t2 on t2.id = t0.forum_id  left outer join user t1 on t1.id = t0.creator_user_id  left outer join message t3 on t3.theme_id = t0.id  where forum_id = 1  order by t0.id
-
-2014-05-22 23:50:33,000 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-9 
-select t0.id c0, t1.id c1, t1.name c2, t1.creation_date c3, t1.version c4, t1.forum_id c5, t1.creator_user_id c6 from forum t0 left outer join theme t1 on t1.forum_id = t0.id  where t0.id = 1   order by t0.id
-
-2014-05-22 23:50:52,962 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-6 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t0.creator_user_id c4, t1.id c5, t1.name c6, t1.description c7, t1.creation_date c8, t1.version c9, t1.creator_user_id c10 from theme t0 left outer join forum t1 on t1.id = t0.forum_id  where t0.id = 1 
-
-2014-05-22 23:50:53,215 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-6 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t0.forum_id c4, t0.creator_user_id c5 from theme t0 where t0.name = 'afff'  and forum_id = 1  and t0.id <> 1 
-
-2014-05-22 23:51:07,012 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-8 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t0.creator_user_id c4, t1.id c5, t1.name c6, t1.description c7, t1.creation_date c8, t1.version c9, t1.creator_user_id c10 from theme t0 left outer join forum t1 on t1.id = t0.forum_id  where t0.id = 1 
-
-2014-05-22 23:51:07,034 - [ERROR] - from play in play-internal-execution-context-1 
-Cannot invoke the action, eventually got an error: java.lang.NumberFormatException: null
-
-2014-05-22 23:51:07,162 - [ERROR] - from application in play-internal-execution-context-1 
-
-
-! @6iaeaobi8 - Internal server error, for (POST) [/forums_orm/themes/1/update] ->
-
-play.api.Application$$anon$1: Execution exception[[NumberFormatException: null]]
-	at play.api.Application$class.handleError(Application.scala:293) ~[na:na]
-	at play.api.DefaultApplication.handleError(Application.scala:399) ~[na:na]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
-	at scala.Option.map(Option.scala:145) ~[na:na]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) ~[na:na]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) ~[na:na]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) ~[na:na]
-	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
-	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
-	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody0(Execution.scala:43) ~[na:na]
-	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody1$advice(Execution.scala:138) ~[na:na]
-	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:1) ~[na:na]
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) ~[na:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete_aroundBody2(Promise.scala:248) ~[na:na]
-	at scala.concurrent.impl.Promise$DefaultPromise$AjcClosure3.run(Promise.scala:1) ~[na:na]
-	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0proceed(FutureTraceAspect.aj:148) ~[na:na]
-	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0(FutureTraceAspect.aj:150) ~[na:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:244) ~[na:na]
-	at scala.concurrent.Promise$class.complete(Promise.scala:55) ~[na:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) ~[na:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
-	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
-	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[na:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[na:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[na:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[na:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[na:na]
-Caused by: java.lang.NumberFormatException: null
-	at java.lang.Long.parseLong(Long.java:404) ~[na:1.7.0_25]
-	at java.lang.Long.valueOf(Long.java:540) ~[na:1.7.0_25]
-	at views.html.Themes.update$.apply(update.template.scala:32) ~[na:na]
-	at views.html.Themes.update$.render(update.template.scala:56) ~[na:na]
-	at views.html.Themes.update.render(update.template.scala) ~[na:na]
-	at controllers.Themes.updateValidate(Themes.java:86) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$18$$anonfun$apply$18.apply(routes_routing.scala:265) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$18$$anonfun$apply$18.apply(routes_routing.scala:265) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[na:na]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[na:na]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[na:na]
-	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[na:na]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[na:na]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[na:na]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[na:na]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[na:na]
-	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
-	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[na:na]
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39) ~[na:na]
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:385) ~[na:na]
-	... 4 common frames omitted
-
-2014-05-22 23:54:44,501 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-5 
+2014-05-23 09:58:42,715 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
 Shutting down connection pool...
 
-2014-05-22 23:54:44,504 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+2014-05-23 09:58:42,717 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
 Terminating pool watch thread
 
-2014-05-22 23:54:44,657 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-5 
+2014-05-23 09:58:43,977 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
 Connection pool has been shutdown.
 
-2014-05-22 23:54:44,659 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-5 
+2014-05-23 09:58:43,979 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
 Connection pool has been shut down
 
-2014-05-22 23:54:44,796 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-5 
-JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+2014-05-23 09:58:44,055 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+JDBC URL = jdbc:h2:/play_db/forums/h2-db-file, Username = sa, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
 
-2014-05-22 23:54:45,116 - [INFO] - from play in play-internal-execution-context-5 
-database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+2014-05-23 09:58:47,369 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:/play_db/forums/h2-db-file
 
-2014-05-22 23:54:50,342 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-5 
+2014-05-23 09:58:49,791 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
 
-2014-05-22 23:54:50,347 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-5 
+2014-05-23 09:58:49,792 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 
             select id, hash, apply_script, revert_script from play_evolutions order by id
         
 
-2014-05-22 23:54:50,387 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-5 
+2014-05-23 09:58:49,806 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-1 
 select count(*) from user t0
 
-2014-05-22 23:54:50,399 - [INFO] - from play in play-internal-execution-context-5 
+2014-05-23 09:58:49,807 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2014-05-22 23:54:50,456 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-15 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t0.creator_user_id c4, t1.id c5, t1.name c6, t1.description c7, t1.creation_date c8, t1.version c9, t1.creator_user_id c10 from theme t0 left outer join forum t1 on t1.id = t0.forum_id  where t0.id = 1 
-
-2014-05-22 23:54:50,547 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-15 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t0.forum_id c4, t0.creator_user_id c5 from theme t0 where t0.name = 'afff'  and forum_id = 1  and t0.id <> 1 
-
-2014-05-22 23:57:09,972 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-28 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t0.forum_id c4, t0.creator_user_id c5 from theme t0 where t0.name = 'afffhhh'  and forum_id = 1  and t0.id <> 1 
-
-2014-05-22 23:57:09,983 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-28 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t0.forum_id c4, t0.creator_user_id c5 from theme t0 where t0.id = 1  
-
-2014-05-22 23:57:10,004 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-28 
-update theme set name='afffhhh', version=3 where id=1 and version=2
-
-2014-05-22 23:57:10,219 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-28 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t0.creator_user_id c5 from forum t0 where t0.id = 1  
-
-2014-05-22 23:57:10,231 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-28 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t2.id c4, t2.name c5, t2.description c6, t2.creation_date c7, t2.version c8, t2.creator_user_id c9, t1.id c10, t1.name c11, t1.password c12, t1.email c13, t1.creation_date c14, t1.version c15, t3.id c16, t3.text c17, t3.creation_date c18, t3.version c19, t3.theme_id c20, t3.user_id c21 from theme t0 left outer join forum t2 on t2.id = t0.forum_id  left outer join user t1 on t1.id = t0.creator_user_id  left outer join message t3 on t3.theme_id = t0.id  where forum_id = 1  order by t0.id
-
-2014-05-22 23:57:10,258 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-28 
-select t0.id c0, t1.id c1, t1.name c2, t1.creation_date c3, t1.version c4, t1.forum_id c5, t1.creator_user_id c6 from forum t0 left outer join theme t1 on t1.forum_id = t0.id  where t0.id = 1   order by t0.id
-
-2014-05-22 23:57:19,625 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t0.forum_id c4, t0.creator_user_id c5 from theme t0 where t0.name = 'b'  and forum_id = 1 
-
-2014-05-22 23:57:19,636 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t0.creator_user_id c5 from forum t0 where t0.id = 1  
-
-2014-05-22 23:57:19,646 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-select t0.id c0, t0.name c1, t0.password c2, t0.email c3, t0.creation_date c4, t0.version c5 from user t0 where t0.email = 'admin@email.com' 
-
-2014-05-22 23:57:19,675 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-insert into theme (name, creation_date, version, forum_id, creator_user_id) values ('b',2014-05-22 23:57:19.67,1,1,1)
-
-2014-05-22 23:57:19,896 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t0.creator_user_id c5 from forum t0 where t0.id = 1  
-
-2014-05-22 23:57:19,908 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t2.id c4, t2.name c5, t2.description c6, t2.creation_date c7, t2.version c8, t2.creator_user_id c9, t1.id c10, t1.name c11, t1.password c12, t1.email c13, t1.creation_date c14, t1.version c15, t3.id c16, t3.text c17, t3.creation_date c18, t3.version c19, t3.theme_id c20, t3.user_id c21 from theme t0 left outer join forum t2 on t2.id = t0.forum_id  left outer join user t1 on t1.id = t0.creator_user_id  left outer join message t3 on t3.theme_id = t0.id  where forum_id = 1  order by t0.id
-
-2014-05-22 23:57:19,955 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-select t0.id c0, t1.id c1, t1.name c2, t1.creation_date c3, t1.version c4, t1.forum_id c5, t1.creator_user_id c6 from forum t0 left outer join theme t1 on t1.forum_id = t0.id  where t0.id = 1   order by t0.id
-
-2014-05-22 23:57:29,634 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-37 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t0.forum_id c4, t0.creator_user_id c5 from theme t0 where t0.name = 'd'  and forum_id = 1 
-
-2014-05-22 23:57:29,649 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-37 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t0.creator_user_id c5 from forum t0 where t0.id = 1  
-
-2014-05-22 23:57:29,662 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-37 
-select t0.id c0, t0.name c1, t0.password c2, t0.email c3, t0.creation_date c4, t0.version c5 from user t0 where t0.email = 'admin@email.com' 
-
-2014-05-22 23:57:29,675 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-37 
-insert into theme (name, creation_date, version, forum_id, creator_user_id) values ('d',2014-05-22 23:57:29.671,1,1,1)
-
-2014-05-22 23:57:29,765 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-29 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t0.creator_user_id c5 from forum t0 where t0.id = 1  
-
-2014-05-22 23:57:29,778 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-29 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t2.id c4, t2.name c5, t2.description c6, t2.creation_date c7, t2.version c8, t2.creator_user_id c9, t1.id c10, t1.name c11, t1.password c12, t1.email c13, t1.creation_date c14, t1.version c15, t3.id c16, t3.text c17, t3.creation_date c18, t3.version c19, t3.theme_id c20, t3.user_id c21 from theme t0 left outer join forum t2 on t2.id = t0.forum_id  left outer join user t1 on t1.id = t0.creator_user_id  left outer join message t3 on t3.theme_id = t0.id  where forum_id = 1  order by t0.id
-
-2014-05-22 23:57:29,795 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-29 
-select t0.id c0, t1.id c1, t1.name c2, t1.creation_date c3, t1.version c4, t1.forum_id c5, t1.creator_user_id c6 from forum t0 left outer join theme t1 on t1.forum_id = t0.id  where t0.id = 1   order by t0.id
-
-2014-05-22 23:57:39,270 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t1.id c5, t1.name c6, t1.password c7, t1.email c8, t1.creation_date c9, t1.version c10, t2.id c11, t2.name c12, t2.creation_date c13, t2.version c14, t2.forum_id c15, t2.creator_user_id c16 from forum t0 left outer join user t1 on t1.id = t0.creator_user_id  left outer join theme t2 on t2.forum_id = t0.id  order by t0.id
-
-2014-05-22 23:57:45,133 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-36 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t0.creator_user_id c5 from forum t0 where t0.id = 1  
-
-2014-05-22 23:57:45,146 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-36 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t2.id c4, t2.name c5, t2.description c6, t2.creation_date c7, t2.version c8, t2.creator_user_id c9, t1.id c10, t1.name c11, t1.password c12, t1.email c13, t1.creation_date c14, t1.version c15, t3.id c16, t3.text c17, t3.creation_date c18, t3.version c19, t3.theme_id c20, t3.user_id c21 from theme t0 left outer join forum t2 on t2.id = t0.forum_id  left outer join user t1 on t1.id = t0.creator_user_id  left outer join message t3 on t3.theme_id = t0.id  where forum_id = 1  order by t0.id
-
-2014-05-22 23:57:45,166 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-36 
-select t0.id c0, t1.id c1, t1.name c2, t1.creation_date c3, t1.version c4, t1.forum_id c5, t1.creator_user_id c6 from forum t0 left outer join theme t1 on t1.forum_id = t0.id  where t0.id = 1   order by t0.id
-
-2014-05-22 23:57:48,810 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-40 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t0.creator_user_id c4, t1.id c5, t1.name c6, t1.description c7, t1.creation_date c8, t1.version c9, t1.creator_user_id c10 from theme t0 left outer join forum t1 on t1.id = t0.forum_id  where t0.id = 3 
-
-2014-05-22 23:57:58,342 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t0.forum_id c4, t0.creator_user_id c5 from theme t0 where t0.id = 3  
-
-2014-05-22 23:57:58,386 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-select t0.id c0 from message t0 where theme_id=3 
-
-2014-05-22 23:57:58,392 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-delete from theme where id=3 and version=1
-
-2014-05-22 23:57:58,429 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-select t0.id c0 from theme t0 where forum_id=1 
-
-2014-05-22 23:57:58,434 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-select t0.id c0, t0.forum_id c1 from theme t0 where t0.id in (1,2) 
-
-2014-05-22 23:57:58,456 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-select t0.id c0 from message t0 where theme_id=1 
-
-2014-05-22 23:57:58,459 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-delete from theme where id=1 and forum_id=1
-
-2014-05-22 23:57:59,113 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-select t0.id c0 from message t0 where theme_id=2 
-
-2014-05-22 23:57:59,119 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-delete from theme where id=2 and forum_id=1
-
-2014-05-22 23:57:59,153 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-delete from forum_user where forum_id = 1
-
-2014-05-22 23:57:59,445 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-delete from forum where id=1
-
-2014-05-22 23:57:59,558 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-38 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t0.creator_user_id c5 from forum t0 where t0.id = 1  
-
-2014-05-22 23:58:17,146 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t1.id c5, t1.name c6, t1.password c7, t1.email c8, t1.creation_date c9, t1.version c10, t2.id c11, t2.name c12, t2.creation_date c13, t2.version c14, t2.forum_id c15, t2.creator_user_id c16 from forum t0 left outer join user t1 on t1.id = t0.creator_user_id  left outer join theme t2 on t2.forum_id = t0.id  order by t0.id
-
-2014-05-22 23:58:24,246 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-37 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t1.id c5, t1.name c6, t1.password c7, t1.email c8, t1.creation_date c9, t1.version c10, t2.id c11, t2.name c12, t2.creation_date c13, t2.version c14, t2.forum_id c15, t2.creator_user_id c16 from forum t0 left outer join user t1 on t1.id = t0.creator_user_id  left outer join theme t2 on t2.forum_id = t0.id  order by t0.id
-
-2014-05-23 00:01:32,660 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-14 
-Shutting down connection pool...
-
-2014-05-23 00:01:32,664 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
-Terminating pool watch thread
-
-2014-05-23 00:01:32,678 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-14 
-Connection pool has been shutdown.
-
-2014-05-23 00:01:32,679 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-14 
-Connection pool has been shut down
-
-2014-05-23 00:01:32,837 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-14 
-JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
-
-2014-05-23 00:01:33,069 - [INFO] - from play in play-internal-execution-context-14 
-database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
-
-2014-05-23 00:01:37,476 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-14 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
-
-2014-05-23 00:01:37,481 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-14 
-
-            select id, hash, apply_script, revert_script from play_evolutions order by id
-        
-
-2014-05-23 00:01:37,512 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-14 
-select count(*) from user t0
-
-2014-05-23 00:01:37,519 - [INFO] - from play in play-internal-execution-context-14 
-Application started (Dev)
-
-2014-05-23 00:01:37,562 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-48 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t0.creator_user_id c5 from forum t0 where t0.id = 2  
-
-2014-05-23 00:01:37,573 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-48 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t2.id c4, t2.name c5, t2.description c6, t2.creation_date c7, t2.version c8, t2.creator_user_id c9, t1.id c10, t1.name c11, t1.password c12, t1.email c13, t1.creation_date c14, t1.version c15, t3.id c16, t3.text c17, t3.creation_date c18, t3.version c19, t3.theme_id c20, t3.user_id c21 from theme t0 left outer join forum t2 on t2.id = t0.forum_id  left outer join user t1 on t1.id = t0.creator_user_id  left outer join message t3 on t3.theme_id = t0.id  where forum_id = 2  order by t0.id
-
-2014-05-23 00:01:37,607 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-48 
-select t0.id c0, t1.id c1, t1.name c2, t1.creation_date c3, t1.version c4, t1.forum_id c5, t1.creator_user_id c6 from forum t0 left outer join theme t1 on t1.forum_id = t0.id  where t0.id = 2   order by t0.id
-
-2014-05-23 00:01:47,606 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-14 
-Shutting down connection pool...
-
-2014-05-23 00:01:47,608 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
-Terminating pool watch thread
-
-2014-05-23 00:01:47,623 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-14 
-Connection pool has been shutdown.
-
-2014-05-23 00:01:47,623 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-14 
-Connection pool has been shut down
-
-2014-05-23 00:01:47,791 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-14 
-JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
-
-2014-05-23 00:01:48,072 - [INFO] - from play in play-internal-execution-context-14 
-database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
-
-2014-05-23 00:01:51,179 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-14 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
-
-2014-05-23 00:01:51,186 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-14 
-
-            select id, hash, apply_script, revert_script from play_evolutions order by id
-        
-
-2014-05-23 00:01:51,224 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-14 
-select count(*) from user t0
-
-2014-05-23 00:01:51,261 - [INFO] - from play in play-internal-execution-context-14 
-Application started (Dev)
-
-2014-05-23 00:03:28,395 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-56 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t0.forum_id c4, t0.creator_user_id c5 from theme t0 where t0.name = 'a'  and forum_id = 2 
-
-2014-05-23 00:03:28,408 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-56 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t0.creator_user_id c5 from forum t0 where t0.id = 2  
-
-2014-05-23 00:03:28,423 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-56 
-select t0.id c0, t0.name c1, t0.password c2, t0.email c3, t0.creation_date c4, t0.version c5 from user t0 where t0.email = 'admin@email.com' 
-
-2014-05-23 00:03:28,435 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-56 
-insert into theme (name, creation_date, version, forum_id, creator_user_id) values ('a',2014-05-23 00:03:28.431,1,2,1)
-
-2014-05-23 00:03:28,643 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-56 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t0.creator_user_id c5 from forum t0 where t0.id = 2  
-
-2014-05-23 00:03:28,654 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-56 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t2.id c4, t2.name c5, t2.description c6, t2.creation_date c7, t2.version c8, t2.creator_user_id c9, t1.id c10, t1.name c11, t1.password c12, t1.email c13, t1.creation_date c14, t1.version c15, t3.id c16, t3.text c17, t3.creation_date c18, t3.version c19, t3.theme_id c20, t3.user_id c21 from theme t0 left outer join forum t2 on t2.id = t0.forum_id  left outer join user t1 on t1.id = t0.creator_user_id  left outer join message t3 on t3.theme_id = t0.id  where forum_id = 2  order by t0.id
-
-2014-05-23 00:03:28,684 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-56 
-select t0.id c0, t1.id c1, t1.name c2, t1.creation_date c3, t1.version c4, t1.forum_id c5, t1.creator_user_id c6 from forum t0 left outer join theme t1 on t1.forum_id = t0.id  where t0.id = 2   order by t0.id
-
-2014-05-23 00:03:35,227 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-61 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t0.forum_id c4, t0.creator_user_id c5 from theme t0 where t0.name = 'b'  and forum_id = 2 
-
-2014-05-23 00:03:35,242 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-61 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t0.creator_user_id c5 from forum t0 where t0.id = 2  
-
-2014-05-23 00:03:35,262 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-61 
-select t0.id c0, t0.name c1, t0.password c2, t0.email c3, t0.creation_date c4, t0.version c5 from user t0 where t0.email = 'admin@email.com' 
-
-2014-05-23 00:03:35,277 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-61 
-insert into theme (name, creation_date, version, forum_id, creator_user_id) values ('b',2014-05-23 00:03:35.272,1,2,1)
-
-2014-05-23 00:03:35,379 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-61 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t0.creator_user_id c5 from forum t0 where t0.id = 2  
-
-2014-05-23 00:03:35,392 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-61 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t2.id c4, t2.name c5, t2.description c6, t2.creation_date c7, t2.version c8, t2.creator_user_id c9, t1.id c10, t1.name c11, t1.password c12, t1.email c13, t1.creation_date c14, t1.version c15, t3.id c16, t3.text c17, t3.creation_date c18, t3.version c19, t3.theme_id c20, t3.user_id c21 from theme t0 left outer join forum t2 on t2.id = t0.forum_id  left outer join user t1 on t1.id = t0.creator_user_id  left outer join message t3 on t3.theme_id = t0.id  where forum_id = 2  order by t0.id
-
-2014-05-23 00:03:35,411 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-61 
-select t0.id c0, t1.id c1, t1.name c2, t1.creation_date c3, t1.version c4, t1.forum_id c5, t1.creator_user_id c6 from forum t0 left outer join theme t1 on t1.forum_id = t0.id  where t0.id = 2   order by t0.id
-
-2014-05-23 00:03:41,177 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-63 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t0.creator_user_id c4, t1.id c5, t1.name c6, t1.description c7, t1.creation_date c8, t1.version c9, t1.creator_user_id c10 from theme t0 left outer join forum t1 on t1.id = t0.forum_id  where t0.id = 5 
-
-2014-05-23 00:03:44,789 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-62 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t0.forum_id c4, t0.creator_user_id c5 from theme t0 where t0.id = 5  
-
-2014-05-23 00:03:44,802 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-62 
-select t0.id c0 from message t0 where theme_id=5 
-
-2014-05-23 00:03:44,805 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-62 
-delete from theme where id=5 and version=1
-
-2014-05-23 00:03:44,864 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-62 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t0.creator_user_id c5 from forum t0 where t0.id = 2  
-
-2014-05-23 00:03:44,876 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-62 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t2.id c4, t2.name c5, t2.description c6, t2.creation_date c7, t2.version c8, t2.creator_user_id c9, t1.id c10, t1.name c11, t1.password c12, t1.email c13, t1.creation_date c14, t1.version c15, t3.id c16, t3.text c17, t3.creation_date c18, t3.version c19, t3.theme_id c20, t3.user_id c21 from theme t0 left outer join forum t2 on t2.id = t0.forum_id  left outer join user t1 on t1.id = t0.creator_user_id  left outer join message t3 on t3.theme_id = t0.id  where forum_id = 2  order by t0.id
-
-2014-05-23 00:03:44,890 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-62 
-select t0.id c0, t1.id c1, t1.name c2, t1.creation_date c3, t1.version c4, t1.forum_id c5, t1.creator_user_id c6 from forum t0 left outer join theme t1 on t1.forum_id = t0.id  where t0.id = 2   order by t0.id
-
-2014-05-23 00:16:44,221 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-14 
-Shutting down connection pool...
-
-2014-05-23 00:16:44,223 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
-Terminating pool watch thread
-
-2014-05-23 00:16:44,229 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-14 
-Connection pool has been shutdown.
-
-2014-05-23 00:16:44,229 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-14 
-Connection pool has been shut down
-
-2014-05-23 00:16:44,384 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-14 
-JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
-
-2014-05-23 00:16:44,631 - [INFO] - from play in play-internal-execution-context-14 
-database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
-
-2014-05-23 00:16:50,478 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-14 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
-
-2014-05-23 00:16:50,483 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-14 
-
-            select id, hash, apply_script, revert_script from play_evolutions order by id
-        
-
-2014-05-23 00:16:50,516 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-14 
-select count(*) from user t0
-
-2014-05-23 00:16:50,525 - [INFO] - from play in play-internal-execution-context-14 
-Application started (Dev)
-
-2014-05-23 00:16:50,578 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-67 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t1.id c5, t1.name c6, t1.password c7, t1.email c8, t1.creation_date c9, t1.version c10, t2.id c11, t2.name c12, t2.creation_date c13, t2.version c14, t2.forum_id c15, t2.creator_user_id c16 from forum t0 left outer join user t1 on t1.id = t0.creator_user_id  left outer join theme t2 on t2.forum_id = t0.id  order by t0.id
-
-2014-05-23 00:16:53,589 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-74 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t0.creator_user_id c5 from forum t0 where t0.id = 2  
-
-2014-05-23 00:16:53,606 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-74 
-select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t2.id c4, t2.name c5, t2.description c6, t2.creation_date c7, t2.version c8, t2.creator_user_id c9, t1.id c10, t1.name c11, t1.password c12, t1.email c13, t1.creation_date c14, t1.version c15, t3.id c16, t3.text c17, t3.creation_date c18, t3.version c19, t3.theme_id c20, t3.user_id c21 from theme t0 left outer join forum t2 on t2.id = t0.forum_id  left outer join user t1 on t1.id = t0.creator_user_id  left outer join message t3 on t3.theme_id = t0.id  where forum_id = 2  order by t0.id
-
-2014-05-23 00:16:53,649 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-74 
-select t0.id c0, t1.id c1, t1.name c2, t1.creation_date c3, t1.version c4, t1.forum_id c5, t1.creator_user_id c6 from forum t0 left outer join theme t1 on t1.forum_id = t0.id  where t0.id = 2   order by t0.id
-
-2014-05-23 00:17:15,613 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-77 
+2014-05-23 09:59:52,399 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-15 
 select t0.id c0, t0.name c1, t0.password c2, t0.email c3, t0.creation_date c4, t0.version c5 from user t0 where t0.email = 'admin@email.com'  and t0.password = 'admin00' 
 
-2014-05-23 00:17:15,640 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-77 
+2014-05-23 09:59:52,494 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-16 
 select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t1.id c5, t1.name c6, t1.password c7, t1.email c8, t1.creation_date c9, t1.version c10, t2.id c11, t2.name c12, t2.creation_date c13, t2.version c14, t2.forum_id c15, t2.creator_user_id c16 from forum t0 left outer join user t1 on t1.id = t0.creator_user_id  left outer join theme t2 on t2.forum_id = t0.id  order by t0.id
 
-2014-05-23 00:19:32,943 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-14 
+2014-05-23 10:02:32,446 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-26 
+select t0.id c0, t0.name c1, t0.password c2, t0.email c3, t0.creation_date c4, t0.version c5 from user t0 where t0.email = 'admin@email.com'  and t0.password = 'admin00' 
+
+2014-05-23 10:02:32,456 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-26 
+select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t1.id c5, t1.name c6, t1.password c7, t1.email c8, t1.creation_date c9, t1.version c10, t2.id c11, t2.name c12, t2.creation_date c13, t2.version c14, t2.forum_id c15, t2.creator_user_id c16 from forum t0 left outer join user t1 on t1.id = t0.creator_user_id  left outer join theme t2 on t2.forum_id = t0.id  order by t0.id
+
+2014-05-23 10:23:40,664 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-3 
 Shutting down connection pool...
 
-2014-05-23 00:19:32,947 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+2014-05-23 10:23:40,666 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
 Terminating pool watch thread
 
-2014-05-23 00:19:32,967 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-14 
+2014-05-23 10:23:41,866 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-3 
 Connection pool has been shutdown.
 
-2014-05-23 00:19:32,968 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-14 
+2014-05-23 10:23:41,867 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-3 
 Connection pool has been shut down
 
-2014-05-23 00:19:33,117 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-14 
-JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+2014-05-23 10:23:41,966 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-3 
+JDBC URL = jdbc:h2:/play_db/forums/h2-db-file, Username = sa, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
 
-2014-05-23 00:19:33,365 - [INFO] - from play in play-internal-execution-context-14 
-database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+2014-05-23 10:23:45,289 - [INFO] - from play in play-internal-execution-context-3 
+database [default] connected at jdbc:h2:/play_db/forums/h2-db-file
 
-2014-05-23 00:19:37,205 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-14 
+2014-05-23 10:23:48,100 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-3 
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
 
-2014-05-23 00:19:37,211 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-14 
+2014-05-23 10:23:48,106 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-3 
 
             select id, hash, apply_script, revert_script from play_evolutions order by id
         
 
-2014-05-23 00:19:37,240 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-14 
-select count(*) from user t0
+2014-05-23 10:23:48,136 - [ERROR] - from application in New I/O worker #2 
 
-2014-05-23 00:19:37,248 - [INFO] - from play in play-internal-execution-context-14 
-Application started (Dev)
 
-2014-05-23 00:19:37,317 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-78 
-select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t1.id c5, t1.name c6, t1.password c7, t1.email c8, t1.creation_date c9, t1.version c10, t2.id c11, t2.name c12, t2.creation_date c13, t2.version c14, t2.forum_id c15, t2.creator_user_id c16 from forum t0 left outer join user t1 on t1.id = t0.creator_user_id  left outer join theme t2 on t2.forum_id = t0.id  order by t0.id
+! @6iahg070c - Internal server error, for (GET) [/forums_orm/logout] ->
 
-2014-05-23 00:20:02,957 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-14 
+play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:486) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:507) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:461) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:459) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:459) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:18) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$.start(Play.scala:87) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:139) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:112) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:112) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:110) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.util.Success.flatMap(Try.scala:200) ~[scala-library-2.10.3.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+
+2014-05-23 10:23:57,266 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-3 
 Shutting down connection pool...
 
-2014-05-23 00:20:02,964 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+2014-05-23 10:23:57,268 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
 Terminating pool watch thread
 
-2014-05-23 00:20:02,983 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-14 
+2014-05-23 10:23:57,963 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-3 
 Connection pool has been shutdown.
 
-2014-05-23 00:20:02,984 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-14 
+2014-05-23 10:23:57,966 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-3 
 Connection pool has been shut down
 
-2014-05-23 00:20:03,205 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-14 
-JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+2014-05-23 10:23:58,044 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-3 
+JDBC URL = jdbc:h2:/play_db/forums/h2-db-file, Username = sa, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
 
-2014-05-23 00:20:03,458 - [INFO] - from play in play-internal-execution-context-14 
-database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+2014-05-23 10:24:01,367 - [INFO] - from play in play-internal-execution-context-3 
+database [default] connected at jdbc:h2:/play_db/forums/h2-db-file
 
-2014-05-23 00:20:07,105 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-14 
+2014-05-23 10:24:03,514 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-3 
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
 
-2014-05-23 00:20:07,110 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-14 
+2014-05-23 10:24:03,518 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-3 
 
             select id, hash, apply_script, revert_script from play_evolutions order by id
         
 
-2014-05-23 00:20:07,143 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-14 
+2014-05-23 10:24:03,527 - [ERROR] - from application in New I/O worker #4 
+
+
+! @6iahg13kb - Internal server error, for (GET) [/forums_orm/logout] ->
+
+play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:486) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:507) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:461) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:459) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:459) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:18) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$.start(Play.scala:87) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:139) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:112) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:112) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:110) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.util.Success.flatMap(Try.scala:200) ~[scala-library-2.10.3.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+
+2014-05-23 10:24:03,527 - [ERROR] - from application in New I/O worker #3 
+
+
+! @6iahg13kb - Internal server error, for (GET) [/forums_orm/logout] ->
+
+play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:486) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:507) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:461) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:459) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:459) ~[play-jdbc_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:18) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.api.Play$.start(Play.scala:87) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:139) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:112) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:112) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:110) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.util.Success.flatMap(Try.scala:200) ~[scala-library-2.10.3.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+
+2014-05-23 10:24:20,181 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2014-05-23 10:24:20,186 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2014-05-23 10:24:20,192 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2014-05-23 10:24:20,196 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+update play_evolutions set state = 'applying_down' where id = 1
+
+2014-05-23 10:24:20,219 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+SET REFERENTIAL_INTEGRITY FALSE
+
+2014-05-23 10:24:20,220 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+drop table if exists connection
+
+2014-05-23 10:24:20,223 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+drop table if exists forum
+
+2014-05-23 10:24:20,226 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+drop table if exists forum_user
+
+2014-05-23 10:24:20,227 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+drop table if exists message
+
+2014-05-23 10:24:20,229 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+drop table if exists permission
+
+2014-05-23 10:24:20,231 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+drop table if exists role
+
+2014-05-23 10:24:20,232 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+drop table if exists role_permission
+
+2014-05-23 10:24:20,234 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+drop table if exists theme
+
+2014-05-23 10:24:20,235 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+drop table if exists user
+
+2014-05-23 10:24:20,237 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+SET REFERENTIAL_INTEGRITY TRUE
+
+2014-05-23 10:24:20,238 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+drop sequence if exists connection_seq
+
+2014-05-23 10:24:20,239 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+drop sequence if exists forum_seq
+
+2014-05-23 10:24:20,240 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+drop sequence if exists message_seq
+
+2014-05-23 10:24:20,241 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+drop sequence if exists permission_seq
+
+2014-05-23 10:24:20,242 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+drop sequence if exists role_seq
+
+2014-05-23 10:24:20,242 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+drop sequence if exists theme_seq
+
+2014-05-23 10:24:20,243 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+drop sequence if exists user_seq
+
+2014-05-23 10:24:20,244 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+delete from play_evolutions where id = 1
+
+2014-05-23 10:24:20,247 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in New I/O worker #4 
+insert into play_evolutions values(1, 'd6ba29baf2491e6277fc51d6f9e1d27dc3002b12', 2014-05-23, 'create table connection (
+id                        bigint not null,
+init_date_time            timestamp,
+close_date_time           timestamp,
+user_id                   bigint,
+constraint pk_connection primary key (id))
+;
+
+create table forum (
+id                        bigint not null,
+name                      varchar(255),
+description               varchar(255),
+creation_date             timestamp,
+creator_user_id           bigint,
+version                   bigint not null,
+constraint uq_forum_name unique (name),
+constraint pk_forum primary key (id))
+;
+
+create table message (
+id                        bigint not null,
+text                      varchar(255) not null,
+creation_date             timestamp,
+theme_id                  bigint,
+user_id                   bigint,
+version                   bigint not null,
+constraint pk_message primary key (id))
+;
+
+create table permission (
+id                        bigint not null,
+name                      varchar(255) not null,
+version                   bigint not null,
+constraint uq_permission_name unique (name),
+constraint pk_permission primary key (id))
+;
+
+create table role (
+id                        bigint not null,
+name                      varchar(255) not null,
+version                   bigint not null,
+constraint uq_role_name unique (name),
+constraint pk_role primary key (id))
+;
+
+create table theme (
+id                        bigint not null,
+name                      varchar(255) not null,
+creation_date             timestamp,
+forum_id                  bigint,
+creator_user_id           bigint,
+version                   bigint not null,
+constraint uq_theme_name unique (name),
+constraint pk_theme primary key (id))
+;
+
+create table user (
+id                        bigint not null,
+name                      varchar(255) not null,
+password                  varchar(255),
+email                     varchar(255) not null,
+creation_date             timestamp,
+version                   bigint not null,
+constraint uq_user_name unique (name),
+constraint uq_user_email unique (email),
+constraint pk_user primary key (id))
+;
+
+
+create table forum_user (
+forum_id                       bigint not null,
+user_id                        bigint not null,
+constraint pk_forum_user primary key (forum_id, user_id))
+;
+
+create table role_permission (
+role_id                        bigint not null,
+permission_id                  bigint not null,
+constraint pk_role_permission primary key (role_id, permission_id))
+;
+
+create table user_role (
+user_id                        bigint not null,
+role_id                        bigint not null,
+constraint pk_user_role primary key (user_id, role_id))
+;
+create sequence connection_seq;
+
+create sequence forum_seq;
+
+create sequence message_seq;
+
+create sequence permission_seq;
+
+create sequence role_seq;
+
+create sequence theme_seq;
+
+create sequence user_seq;
+
+alter table connection add constraint fk_connection_user_1 foreign key (user_id) references user (id) on delete restrict on update restrict;
+create index ix_connection_user_1 on connection (user_id);
+alter table forum add constraint fk_forum_creatorUser_2 foreign key (creator_user_id) references user (id) on delete restrict on update restrict;
+create index ix_forum_creatorUser_2 on forum (creator_user_id);
+alter table message add constraint fk_message_theme_3 foreign key (theme_id) references theme (id) on delete restrict on update restrict;
+create index ix_message_theme_3 on message (theme_id);
+alter table message add constraint fk_message_user_4 foreign key (user_id) references user (id) on delete restrict on update restrict;
+create index ix_message_user_4 on message (user_id);
+alter table theme add constraint fk_theme_forum_5 foreign key (forum_id) references forum (id) on delete restrict on update restrict;
+create index ix_theme_forum_5 on theme (forum_id);
+alter table theme add constraint fk_theme_creatorUser_6 foreign key (creator_user_id) references user (id) on delete restrict on update restrict;
+create index ix_theme_creatorUser_6 on theme (creator_user_id);
+
+
+
+alter table forum_user add constraint fk_forum_user_forum_01 foreign key (forum_id) references forum (id) on delete restrict on update restrict;
+
+alter table forum_user add constraint fk_forum_user_user_02 foreign key (user_id) references user (id) on delete restrict on update restrict;
+
+alter table role_permission add constraint fk_role_permission_role_01 foreign key (role_id) references role (id) on delete restrict on update restrict;
+
+alter table role_permission add constraint fk_role_permission_permission_02 foreign key (permission_id) references permission (id) on delete restrict on update restrict;
+
+alter table user_role add constraint fk_user_role_user_01 foreign key (user_id) references user (id) on delete restrict on update restrict;
+
+alter table user_role add constraint fk_user_role_role_02 foreign key (role_id) references role (id) on delete restrict on update restrict;', 'SET REFERENTIAL_INTEGRITY FALSE;
+
+drop table if exists connection;
+
+drop table if exists forum;
+
+drop table if exists forum_user;
+
+drop table if exists message;
+
+drop table if exists permission;
+
+drop table if exists role;
+
+drop table if exists role_permission;
+
+drop table if exists theme;
+
+drop table if exists user;
+
+drop table if exists user_role;
+
+SET REFERENTIAL_INTEGRITY TRUE;
+
+drop sequence if exists connection_seq;
+
+drop sequence if exists forum_seq;
+
+drop sequence if exists message_seq;
+
+drop sequence if exists permission_seq;
+
+drop sequence if exists role_seq;
+
+drop sequence if exists theme_seq;
+
+drop sequence if exists user_seq;', 'applying_up', '')
+
+2014-05-23 10:24:20,378 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create table connection (
+id                        bigint not null,
+init_date_time            timestamp,
+close_date_time           timestamp,
+user_id                   bigint,
+constraint pk_connection primary key (id))
+
+2014-05-23 10:24:20,386 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create table forum (
+id                        bigint not null,
+name                      varchar(255),
+description               varchar(255),
+creation_date             timestamp,
+creator_user_id           bigint,
+version                   bigint not null,
+constraint uq_forum_name unique (name),
+constraint pk_forum primary key (id))
+
+2014-05-23 10:24:20,394 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create table message (
+id                        bigint not null,
+text                      varchar(255) not null,
+creation_date             timestamp,
+theme_id                  bigint,
+user_id                   bigint,
+version                   bigint not null,
+constraint pk_message primary key (id))
+
+2014-05-23 10:24:20,401 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create table permission (
+id                        bigint not null,
+name                      varchar(255) not null,
+version                   bigint not null,
+constraint uq_permission_name unique (name),
+constraint pk_permission primary key (id))
+
+2014-05-23 10:24:20,406 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create table role (
+id                        bigint not null,
+name                      varchar(255) not null,
+version                   bigint not null,
+constraint uq_role_name unique (name),
+constraint pk_role primary key (id))
+
+2014-05-23 10:24:20,411 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create table theme (
+id                        bigint not null,
+name                      varchar(255) not null,
+creation_date             timestamp,
+forum_id                  bigint,
+creator_user_id           bigint,
+version                   bigint not null,
+constraint uq_theme_name unique (name),
+constraint pk_theme primary key (id))
+
+2014-05-23 10:24:20,418 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create table user (
+id                        bigint not null,
+name                      varchar(255) not null,
+password                  varchar(255),
+email                     varchar(255) not null,
+creation_date             timestamp,
+version                   bigint not null,
+constraint uq_user_name unique (name),
+constraint uq_user_email unique (email),
+constraint pk_user primary key (id))
+
+2014-05-23 10:24:20,428 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create table forum_user (
+forum_id                       bigint not null,
+user_id                        bigint not null,
+constraint pk_forum_user primary key (forum_id, user_id))
+
+2014-05-23 10:24:20,431 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create table role_permission (
+role_id                        bigint not null,
+permission_id                  bigint not null,
+constraint pk_role_permission primary key (role_id, permission_id))
+
+2014-05-23 10:24:20,434 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create table user_role (
+user_id                        bigint not null,
+role_id                        bigint not null,
+constraint pk_user_role primary key (user_id, role_id))
+
+2014-05-23 10:24:20,437 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create sequence connection_seq
+
+2014-05-23 10:24:20,438 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create sequence forum_seq
+
+2014-05-23 10:24:20,439 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create sequence message_seq
+
+2014-05-23 10:24:20,441 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create sequence permission_seq
+
+2014-05-23 10:24:20,442 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create sequence role_seq
+
+2014-05-23 10:24:20,443 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create sequence theme_seq
+
+2014-05-23 10:24:20,444 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create sequence user_seq
+
+2014-05-23 10:24:20,445 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+alter table connection add constraint fk_connection_user_1 foreign key (user_id) references user (id) on delete restrict on update restrict
+
+2014-05-23 10:24:20,456 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create index ix_connection_user_1 on connection (user_id)
+
+2014-05-23 10:24:20,457 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+alter table forum add constraint fk_forum_creatorUser_2 foreign key (creator_user_id) references user (id) on delete restrict on update restrict
+
+2014-05-23 10:24:20,459 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create index ix_forum_creatorUser_2 on forum (creator_user_id)
+
+2014-05-23 10:24:20,460 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+alter table message add constraint fk_message_theme_3 foreign key (theme_id) references theme (id) on delete restrict on update restrict
+
+2014-05-23 10:24:20,462 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create index ix_message_theme_3 on message (theme_id)
+
+2014-05-23 10:24:20,463 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+alter table message add constraint fk_message_user_4 foreign key (user_id) references user (id) on delete restrict on update restrict
+
+2014-05-23 10:24:20,466 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create index ix_message_user_4 on message (user_id)
+
+2014-05-23 10:24:20,467 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+alter table theme add constraint fk_theme_forum_5 foreign key (forum_id) references forum (id) on delete restrict on update restrict
+
+2014-05-23 10:24:20,470 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create index ix_theme_forum_5 on theme (forum_id)
+
+2014-05-23 10:24:20,471 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+alter table theme add constraint fk_theme_creatorUser_6 foreign key (creator_user_id) references user (id) on delete restrict on update restrict
+
+2014-05-23 10:24:20,474 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+create index ix_theme_creatorUser_6 on theme (creator_user_id)
+
+2014-05-23 10:24:20,475 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+alter table forum_user add constraint fk_forum_user_forum_01 foreign key (forum_id) references forum (id) on delete restrict on update restrict
+
+2014-05-23 10:24:20,478 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+alter table forum_user add constraint fk_forum_user_user_02 foreign key (user_id) references user (id) on delete restrict on update restrict
+
+2014-05-23 10:24:20,481 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+alter table role_permission add constraint fk_role_permission_role_01 foreign key (role_id) references role (id) on delete restrict on update restrict
+
+2014-05-23 10:24:20,483 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+alter table role_permission add constraint fk_role_permission_permission_02 foreign key (permission_id) references permission (id) on delete restrict on update restrict
+
+2014-05-23 10:24:20,485 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+alter table user_role add constraint fk_user_role_user_01 foreign key (user_id) references user (id) on delete restrict on update restrict
+
+2014-05-23 10:24:20,487 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+alter table user_role add constraint fk_user_role_role_02 foreign key (role_id) references role (id) on delete restrict on update restrict
+
+2014-05-23 10:24:20,490 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+update play_evolutions set state = 'applied' where id = 1
+
+2014-05-23 10:24:20,493 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #4 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2014-05-23 10:24:29,437 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-3 
+Shutting down connection pool...
+
+2014-05-23 10:24:29,439 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2014-05-23 10:24:31,010 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-3 
+Connection pool has been shutdown.
+
+2014-05-23 10:24:31,011 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-3 
+Connection pool has been shut down
+
+2014-05-23 10:24:31,104 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-3 
+JDBC URL = jdbc:h2:/play_db/forums/h2-db-file, Username = sa, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-23 10:24:34,133 - [INFO] - from play in play-internal-execution-context-3 
+database [default] connected at jdbc:h2:/play_db/forums/h2-db-file
+
+2014-05-23 10:24:36,659 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-3 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2014-05-23 10:24:36,662 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-3 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2014-05-23 10:24:36,679 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-3 
 select count(*) from user t0
 
-2014-05-23 00:20:07,153 - [INFO] - from play in play-internal-execution-context-14 
+2014-05-23 10:24:36,684 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-3 
+select user_seq.nextval union select user_seq.nextval union select user_seq.nextval union select user_seq.nextval union select user_seq.nextval union select user_seq.nextval union select user_seq.nextval union select user_seq.nextval union select user_seq.nextval union select user_seq.nextval union select user_seq.nextval union select user_seq.nextval union select user_seq.nextval union select user_seq.nextval union select user_seq.nextval union select user_seq.nextval union select user_seq.nextval union select user_seq.nextval union select user_seq.nextval union select user_seq.nextval
+
+2014-05-23 10:24:36,694 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-3 
+insert into user (id, name, password, email, creation_date, version) values (1,'admin','admin00','admin@email.com',2014-05-23 10:24:36.68,1)
+
+2014-05-23 10:24:36,709 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-3 
+insert into user (id, name, password, email, creation_date, version) values (2,'jesus','jesus00','jesus@email.com',2014-05-23 10:24:36.709,1)
+
+2014-05-23 10:24:36,712 - [INFO] - from play in play-internal-execution-context-3 
 Application started (Dev)
 

@@ -37,9 +37,10 @@ public class User extends Model {
     @Formats.DateTime(pattern="dd/MM/yyyy")
     public Date creationDate; // = new Date();
     
-//    @ManyToMany
-//    public List<Forum> moderatedForums;
-//  
+    @ManyToMany(cascade=CascadeType.ALL)
+    public List<Role> roles;
+    
+    
     public static Finder<Long,User> find = new Finder<Long,User>(
         Long.class, User.class
     ); 

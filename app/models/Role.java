@@ -25,7 +25,7 @@ public class Role extends Model {
     @Column(unique=true, nullable=false)
     public String name;
     
-    @ManyToMany
+    @ManyToMany(cascade=CascadeType.ALL)
     public List<Permission> permissions;
   
     public static Finder<Long,Role> find = new Finder<Long,Role>(
