@@ -27,13 +27,13 @@ POST	/forums_orm/themes/:themeId/update						controllers.Themes.updateValidate(t
 GET		/forums_orm/themes/:themeId/delete						controllers.Themes.delete(themeId: Long)
 POST	/forums_orm/themes/:themeId/delete						controllers.Themes.deleteValidate(themeId: Long)
 
-#GET	/forums_orm/themes/:themeId/messages					controllers.Messages.index(themeId: Long)
-#GET	/forums_orm/themes/:themeId/messages/insert				controllers.Messages.insert(themeId: Long)
-#POST	/forums_orm/themes/:themeId/messages/insert				controllers.Messages.insertValidate(themeId: Long)
-#GET	/forums_orm/messages/:messageId/update					controllers.Messages.update(messageId: Long)
-#POST	/forums_orm/messages/:messageId/update					controllers.Messages.updateValidate(messageId: Long)
-#GET	/forums_orm/messages/:messageId/delete					controllers.Messages.delete(messageId: Long)
-#POST	/forums_orm/messages/:messageId/delete					controllers.Messages.deleteValidate(messageId: Long)
+GET		/forums_orm/themes/:themeId/messages					controllers.Messages.index(themeId: Long)
+GET		/forums_orm/themes/:themeId/messages/insert				controllers.Messages.insert(themeId: Long)
+POST	/forums_orm/themes/:themeId/messages/insert				controllers.Messages.insertValidate(themeId: Long)
+GET		/forums_orm/messages/:messageId/update					controllers.Messages.update(messageId: Long)
+POST	/forums_orm/messages/:messageId/update					controllers.Messages.updateValidate(messageId: Long)
+GET		/forums_orm/messages/:messageId/delete					controllers.Messages.delete(messageId: Long)
+POST	/forums_orm/messages/:messageId/delete					controllers.Messages.deleteValidate(messageId: Long)
 
 
 

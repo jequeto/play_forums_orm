@@ -21,6 +21,7 @@ public class Message extends Model {
     protected Long version;
     
     @Constraints.Required
+    @Constraints.MinLength(10)
     @Column(nullable=false)
     public String text;
     
@@ -34,14 +35,15 @@ public class Message extends Model {
     
     @ManyToOne
     @Constraints.Required
-    public User user;
+    public User creatorUser;
       
     public static Finder<Long,Message> find = new Finder<Long,Message>(
         Long.class, Message.class
     );
     
     public static List<Message> findByThemeId(Long themeId) {
-    	return Message.find.where().eq("theme_id", themeId).findList();
+    	
+    	return Message.find.fetch("creatorUser").where().eq("theme_id", themeId).findList();
     }
 
 	public Long getId() {
@@ -84,11 +86,11 @@ public class Message extends Model {
 		this.theme = theme;
 	}
 
-	public User getUser() {
+	public User getCreatorUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setCreatorUser(User user) {
 		this.user = user;
 	}
     
