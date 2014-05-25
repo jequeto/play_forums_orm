@@ -87,11 +87,11 @@ public class Message extends Model {
 	}
 
 	public User getCreatorUser() {
-		return user;
+		return creatorUser;
 	}
 
 	public void setCreatorUser(User user) {
-		this.user = user;
+		this.creatorUser = user;
 	}
     
     

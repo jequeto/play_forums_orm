@@ -1,7 +1,11 @@
 @(forum: Forum, themes: List[Theme], formInsert: Form[_root_.forms.ThemeInsert])
 
 @main {
-&nbsp;-&gt;&nbsp;forum: @forum.name</a>&nbsp;-&gt;&nbsp;themes
+&nbsp;-&gt;&nbsp;forum: 
+<a href="@routes.Themes.index(forum.id)">
+	@forum.name
+</a>
+&nbsp;-&gt;&nbsp;themes
 } {
 	<h2>Forum: @forum.name</h2>
 	<h3>Themes:</h3>
@@ -22,10 +26,10 @@
 	} else {
 		@for(theme <- themes) {
 			<tr>
-			  	<td>@theme.name</a></td>
+			  	<td><a href="@routes.Messages.index(theme.id)" title="Click here to see the messages">@theme.name</a></td>
 				<td>@theme.creatorUser.name</td>
 				<td>@theme.creationDate</td>
-				<td>@theme.messages.size()</td>
+				<td><a href="@routes.Messages.index(theme.id)" title="Click here to see the messages">@theme.messages.size()</a></td>
 				<td>
 					<a class="btn btn-warning" href="@routes.Themes.update(theme.id)">Modificar</a>
 					<a class="btn btn-danger" href="@routes.Themes.delete(theme.id)">Borrar</a>
@@ -49,7 +53,7 @@
 	            		, '_showConstraints -> false
 	            		)
 	            
-	            <input type="submit" name="enviar" value="Insert" class="btn btn-success"/>
+	            <input type="submit" value="Insert" class="btn btn-success"/>
 	            
 	     	}
 	    </td>

@@ -15,8 +15,9 @@ public class Messages extends Controller {
     	
     	Theme theme = Theme.find.fetch("forum").fetch("creatorUser").where().eq("id",themeId).findUnique();
     	List<Message> messages = Message.findByThemeId(themeId);
+    	Form<forms.Message> formInsert = Form.form(forms.Message.class);
     	
-        return ok(views.html.Messages.index.render(theme, messages));
+        return ok(views.html.Messages.index.render(theme, messages, formInsert));
     }
 
     
@@ -30,10 +31,11 @@ public class Messages extends Controller {
     
     public static Result insertValidate(Long themeId) {
     	
+    	Theme theme = Theme.find.fetch("forum").fetch("creatorUser").where().eq("id",themeId).findUnique();
     	Form<forms.Message> messageForm = Form.form(forms.Message.class).bindFromRequest();
   	
     	if (messageForm.hasErrors()) {
-    		return badRequest(views.html.Messages.insert.render(messageForm));
+    		return badRequest(views.html.Messages.insert.render(theme, messageForm));
     	}
     	else {
     		models.Message message = new models.Message();

@@ -1,27 +1,34 @@
-@(form: Form[forms.ThemeUpdate])
+@(theme: Theme, form: Form[forms.Message])
 
 @main {
-	&nbsp;-&gt;&nbsp;<a href="@routes.Themes.index(Long.valueOf(form.field("forum_id").value()))">
-	Forum: @form.field("forum_name").value()
-</a>&nbsp;-&gt;&nbsp;updating a theme
+&nbsp;-&gt;&nbsp;
+<a href="@routes.Themes.index(theme.forum.id)">Forum: @theme.forum.name</a>
+&nbsp;-&gt;&nbsp;
+<a href="@routes.Messages.index(theme.id)">Theme: @theme.name</a>
+&nbsp;-&gt;&nbsp;
+updating a message
 } {
-	<h2>Forum: @form.field("forum_name").value()</h2>
-	<h3>Updating a theme</h3>
-	@helper.form(	action=routes.Themes.updateValidate(Long.valueOf( form.field("id").value()))
-					, 'class -> "form horizontal"
-	) {
+	<h2>Theme: @theme.name</h2>
+	<h3>Updating a new message</h3>
+	@helper.form(
+			action=routes.Messages.updateValidate(theme.id)
+			, 'class -> "form horizonal"
+		) {
 			
 		<input type="hidden" id="id" name="id" value="@form.field("id").value()"/>
-		<input type="hidden" id="forum_id" name="forum_id" value="@form.field("forum_id").value()"/>
-		<input type="hidden" id="forum_name" name="forum_name" value="@form.field("forum_name").value()"/>
-		@helper.inputText(form("name")
-        		, 'size -> "100"
-        		, '_label -> "Theme Name:"
-        		, 'placeholder ->"Write a theme"
-        		, '_showConstraints -> true
-        		)
+		<input type="hidden" id="theme_id" name="theme_id"
+			value="@form.field("theme_id").value()"/>
 		
-		<input type="submit" value="Update" class="btn btn-success"/>
-        <a href="@routes.Themes.index(Long.valueOf(form.field("forum_id").value()))" class="btn btn-primary">Cancel</a>
+		@helper.textarea(form("text")
+				,'cols -> "50"
+				,'rows -> "5"
+        		, '_label -> "New message:"
+        		, 'placeholder ->"Write a message"
+        		, '_showConstraints -> true
+        )
+		
+		<input type="submit" value="Update" class="btn btn-warnig"/>
+        <a href="@routes.Messages.index(Long.valueOf(form.field("theme_id").value()))"
+        	class="btn btn-primary">Cancel</a>
 	}
 }

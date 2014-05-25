@@ -30,3 +30,15 @@ run
 ~run
 eclipse
 run
+eclipse
+compile
+clear
+cls
+clear
+cls
+compile
+~compile
+compile  -Xlint:unchecked
+compile -Xlint:unchecked
+compile -Xlint::unchecked
+~run

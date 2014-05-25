@@ -27,7 +27,7 @@ create table message (
   text                      varchar(255) not null,
   creation_date             timestamp,
   theme_id                  bigint,
-  user_id                   bigint,
+  creator_user_id           bigint,
   version                   bigint not null,
   constraint pk_message primary key (id))
 ;
@@ -109,8 +109,8 @@ alter table forum add constraint fk_forum_creatorUser_2 foreign key (creator_use
 create index ix_forum_creatorUser_2 on forum (creator_user_id);
 alter table message add constraint fk_message_theme_3 foreign key (theme_id) references theme (id) on delete restrict on update restrict;
 create index ix_message_theme_3 on message (theme_id);
-alter table message add constraint fk_message_user_4 foreign key (user_id) references user (id) on delete restrict on update restrict;
-create index ix_message_user_4 on message (user_id);
+alter table message add constraint fk_message_creatorUser_4 foreign key (creator_user_id) references user (id) on delete restrict on update restrict;
+create index ix_message_creatorUser_4 on message (creator_user_id);
 alter table theme add constraint fk_theme_forum_5 foreign key (forum_id) references forum (id) on delete restrict on update restrict;
 create index ix_theme_forum_5 on theme (forum_id);
 alter table theme add constraint fk_theme_creatorUser_6 foreign key (creator_user_id) references user (id) on delete restrict on update restrict;

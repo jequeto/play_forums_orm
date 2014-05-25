@@ -1,6 +1,6 @@
 // @SOURCE:G:/eclipse_workspace/play_forums_orm/conf/routes
-// @HASH:f568daa5e89b78fdd2b33616cee28fd527e5ef2b
-// @DATE:Thu May 22 23:41:35 CEST 2014
+// @HASH:92ff22428209a8c25a0de10187d0d4ccf151e443
+// @DATE:Sun May 25 17:32:09 CEST 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -15,6 +15,13 @@ import Router.queryString
 
 // @LINE:43
 // @LINE:40
+// @LINE:36
+// @LINE:35
+// @LINE:34
+// @LINE:33
+// @LINE:32
+// @LINE:31
+// @LINE:30
 // @LINE:28
 // @LINE:27
 // @LINE:26
@@ -207,6 +214,61 @@ def index(): Call = {
 }
                           
 
+// @LINE:36
+// @LINE:35
+// @LINE:34
+// @LINE:33
+// @LINE:32
+// @LINE:31
+// @LINE:30
+class ReverseMessages {
+    
+
+// @LINE:35
+def delete(messageId:Long): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "forums_orm/messages/" + implicitly[PathBindable[Long]].unbind("messageId", messageId) + "/delete")
+}
+                                                
+
+// @LINE:32
+def insertValidate(themeId:Long): Call = {
+   Call("POST", _prefix + { _defaultPrefix } + "forums_orm/themes/" + implicitly[PathBindable[Long]].unbind("themeId", themeId) + "/messages/insert")
+}
+                                                
+
+// @LINE:31
+def insert(themeId:Long): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "forums_orm/themes/" + implicitly[PathBindable[Long]].unbind("themeId", themeId) + "/messages/insert")
+}
+                                                
+
+// @LINE:33
+def update(messageId:Long): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "forums_orm/messages/" + implicitly[PathBindable[Long]].unbind("messageId", messageId) + "/update")
+}
+                                                
+
+// @LINE:30
+def index(themeId:Long): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "forums_orm/themes/" + implicitly[PathBindable[Long]].unbind("themeId", themeId) + "/messages")
+}
+                                                
+
+// @LINE:34
+def updateValidate(messageId:Long): Call = {
+   Call("POST", _prefix + { _defaultPrefix } + "forums_orm/messages/" + implicitly[PathBindable[Long]].unbind("messageId", messageId) + "/update")
+}
+                                                
+
+// @LINE:36
+def deleteValidate(messageId:Long): Call = {
+   Call("POST", _prefix + { _defaultPrefix } + "forums_orm/messages/" + implicitly[PathBindable[Long]].unbind("messageId", messageId) + "/delete")
+}
+                                                
+    
+}
+                          
+
 // @LINE:7
 // @LINE:6
 class ReverseApplication {
@@ -232,6 +294,13 @@ def index(): Call = {
 
 // @LINE:43
 // @LINE:40
+// @LINE:36
+// @LINE:35
+// @LINE:34
+// @LINE:33
+// @LINE:32
+// @LINE:31
+// @LINE:30
 // @LINE:28
 // @LINE:27
 // @LINE:26
@@ -524,6 +593,96 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:36
+// @LINE:35
+// @LINE:34
+// @LINE:33
+// @LINE:32
+// @LINE:31
+// @LINE:30
+class ReverseMessages {
+    
+
+// @LINE:35
+def delete : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Messages.delete",
+   """
+      function(messageId) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "forums_orm/messages/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("messageId", messageId) + "/delete"})
+      }
+   """
+)
+                        
+
+// @LINE:32
+def insertValidate : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Messages.insertValidate",
+   """
+      function(themeId) {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "forums_orm/themes/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("themeId", themeId) + "/messages/insert"})
+      }
+   """
+)
+                        
+
+// @LINE:31
+def insert : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Messages.insert",
+   """
+      function(themeId) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "forums_orm/themes/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("themeId", themeId) + "/messages/insert"})
+      }
+   """
+)
+                        
+
+// @LINE:33
+def update : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Messages.update",
+   """
+      function(messageId) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "forums_orm/messages/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("messageId", messageId) + "/update"})
+      }
+   """
+)
+                        
+
+// @LINE:30
+def index : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Messages.index",
+   """
+      function(themeId) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "forums_orm/themes/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("themeId", themeId) + "/messages"})
+      }
+   """
+)
+                        
+
+// @LINE:34
+def updateValidate : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Messages.updateValidate",
+   """
+      function(messageId) {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "forums_orm/messages/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("messageId", messageId) + "/update"})
+      }
+   """
+)
+                        
+
+// @LINE:36
+def deleteValidate : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Messages.deleteValidate",
+   """
+      function(messageId) {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "forums_orm/messages/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("messageId", messageId) + "/delete"})
+      }
+   """
+)
+                        
+    
+}
+              
+
 // @LINE:7
 // @LINE:6
 class ReverseApplication {
@@ -559,6 +718,13 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
 
 // @LINE:43
 // @LINE:40
+// @LINE:36
+// @LINE:35
+// @LINE:34
+// @LINE:33
+// @LINE:32
+// @LINE:31
+// @LINE:30
 // @LINE:28
 // @LINE:27
 // @LINE:26
@@ -746,6 +912,61 @@ def insertValidate(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 // @LINE:14
 def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Forums.index(), HandlerDef(this, "controllers.Forums", "index", Seq(), "GET", """""", _prefix + """forums_orm/forums""")
+)
+                      
+    
+}
+                          
+
+// @LINE:36
+// @LINE:35
+// @LINE:34
+// @LINE:33
+// @LINE:32
+// @LINE:31
+// @LINE:30
+class ReverseMessages {
+    
+
+// @LINE:35
+def delete(messageId:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Messages.delete(messageId), HandlerDef(this, "controllers.Messages", "delete", Seq(classOf[Long]), "GET", """""", _prefix + """forums_orm/messages/$messageId<[^/]+>/delete""")
+)
+                      
+
+// @LINE:32
+def insertValidate(themeId:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Messages.insertValidate(themeId), HandlerDef(this, "controllers.Messages", "insertValidate", Seq(classOf[Long]), "POST", """""", _prefix + """forums_orm/themes/$themeId<[^/]+>/messages/insert""")
+)
+                      
+
+// @LINE:31
+def insert(themeId:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Messages.insert(themeId), HandlerDef(this, "controllers.Messages", "insert", Seq(classOf[Long]), "GET", """""", _prefix + """forums_orm/themes/$themeId<[^/]+>/messages/insert""")
+)
+                      
+
+// @LINE:33
+def update(messageId:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Messages.update(messageId), HandlerDef(this, "controllers.Messages", "update", Seq(classOf[Long]), "GET", """""", _prefix + """forums_orm/messages/$messageId<[^/]+>/update""")
+)
+                      
+
+// @LINE:30
+def index(themeId:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Messages.index(themeId), HandlerDef(this, "controllers.Messages", "index", Seq(classOf[Long]), "GET", """""", _prefix + """forums_orm/themes/$themeId<[^/]+>/messages""")
+)
+                      
+
+// @LINE:34
+def updateValidate(messageId:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Messages.updateValidate(messageId), HandlerDef(this, "controllers.Messages", "updateValidate", Seq(classOf[Long]), "POST", """""", _prefix + """forums_orm/messages/$messageId<[^/]+>/update""")
+)
+                      
+
+// @LINE:36
+def deleteValidate(messageId:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Messages.deleteValidate(messageId), HandlerDef(this, "controllers.Messages", "deleteValidate", Seq(classOf[Long]), "POST", """""", _prefix + """forums_orm/messages/$messageId<[^/]+>/delete""")
 )
                       
     

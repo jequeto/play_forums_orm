@@ -12,8 +12,6 @@
 	) {
 			
 		<input type="hidden" id="id" name="id" value="@form.field("id").value()"/>
-		<input type="hidden" id="forum_id" name="forum_id" value="@form.field("forum_id").value()"/>
-		<input type="hidden" id="forum_name" name="forum_name" value="@form.field("forum_name").value()"/>
 		@helper.inputText(form("name")
         		, 'size -> "100"
         		, '_label -> "Theme Name:"

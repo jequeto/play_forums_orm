@@ -1,6 +1,6 @@
 // @SOURCE:G:/eclipse_workspace/play_forums_orm/conf/routes
-// @HASH:f568daa5e89b78fdd2b33616cee28fd527e5ef2b
-// @DATE:Thu May 22 23:41:35 CEST 2014
+// @HASH:92ff22428209a8c25a0de10187d0d4ccf151e443
+// @DATE:Sun May 25 17:32:09 CEST 2014
 
 
 import play.core._
@@ -108,14 +108,42 @@ private[this] lazy val controllers_Themes_delete18 = Route("GET", PathPattern(Li
 private[this] lazy val controllers_Themes_deleteValidate19 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("forums_orm/themes/"),DynamicPart("themeId", """[^/]+""",true),StaticPart("/delete"))))
         
 
+// @LINE:30
+private[this] lazy val controllers_Messages_index20 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("forums_orm/themes/"),DynamicPart("themeId", """[^/]+""",true),StaticPart("/messages"))))
+        
+
+// @LINE:31
+private[this] lazy val controllers_Messages_insert21 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("forums_orm/themes/"),DynamicPart("themeId", """[^/]+""",true),StaticPart("/messages/insert"))))
+        
+
+// @LINE:32
+private[this] lazy val controllers_Messages_insertValidate22 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("forums_orm/themes/"),DynamicPart("themeId", """[^/]+""",true),StaticPart("/messages/insert"))))
+        
+
+// @LINE:33
+private[this] lazy val controllers_Messages_update23 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("forums_orm/messages/"),DynamicPart("messageId", """[^/]+""",true),StaticPart("/update"))))
+        
+
+// @LINE:34
+private[this] lazy val controllers_Messages_updateValidate24 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("forums_orm/messages/"),DynamicPart("messageId", """[^/]+""",true),StaticPart("/update"))))
+        
+
+// @LINE:35
+private[this] lazy val controllers_Messages_delete25 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("forums_orm/messages/"),DynamicPart("messageId", """[^/]+""",true),StaticPart("/delete"))))
+        
+
+// @LINE:36
+private[this] lazy val controllers_Messages_deleteValidate26 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("forums_orm/messages/"),DynamicPart("messageId", """[^/]+""",true),StaticPart("/delete"))))
+        
+
 // @LINE:40
-private[this] lazy val controllers_Permissions_crud20 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("forums_orm/permissions/crud"))))
+private[this] lazy val controllers_Permissions_crud27 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("forums_orm/permissions/crud"))))
         
 
 // @LINE:43
-private[this] lazy val controllers_Assets_at21 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
+private[this] lazy val controllers_Assets_at28 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
         
-def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """actionInfo""","""controllers.Application.actionInfo()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/login""","""controllers.Users.login()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/login""","""controllers.Users.authenticate()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/logout""","""controllers.Users.logout()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/unauthorized""","""controllers.Users.unAuthorized()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/forums""","""controllers.Forums.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/forums/insert""","""controllers.Forums.insert()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/forums/insert""","""controllers.Forums.insertValidate()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/forums/$forumId<[^/]+>/update""","""controllers.Forums.update(forumId:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/forums/$forumId<[^/]+>/update""","""controllers.Forums.updateValidate(forumId:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/forums/$forumId<[^/]+>/delete""","""controllers.Forums.delete(forumId:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/forums/$forumId<[^/]+>/delete""","""controllers.Forums.deleteValidate(forumId:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/forums/$forumId<[^/]+>/themes""","""controllers.Themes.index(forumId:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/forums/$forumId<[^/]+>/themes/insert""","""controllers.Themes.insert(forumId:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/forums/$forumId<[^/]+>/themes/insert""","""controllers.Themes.insertValidate(forumId:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/themes/$themeId<[^/]+>/update""","""controllers.Themes.update(themeId:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/themes/$themeId<[^/]+>/update""","""controllers.Themes.updateValidate(themeId:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/themes/$themeId<[^/]+>/delete""","""controllers.Themes.delete(themeId:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/themes/$themeId<[^/]+>/delete""","""controllers.Themes.deleteValidate(themeId:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/permissions/crud""","""controllers.Permissions.crud()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """actionInfo""","""controllers.Application.actionInfo()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/login""","""controllers.Users.login()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/login""","""controllers.Users.authenticate()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/logout""","""controllers.Users.logout()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/unauthorized""","""controllers.Users.unAuthorized()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/forums""","""controllers.Forums.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/forums/insert""","""controllers.Forums.insert()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/forums/insert""","""controllers.Forums.insertValidate()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/forums/$forumId<[^/]+>/update""","""controllers.Forums.update(forumId:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/forums/$forumId<[^/]+>/update""","""controllers.Forums.updateValidate(forumId:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/forums/$forumId<[^/]+>/delete""","""controllers.Forums.delete(forumId:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/forums/$forumId<[^/]+>/delete""","""controllers.Forums.deleteValidate(forumId:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/forums/$forumId<[^/]+>/themes""","""controllers.Themes.index(forumId:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/forums/$forumId<[^/]+>/themes/insert""","""controllers.Themes.insert(forumId:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/forums/$forumId<[^/]+>/themes/insert""","""controllers.Themes.insertValidate(forumId:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/themes/$themeId<[^/]+>/update""","""controllers.Themes.update(themeId:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/themes/$themeId<[^/]+>/update""","""controllers.Themes.updateValidate(themeId:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/themes/$themeId<[^/]+>/delete""","""controllers.Themes.delete(themeId:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/themes/$themeId<[^/]+>/delete""","""controllers.Themes.deleteValidate(themeId:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/themes/$themeId<[^/]+>/messages""","""controllers.Messages.index(themeId:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/themes/$themeId<[^/]+>/messages/insert""","""controllers.Messages.insert(themeId:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/themes/$themeId<[^/]+>/messages/insert""","""controllers.Messages.insertValidate(themeId:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/messages/$messageId<[^/]+>/update""","""controllers.Messages.update(messageId:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/messages/$messageId<[^/]+>/update""","""controllers.Messages.updateValidate(messageId:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/messages/$messageId<[^/]+>/delete""","""controllers.Messages.delete(messageId:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/messages/$messageId<[^/]+>/delete""","""controllers.Messages.deleteValidate(messageId:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """forums_orm/permissions/crud""","""controllers.Permissions.crud()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]] 
 }}
@@ -283,8 +311,64 @@ case controllers_Themes_deleteValidate19(params) => {
 }
         
 
+// @LINE:30
+case controllers_Messages_index20(params) => {
+   call(params.fromPath[Long]("themeId", None)) { (themeId) =>
+        invokeHandler(controllers.Messages.index(themeId), HandlerDef(this, "controllers.Messages", "index", Seq(classOf[Long]),"GET", """""", Routes.prefix + """forums_orm/themes/$themeId<[^/]+>/messages"""))
+   }
+}
+        
+
+// @LINE:31
+case controllers_Messages_insert21(params) => {
+   call(params.fromPath[Long]("themeId", None)) { (themeId) =>
+        invokeHandler(controllers.Messages.insert(themeId), HandlerDef(this, "controllers.Messages", "insert", Seq(classOf[Long]),"GET", """""", Routes.prefix + """forums_orm/themes/$themeId<[^/]+>/messages/insert"""))
+   }
+}
+        
+
+// @LINE:32
+case controllers_Messages_insertValidate22(params) => {
+   call(params.fromPath[Long]("themeId", None)) { (themeId) =>
+        invokeHandler(controllers.Messages.insertValidate(themeId), HandlerDef(this, "controllers.Messages", "insertValidate", Seq(classOf[Long]),"POST", """""", Routes.prefix + """forums_orm/themes/$themeId<[^/]+>/messages/insert"""))
+   }
+}
+        
+
+// @LINE:33
+case controllers_Messages_update23(params) => {
+   call(params.fromPath[Long]("messageId", None)) { (messageId) =>
+        invokeHandler(controllers.Messages.update(messageId), HandlerDef(this, "controllers.Messages", "update", Seq(classOf[Long]),"GET", """""", Routes.prefix + """forums_orm/messages/$messageId<[^/]+>/update"""))
+   }
+}
+        
+
+// @LINE:34
+case controllers_Messages_updateValidate24(params) => {
+   call(params.fromPath[Long]("messageId", None)) { (messageId) =>
+        invokeHandler(controllers.Messages.updateValidate(messageId), HandlerDef(this, "controllers.Messages", "updateValidate", Seq(classOf[Long]),"POST", """""", Routes.prefix + """forums_orm/messages/$messageId<[^/]+>/update"""))
+   }
+}
+        
+
+// @LINE:35
+case controllers_Messages_delete25(params) => {
+   call(params.fromPath[Long]("messageId", None)) { (messageId) =>
+        invokeHandler(controllers.Messages.delete(messageId), HandlerDef(this, "controllers.Messages", "delete", Seq(classOf[Long]),"GET", """""", Routes.prefix + """forums_orm/messages/$messageId<[^/]+>/delete"""))
+   }
+}
+        
+
+// @LINE:36
+case controllers_Messages_deleteValidate26(params) => {
+   call(params.fromPath[Long]("messageId", None)) { (messageId) =>
+        invokeHandler(controllers.Messages.deleteValidate(messageId), HandlerDef(this, "controllers.Messages", "deleteValidate", Seq(classOf[Long]),"POST", """""", Routes.prefix + """forums_orm/messages/$messageId<[^/]+>/delete"""))
+   }
+}
+        
+
 // @LINE:40
-case controllers_Permissions_crud20(params) => {
+case controllers_Permissions_crud27(params) => {
    call { 
         invokeHandler(controllers.Permissions.crud(), HandlerDef(this, "controllers.Permissions", "crud", Nil,"GET", """""", Routes.prefix + """forums_orm/permissions/crud"""))
    }
@@ -292,7 +376,7 @@ case controllers_Permissions_crud20(params) => {
         
 
 // @LINE:43
-case controllers_Assets_at21(params) => {
+case controllers_Assets_at28(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
         invokeHandler(controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """assets/$file<.+>"""))
    }
