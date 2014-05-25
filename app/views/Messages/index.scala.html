@@ -1,0 +1,57 @@
+@(theme: Theme, messages: List[Message], formInsert: Form[forms.Message])
+
+@main {
+&nbsp;-&gt;&nbsp;forum:
+<a href="@routes.Themes.index(theme.forum.id)">
+	@theme.forum.name
+</a>
+&nbsp;-&gt;&nbsp;theme: @theme.name
+&nbsp;-&gt;&nbsp;messages
+} {
+	<h2>Forum: <b><a href="@routes.Themes.index(theme.forum.id)">@theme.forum.name</a></b></h2>
+	<h3>Theme: <b>@theme.name</b></h3>
+	<h4>Messages: @messages.size()</h4>
+	
+	<table class="table table-striped table-hover table-bordered">
+  		<tr>
+  			<th>Text</th>
+  			<th>Creator</th>
+  			<th>Creation Date</th>
+  			<th>Actions</th>
+  		</tr>
+	@for(message <- messages) {
+		<tr>
+		  	<td>@message.text</a></td>
+			<td>@message.creatorUser.name</td>
+			<td>@message.creationDate</td>
+			<td>
+				<a class="btn btn-warning" href="@routes.Messages.update(message.id)">Update</a>
+				<a class="btn btn-danger" href="@routes.Messages.delete(message.id)">Delete</a>
+			</td>
+		</tr>
+	}
+
+		<tr>
+			<td colspan="4">
+		     	<p>Insert a new message</p>
+		     	@helper.form(action=routes.Messages.insertValidate(theme.id)
+		     			, 'class -> "form horizonal"
+		     	) {
+		     		<input type="hidden" id="id" name=" id" value=""/>
+		     		<input type="hidden" id="theme_id" name="theme_id" value="@theme.id"/>
+		            
+		            @helper.textarea(formInsert("text")
+		            		,'cols -> "50"
+							,'rows -> "5"
+		            		, '_label -> "New message: "
+		            		, 'placeholder ->"Write a text"
+		            		, '_showConstraints -> true
+		            )
+		            
+		            <input type="submit" value="Insert" class="btn btn-success"/>
+		            
+		     	}
+		    </td>
+    	</tr>
+	</table>
+}

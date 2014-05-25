@@ -1,0 +1,59 @@
+2014-05-26 00:17:55,516 - [INFO] - from play in pool-18-thread-1 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2014-05-26 00:18:27,220 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+JDBC URL = jdbc:h2:/play_db/forums/h2-db-file, Username = sa, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-26 00:18:34,580 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:/play_db/forums/h2-db-file
+
+2014-05-26 00:18:38,075 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2014-05-26 00:18:38,102 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2014-05-26 00:18:38,433 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-1 
+select count(*) from user t0
+
+2014-05-26 00:18:38,446 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-05-26 00:19:19,301 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-8 
+select t0.id c0, t0.name c1, t0.password c2, t0.email c3, t0.creation_date c4, t0.version c5 from user t0 where t0.email = 'admin@email.com'  and t0.password = 'admin00' 
+
+2014-05-26 00:19:19,549 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-9 
+select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t1.id c5, t1.name c6, t1.password c7, t1.email c8, t1.creation_date c9, t1.version c10, t2.id c11, t2.name c12, t2.creation_date c13, t2.version c14, t2.forum_id c15, t2.creator_user_id c16 from forum t0 left outer join user t1 on t1.id = t0.creator_user_id  left outer join theme t2 on t2.forum_id = t0.id  order by t0.id
+
+2014-05-26 00:19:24,589 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-12 
+select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t0.creator_user_id c5 from forum t0 where t0.id = 1  
+
+2014-05-26 00:19:24,592 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-12 
+select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t2.id c4, t2.name c5, t2.description c6, t2.creation_date c7, t2.version c8, t2.creator_user_id c9, t1.id c10, t1.name c11, t1.password c12, t1.email c13, t1.creation_date c14, t1.version c15, t3.id c16, t3.text c17, t3.creation_date c18, t3.version c19, t3.theme_id c20, t3.creator_user_id c21 from theme t0 left outer join forum t2 on t2.id = t0.forum_id  left outer join user t1 on t1.id = t0.creator_user_id  left outer join message t3 on t3.theme_id = t0.id  where forum_id = 1  order by t0.id
+
+2014-05-26 00:19:24,617 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-12 
+select t0.id c0, t1.id c1, t1.name c2, t1.creation_date c3, t1.version c4, t1.forum_id c5, t1.creator_user_id c6 from forum t0 left outer join theme t1 on t1.forum_id = t0.id  where t0.id = 1   order by t0.id
+
+2014-05-26 00:19:27,144 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-13 
+select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t2.id c4, t2.name c5, t2.description c6, t2.creation_date c7, t2.version c8, t2.creator_user_id c9, t1.id c10, t1.name c11, t1.password c12, t1.email c13, t1.creation_date c14, t1.version c15 from theme t0 left outer join forum t2 on t2.id = t0.forum_id  left outer join user t1 on t1.id = t0.creator_user_id  where t0.id = 1 
+
+2014-05-26 00:19:27,150 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-13 
+select t0.id c0, t0.text c1, t0.creation_date c2, t0.version c3, t0.theme_id c4, t1.id c5, t1.name c6, t1.password c7, t1.email c8, t1.creation_date c9, t1.version c10 from message t0 left outer join user t1 on t1.id = t0.creator_user_id  where theme_id = 1 
+
+2014-05-26 00:19:47,561 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-9 
+select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t0.creator_user_id c5 from forum t0 where t0.id = 1  
+
+2014-05-26 00:19:47,566 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-9 
+select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t2.id c4, t2.name c5, t2.description c6, t2.creation_date c7, t2.version c8, t2.creator_user_id c9, t1.id c10, t1.name c11, t1.password c12, t1.email c13, t1.creation_date c14, t1.version c15, t3.id c16, t3.text c17, t3.creation_date c18, t3.version c19, t3.theme_id c20, t3.creator_user_id c21 from theme t0 left outer join forum t2 on t2.id = t0.forum_id  left outer join user t1 on t1.id = t0.creator_user_id  left outer join message t3 on t3.theme_id = t0.id  where forum_id = 1  order by t0.id
+
+2014-05-26 00:19:47,568 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-9 
+select t0.id c0, t1.id c1, t1.name c2, t1.creation_date c3, t1.version c4, t1.forum_id c5, t1.creator_user_id c6 from forum t0 left outer join theme t1 on t1.forum_id = t0.id  where t0.id = 1   order by t0.id
+
+2014-05-26 00:19:50,953 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-17 
+select t0.id c0, t0.name c1, t0.creation_date c2, t0.version c3, t2.id c4, t2.name c5, t2.description c6, t2.creation_date c7, t2.version c8, t2.creator_user_id c9, t1.id c10, t1.name c11, t1.password c12, t1.email c13, t1.creation_date c14, t1.version c15 from theme t0 left outer join forum t2 on t2.id = t0.forum_id  left outer join user t1 on t1.id = t0.creator_user_id  where t0.id = 1 
+
+2014-05-26 00:19:50,954 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-17 
+select t0.id c0, t0.text c1, t0.creation_date c2, t0.version c3, t0.theme_id c4, t1.id c5, t1.name c6, t1.password c7, t1.email c8, t1.creation_date c9, t1.version c10 from message t0 left outer join user t1 on t1.id = t0.creator_user_id  where theme_id = 1 
+

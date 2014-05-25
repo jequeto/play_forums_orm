@@ -1,0 +1,32 @@
+@(theme: Theme, form: Form[forms.Message])
+
+@main {
+&nbsp;-&gt;&nbsp;
+<a href="@routes.Themes.index(theme.forum.id)">Forum: @theme.forum.name</a>
+&nbsp;-&gt;&nbsp;
+<a href="@routes.Messages.index(theme.id)">Theme: @theme.name</a>
+&nbsp;-&gt;&nbsp;
+inserting a message
+} {
+	<h2>Theme: @theme.name</h2>
+	<h3>Inserting a new message</h3>
+	@helper.form(
+			action=routes.Messages.insertValidate(theme.id)
+			, 'class -> "form horizonal"
+		) {
+			
+		<input type="hidden" id="id" name="id" value="@form.field("id").value()"/>
+		<input type="hidden" id="theme_id" name="theme_id" value="@form.field("theme_id").value()"/>
+		
+		@helper.textarea(form("text")
+				,'cols -> "50"
+				,'rows -> "5"
+        		, '_label -> "New message:"
+        		, 'placeholder ->"Write a message"
+        		, '_showConstraints -> true
+        )
+		
+		<input type="submit" value="Insert" class="btn btn-success"/>
+        <a href="@routes.Messages.index(Long.valueOf(form.field("theme_id").value()))" class="btn btn-primary">Cancel</a>
+	}
+}

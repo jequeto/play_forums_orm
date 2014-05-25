@@ -1,0 +1,16 @@
+@(forumForm: Form[forms.ForumBase])
+
+@import helper._
+
+@main {
+ &gt; @forumForm.field("id").value() &gt; forum's update
+} {
+	<h2>Delete a forum:</h2>
+	@form(action=routes.Forums.deleteValidate(Long.valueOf(forumForm.field("id").value()))) {
+		<input type="hidden" name="id" id="id" value="@forumForm.field("id").value()" readonly="readonly">
+		@helper.inputText(forumForm("name"), 'readonly -> "readonly", '_show_constraints -> "false")
+		@helper.inputText(forumForm("description"), 'readonly -> "readonly")
+		<input class="btn btn-danger" type="submit" value="Delete" />
+		<a class="btn btn-primary" href="@routes.Forums.index()">Cancelar</a>
+	}
+}
