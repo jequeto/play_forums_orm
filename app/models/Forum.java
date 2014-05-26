@@ -8,7 +8,6 @@ import play.db.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
-import models.*;
 
 @Entity
 @SuppressWarnings("serial")

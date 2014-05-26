@@ -29,13 +29,19 @@
 		    	@breadcrumbs
 				<div id="breadcrumbs_right" class="col-md-4">    			    			
 					@if(session().get("userEmail") != null) {
-				        @session().get("userEmail") - 
+				        userEmail: @session().get("userEmail") -
+				        userId: @session().get("userId") -
+				        connectionId: @session().get("connectionId") - 
 						<a href='@routes.Users.logout()'>Sing out</a>
 					} else {
-						Guess - 
-				        @if(request().uri() != "/Forums/login") {
+						Guess
+				        @if(request().uri() != "/forums_orm/login") {
+				        	 - 
 							<a href='@routes.Users.login()'>Sing in</a>
+							
 						}
+						 -  
+						<a href='@routes.Users.register()'>Register</a>
 					}
 				</div>
 			</div>

@@ -1,23 +1,1355 @@
-2014-05-26 15:46:57,384 - [INFO] - from play in pool-35-thread-2 
+2014-05-26 17:59:16,731 - [INFO] - from play in pool-31-thread-3 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2014-05-26 15:48:25,904 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
-JDBC URL = jdbc:h2:/play_db/forums/h2-db-file, Username = sa, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+2014-05-26 17:59:55,870 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
 
-2014-05-26 15:48:41,712 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:/play_db/forums/h2-db-file
+2014-05-26 17:59:56,388 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
 
-2014-05-26 15:48:47,170 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2014-05-26 17:59:59,740 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
 
-2014-05-26 15:48:47,172 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2014-05-26 17:59:59,747 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 
             select id, hash, apply_script, revert_script from play_evolutions order by id
         
 
-2014-05-26 15:48:47,567 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-1 
+2014-05-26 18:00:00,064 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-1 
 select count(*) from user t0
 
-2014-05-26 15:48:47,583 - [INFO] - from play in play-internal-execution-context-1 
+2014-05-26 18:00:00,085 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
+
+2014-05-26 18:00:06,978 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-9 
+select t0.id c0, t0.name c1, t0.password c2, t0.email c3, t0.creation_date c4, t0.version c5 from user t0 where t0.email = 'admin@email.com'  and t0.password = 'admin00' 
+
+2014-05-26 18:00:07,010 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-9 
+insert into connection (init_date_time, close_date_time, version, user_id) values (2014-05-26 18:00:07.001,'[SQL NULL of type 93]',1,1)
+
+2014-05-26 18:00:07,154 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-9 
+select t0.id c0, t0.init_date_time c1, t0.close_date_time c2, t0.version c3, t0.user_id c4 from connection t0 where t0.id = lastinserid ()
+
+2014-05-26 18:00:07,378 - [ERROR] - from play in play-internal-execution-context-1 
+Cannot invoke the action, eventually got an error: javax.persistence.PersistenceException: Query threw SQLException:FUNCTION forums.lastinserid does not exist 
+Bind values:[] 
+Query was:
+select t0.id c0, t0.init_date_time c1, t0.close_date_time c2, t0.version c3, t0.user_id c4 from connection t0 where t0.id = lastinserid () 
+
+
+
+2014-05-26 18:00:07,460 - [ERROR] - from application in play-internal-execution-context-1 
+
+
+! @6ibfj3ane - Internal server error, for (POST) [/forums_orm/login] ->
+
+play.api.Application$$anon$1: Execution exception[[PersistenceException: Query threw SQLException:FUNCTION forums.lastinserid does not exist 
+Bind values:[] 
+Query was:
+select t0.id c0, t0.init_date_time c1, t0.close_date_time c2, t0.version c3, t0.user_id c4 from connection t0 where t0.id = lastinserid () 
+
+]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[na:na]
+	at play.api.DefaultApplication.handleError(Application.scala:399) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) ~[na:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) ~[na:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody0(Execution.scala:43) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody1$advice(Execution.scala:138) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:1) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete_aroundBody2(Promise.scala:248) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise$AjcClosure3.run(Promise.scala:1) ~[na:na]
+	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0proceed(FutureTraceAspect.aj:148) ~[na:na]
+	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0(FutureTraceAspect.aj:150) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:244) ~[na:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) ~[na:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[na:na]
+Caused by: javax.persistence.PersistenceException: Query threw SQLException:FUNCTION forums.lastinserid does not exist 
+Bind values:[] 
+Query was:
+select t0.id c0, t0.init_date_time c1, t0.close_date_time c2, t0.version c3, t0.user_id c4 from connection t0 where t0.id = lastinserid () 
+
+
+	at com.avaje.ebeaninternal.server.query.CQuery.createPersistenceException(CQuery.java:790) ~[na:na]
+	at com.avaje.ebeaninternal.server.query.CQuery.createPersistenceException(CQuery.java:767) ~[na:na]
+	at com.avaje.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:202) ~[na:na]
+	at com.avaje.ebeaninternal.server.query.DefaultOrmQueryEngine.findMany(DefaultOrmQueryEngine.java:77) ~[na:na]
+	at com.avaje.ebeaninternal.server.core.OrmQueryRequest.findList(OrmQueryRequest.java:265) ~[na:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1460) ~[na:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.findUnique(DefaultServer.java:1230) ~[na:na]
+	at com.avaje.ebeaninternal.server.querydefn.DefaultOrmQuery.findUnique(DefaultOrmQuery.java:903) ~[na:na]
+	at controllers.Users.authenticate(Users.java:63) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$4$$anonfun$apply$4.apply(routes_routing.scala:189) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$4$$anonfun$apply$4.apply(routes_routing.scala:189) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[na:na]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[na:na]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[na:na]
+	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[na:na]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[na:na]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[na:na]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[na:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[na:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39) ~[na:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:385) ~[na:na]
+	... 4 common frames omitted
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: FUNCTION forums.lastinserid does not exist
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_25]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_25]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_25]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_25]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411) ~[na:na]
+	at com.mysql.jdbc.Util.getInstance(Util.java:386) ~[na:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1052) ~[na:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3609) ~[na:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3541) ~[na:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2002) ~[na:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2163) ~[na:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2624) ~[na:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2127) ~[na:na]
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2293) ~[na:na]
+	at com.jolbox.bonecp.PreparedStatementHandle.executeQuery(PreparedStatementHandle.java:174) ~[na:na]
+	at com.avaje.ebeaninternal.server.query.CQuery.prepareBindExecuteQuery(CQuery.java:377) ~[na:na]
+	at com.avaje.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:162) ~[na:na]
+	... 28 common frames omitted
+
+2014-05-26 18:00:48,652 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+Shutting down connection pool...
+
+2014-05-26 18:00:48,654 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2014-05-26 18:00:48,713 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+Connection pool has been shutdown.
+
+2014-05-26 18:00:48,713 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+Connection pool has been shut down
+
+2014-05-26 18:00:48,838 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-26 18:00:49,026 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+
+2014-05-26 18:00:50,694 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2014-05-26 18:00:50,697 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2014-05-26 18:00:50,717 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-1 
+select count(*) from user t0
+
+2014-05-26 18:00:50,723 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-05-26 18:01:07,868 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-12 
+select t0.id c0, t0.name c1, t0.password c2, t0.email c3, t0.creation_date c4, t0.version c5 from user t0 where t0.email = 'admin@email.com'  and t0.password = 'admin00' 
+
+2014-05-26 18:01:07,883 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-12 
+insert into connection (init_date_time, close_date_time, version, user_id) values (2014-05-26 18:01:07.878,'[SQL NULL of type 93]',1,1)
+
+2014-05-26 18:01:07,953 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-12 
+select t0.id c0, t0.init_date_time c1, t0.close_date_time c2, t0.version c3, t0.user_id c4 from connection t0 where t0.id = lastinsertid ()
+
+2014-05-26 18:01:07,961 - [ERROR] - from play in play-internal-execution-context-1 
+Cannot invoke the action, eventually got an error: javax.persistence.PersistenceException: Query threw SQLException:FUNCTION forums.lastinsertid does not exist 
+Bind values:[] 
+Query was:
+select t0.id c0, t0.init_date_time c1, t0.close_date_time c2, t0.version c3, t0.user_id c4 from connection t0 where t0.id = lastinsertid () 
+
+
+
+2014-05-26 18:01:07,982 - [ERROR] - from application in play-internal-execution-context-1 
+
+
+! @6ibfj6mbk - Internal server error, for (POST) [/forums_orm/login] ->
+
+play.api.Application$$anon$1: Execution exception[[PersistenceException: Query threw SQLException:FUNCTION forums.lastinsertid does not exist 
+Bind values:[] 
+Query was:
+select t0.id c0, t0.init_date_time c1, t0.close_date_time c2, t0.version c3, t0.user_id c4 from connection t0 where t0.id = lastinsertid () 
+
+]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[na:na]
+	at play.api.DefaultApplication.handleError(Application.scala:399) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) ~[na:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) ~[na:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody0(Execution.scala:43) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody1$advice(Execution.scala:138) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:1) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete_aroundBody2(Promise.scala:248) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise$AjcClosure3.run(Promise.scala:1) ~[na:na]
+	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0proceed(FutureTraceAspect.aj:148) ~[na:na]
+	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0(FutureTraceAspect.aj:150) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:244) ~[na:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) ~[na:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[na:na]
+Caused by: javax.persistence.PersistenceException: Query threw SQLException:FUNCTION forums.lastinsertid does not exist 
+Bind values:[] 
+Query was:
+select t0.id c0, t0.init_date_time c1, t0.close_date_time c2, t0.version c3, t0.user_id c4 from connection t0 where t0.id = lastinsertid () 
+
+
+	at com.avaje.ebeaninternal.server.query.CQuery.createPersistenceException(CQuery.java:790) ~[na:na]
+	at com.avaje.ebeaninternal.server.query.CQuery.createPersistenceException(CQuery.java:767) ~[na:na]
+	at com.avaje.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:202) ~[na:na]
+	at com.avaje.ebeaninternal.server.query.DefaultOrmQueryEngine.findMany(DefaultOrmQueryEngine.java:77) ~[na:na]
+	at com.avaje.ebeaninternal.server.core.OrmQueryRequest.findList(OrmQueryRequest.java:265) ~[na:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1460) ~[na:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.findUnique(DefaultServer.java:1230) ~[na:na]
+	at com.avaje.ebeaninternal.server.querydefn.DefaultOrmQuery.findUnique(DefaultOrmQuery.java:903) ~[na:na]
+	at controllers.Users.authenticate(Users.java:63) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$4$$anonfun$apply$4.apply(routes_routing.scala:189) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$4$$anonfun$apply$4.apply(routes_routing.scala:189) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[na:na]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[na:na]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[na:na]
+	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[na:na]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[na:na]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[na:na]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[na:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[na:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39) ~[na:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:385) ~[na:na]
+	... 4 common frames omitted
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: FUNCTION forums.lastinsertid does not exist
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_25]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_25]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_25]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_25]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411) ~[na:na]
+	at com.mysql.jdbc.Util.getInstance(Util.java:386) ~[na:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1052) ~[na:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3609) ~[na:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3541) ~[na:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2002) ~[na:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2163) ~[na:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2624) ~[na:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2127) ~[na:na]
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2293) ~[na:na]
+	at com.jolbox.bonecp.PreparedStatementHandle.executeQuery(PreparedStatementHandle.java:174) ~[na:na]
+	at com.avaje.ebeaninternal.server.query.CQuery.prepareBindExecuteQuery(CQuery.java:377) ~[na:na]
+	at com.avaje.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:162) ~[na:na]
+	... 28 common frames omitted
+
+2014-05-26 19:03:47,330 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-4 
+Shutting down connection pool...
+
+2014-05-26 19:03:47,353 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2014-05-26 19:03:47,361 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-4 
+Connection pool has been shutdown.
+
+2014-05-26 19:03:47,361 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-4 
+Connection pool has been shut down
+
+2014-05-26 19:03:47,520 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-4 
+JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-26 19:03:47,768 - [INFO] - from play in play-internal-execution-context-4 
+database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+
+2014-05-26 19:03:50,948 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-4 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2014-05-26 19:03:50,955 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-4 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2014-05-26 19:03:50,986 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-4 
+select count(*) from user t0
+
+2014-05-26 19:03:50,995 - [INFO] - from play in play-internal-execution-context-4 
+Application started (Dev)
+
+2014-05-26 19:04:39,461 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-21 
+select t0.id c0, t0.name c1, t0.password c2, t0.email c3, t0.creation_date c4, t0.version c5 from user t0 where t0.email = 'admi@emai.com'  and t0.password = 'admin00' 
+
+2014-05-26 19:04:47,797 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-29 
+select t0.id c0, t0.name c1, t0.password c2, t0.email c3, t0.creation_date c4, t0.version c5 from user t0 where t0.email = 'admi@emai.com'  and t0.password = 'admin00' 
+
+2014-05-26 19:04:58,823 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-29 
+select t0.id c0, t0.name c1, t0.password c2, t0.email c3, t0.creation_date c4, t0.version c5 from user t0 where t0.email = 'admi@email.com'  and t0.password = 'admin00' 
+
+2014-05-26 19:05:08,435 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-28 
+select t0.id c0, t0.name c1, t0.password c2, t0.email c3, t0.creation_date c4, t0.version c5 from user t0 where t0.email = 'admin@email.com'  and t0.password = 'admin00' 
+
+2014-05-26 19:05:08,451 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-28 
+insert into connection (init_date_time, close_date_time, version, user_id) values (2014-05-26 19:05:08.445,'[SQL NULL of type 93]',1,1)
+
+2014-05-26 19:05:08,532 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-28 
+select t0.id c0, t0.init_date_time c1, t0.close_date_time c2, t0.version c3, t0.user_id c4 from connection t0 where t0.id = last_insert_id ()
+
+2014-05-26 19:05:08,611 - [ERROR] - from play in play-internal-execution-context-5 
+Cannot invoke the action, eventually got an error: java.lang.NullPointerException
+
+2014-05-26 19:05:08,629 - [ERROR] - from application in play-internal-execution-context-5 
+
+
+! @6ibg1h9n0 - Internal server error, for (POST) [/forums_orm/login] ->
+
+play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[na:na]
+	at play.api.DefaultApplication.handleError(Application.scala:399) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) ~[na:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) ~[na:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody0(Execution.scala:43) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody1$advice(Execution.scala:138) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:1) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete_aroundBody2(Promise.scala:248) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise$AjcClosure3.run(Promise.scala:1) ~[na:na]
+	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0proceed(FutureTraceAspect.aj:148) ~[na:na]
+	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0(FutureTraceAspect.aj:150) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:244) ~[na:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) ~[na:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[na:na]
+Caused by: java.lang.NullPointerException: null
+	at controllers.Users.authenticate(Users.java:64) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$4$$anonfun$apply$4.apply(routes_routing.scala:189) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$4$$anonfun$apply$4.apply(routes_routing.scala:189) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[na:na]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[na:na]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[na:na]
+	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[na:na]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[na:na]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[na:na]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[na:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[na:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39) ~[na:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:385) ~[na:na]
+	... 4 common frames omitted
+
+2014-05-26 19:09:25,429 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-5 
+Shutting down connection pool...
+
+2014-05-26 19:09:25,430 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2014-05-26 19:09:25,437 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-5 
+Connection pool has been shutdown.
+
+2014-05-26 19:09:25,437 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-5 
+Connection pool has been shut down
+
+2014-05-26 19:09:25,589 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-5 
+JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-26 19:09:26,034 - [INFO] - from play in play-internal-execution-context-5 
+database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+
+2014-05-26 19:09:28,614 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-5 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2014-05-26 19:09:28,620 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-5 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2014-05-26 19:09:28,650 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-5 
+select count(*) from user t0
+
+2014-05-26 19:09:28,660 - [INFO] - from play in play-internal-execution-context-5 
+Application started (Dev)
+
+2014-05-26 19:12:08,157 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-39 
+select t0.id c0, t0.name c1, t0.password c2, t0.email c3, t0.creation_date c4, t0.version c5 from user t0 where t0.email = 'jesus@email.com'  and t0.password = 'jesus00' 
+
+2014-05-26 19:12:08,181 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-39 
+insert into connection (init_date_time, close_date_time, version, user_id) values (2014-05-26 19:12:08.175,'[SQL NULL of type 93]',1,2)
+
+2014-05-26 19:12:08,330 - [ERROR] - from play in play-internal-execution-context-5 
+Cannot invoke the action, eventually got an error: java.lang.NullPointerException
+
+2014-05-26 19:12:08,357 - [ERROR] - from application in play-internal-execution-context-5 
+
+
+! @6ibg2f6ka - Internal server error, for (POST) [/forums_orm/login] ->
+
+play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[na:na]
+	at play.api.DefaultApplication.handleError(Application.scala:399) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) ~[na:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) ~[na:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody0(Execution.scala:43) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody1$advice(Execution.scala:138) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:1) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete_aroundBody2(Promise.scala:248) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise$AjcClosure3.run(Promise.scala:1) ~[na:na]
+	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0proceed(FutureTraceAspect.aj:148) ~[na:na]
+	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0(FutureTraceAspect.aj:150) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:244) ~[na:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) ~[na:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[na:na]
+Caused by: java.lang.NullPointerException: null
+	at controllers.Users.authenticate(Users.java:64) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$4$$anonfun$apply$4.apply(routes_routing.scala:189) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$4$$anonfun$apply$4.apply(routes_routing.scala:189) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[na:na]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[na:na]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[na:na]
+	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[na:na]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[na:na]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[na:na]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[na:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[na:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39) ~[na:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:385) ~[na:na]
+	... 4 common frames omitted
+
+2014-05-26 19:45:20,683 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-5 
+Shutting down connection pool...
+
+2014-05-26 19:45:20,687 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2014-05-26 19:45:20,692 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-5 
+Connection pool has been shutdown.
+
+2014-05-26 19:45:20,692 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-5 
+Connection pool has been shut down
+
+2014-05-26 19:45:20,841 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-5 
+JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-26 19:45:21,095 - [INFO] - from play in play-internal-execution-context-5 
+database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+
+2014-05-26 19:45:23,477 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-5 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2014-05-26 19:45:23,482 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-5 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2014-05-26 19:45:23,529 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-5 
+select count(*) from user t0
+
+2014-05-26 19:45:23,539 - [INFO] - from play in play-internal-execution-context-5 
+Application started (Dev)
+
+2014-05-26 19:45:57,115 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-48 
+select t0.id c0, t0.name c1, t0.password c2, t0.email c3, t0.creation_date c4, t0.version c5 from user t0 where t0.email = 'jesus@email.com'  and t0.password = 'jesus00' 
+
+2014-05-26 19:45:57,127 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-48 
+insert into connection (init_date_time, close_date_time, version, user_id) values (2014-05-26 19:45:57.123,'[SQL NULL of type 93]',1,2)
+
+2014-05-26 19:45:57,194 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-48 
+select t0.id c0 from connection t0 order by t0.id desc
+
+2014-05-26 19:45:57,943 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-56 
+select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t1.id c5, t1.name c6, t1.password c7, t1.email c8, t1.creation_date c9, t1.version c10, t2.id c11, t2.name c12, t2.creation_date c13, t2.version c14, t2.forum_id c15, t2.creator_user_id c16 from forum t0 left outer join user t1 on t1.id = t0.creator_user_id  left outer join theme t2 on t2.forum_id = t0.id  order by t0.id
+
+2014-05-26 19:46:06,574 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-60 
+select t0.id c0, t0.init_date_time c1, t0.close_date_time c2, t0.version c3, t0.user_id c4 from connection t0 where t0.id = 12  
+
+2014-05-26 19:49:34,154 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-11 
+Shutting down connection pool...
+
+2014-05-26 19:49:34,157 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2014-05-26 19:49:34,168 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-11 
+Connection pool has been shutdown.
+
+2014-05-26 19:49:34,168 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-11 
+Connection pool has been shut down
+
+2014-05-26 19:49:34,331 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-11 
+JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-26 19:49:34,580 - [INFO] - from play in play-internal-execution-context-11 
+database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+
+2014-05-26 19:49:36,974 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-11 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2014-05-26 19:49:36,978 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-11 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2014-05-26 19:49:36,999 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-11 
+select count(*) from user t0
+
+2014-05-26 19:49:37,005 - [INFO] - from play in play-internal-execution-context-11 
+Application started (Dev)
+
+2014-05-26 19:49:37,053 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-56 
+select t0.id c0, t0.name c1, t0.password c2, t0.email c3, t0.creation_date c4, t0.version c5 from user t0 where t0.email = 'admin@email.com'  and t0.password = 'admin00' 
+
+2014-05-26 19:49:37,064 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-56 
+insert into connection (init_date_time, close_date_time, version, user_id) values (2014-05-26 19:49:37.06,'[SQL NULL of type 93]',1,1)
+
+2014-05-26 19:49:37,127 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-56 
+select t0.id c0 from connection t0 order by t0.id desc
+
+2014-05-26 19:49:42,927 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-63 
+select t0.id c0, t0.name c1, t0.description c2, t0.creation_date c3, t0.version c4, t1.id c5, t1.name c6, t1.password c7, t1.email c8, t1.creation_date c9, t1.version c10, t2.id c11, t2.name c12, t2.creation_date c13, t2.version c14, t2.forum_id c15, t2.creator_user_id c16 from forum t0 left outer join user t1 on t1.id = t0.creator_user_id  left outer join theme t2 on t2.forum_id = t0.id  order by t0.id
+
+2014-05-26 19:52:20,410 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-11 
+Shutting down connection pool...
+
+2014-05-26 19:52:20,419 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2014-05-26 19:52:20,427 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-11 
+Connection pool has been shutdown.
+
+2014-05-26 19:52:20,428 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-11 
+Connection pool has been shut down
+
+2014-05-26 19:52:20,559 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-11 
+JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-26 19:52:20,787 - [INFO] - from play in play-internal-execution-context-11 
+database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+
+2014-05-26 19:52:22,522 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-11 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2014-05-26 19:52:22,527 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-11 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2014-05-26 19:52:22,554 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-11 
+select count(*) from user t0
+
+2014-05-26 19:52:22,563 - [INFO] - from play in play-internal-execution-context-11 
+Application started (Dev)
+
+2014-05-26 19:52:22,690 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-66 
+select t0.id c0, t0.init_date_time c1, t0.close_date_time c2, t0.version c3, t0.user_id c4 from connection t0 where t0.id = 13  
+
+2014-05-26 19:52:22,708 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-66 
+update connection set close_date_time=2014-05-26 19:52:22.698, version=2 where id=13 and version=1
+
+2014-05-26 19:55:57,926 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-11 
+Shutting down connection pool...
+
+2014-05-26 19:55:57,930 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2014-05-26 19:55:57,937 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-11 
+Connection pool has been shutdown.
+
+2014-05-26 19:55:57,938 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-11 
+Connection pool has been shut down
+
+2014-05-26 19:55:58,032 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-11 
+JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-26 19:55:58,194 - [INFO] - from play in play-internal-execution-context-11 
+database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+
+2014-05-26 19:56:00,220 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-11 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2014-05-26 19:56:00,224 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-11 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2014-05-26 19:56:00,244 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-11 
+select count(*) from user t0
+
+2014-05-26 19:56:00,248 - [INFO] - from play in play-internal-execution-context-11 
+Application started (Dev)
+
+2014-05-26 19:56:00,353 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-74 
+select t0.id c0, t0.init_date_time c1, t0.close_date_time c2, t0.version c3, t1.id c4, t1.name c5, t1.password c6, t1.email c7, t1.creation_date c8, t1.version c9 from connection t0 left outer join user t1 on t1.id = t0.user_id  order by init_date_time desc 
+limit 101
+
+2014-05-26 19:56:00,460 - [ERROR] - from play in play-internal-execution-context-11 
+Cannot invoke the action, eventually got an error: java.lang.NullPointerException
+
+2014-05-26 19:56:00,483 - [ERROR] - from application in play-internal-execution-context-11 
+
+
+! @6ibg890bl - Internal server error, for (GET) [/forums_orm/connections] ->
+
+play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[na:na]
+	at play.api.DefaultApplication.handleError(Application.scala:399) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) ~[na:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) ~[na:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody0(Execution.scala:43) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody1$advice(Execution.scala:138) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:1) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete_aroundBody2(Promise.scala:248) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise$AjcClosure3.run(Promise.scala:1) ~[na:na]
+	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0proceed(FutureTraceAspect.aj:148) ~[na:na]
+	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0(FutureTraceAspect.aj:150) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:244) ~[na:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) ~[na:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[na:na]
+Caused by: java.lang.NullPointerException: null
+	at views.html.Connections.index$$anonfun$apply$1.apply(index.template.scala:62) ~[na:na]
+	at views.html.Connections.index$$anonfun$apply$1.apply(index.template.scala:56) ~[na:na]
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244) ~[na:na]
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244) ~[na:na]
+	at scala.collection.Iterator$class.foreach(Iterator.scala:727) ~[na:na]
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1157) ~[na:na]
+	at scala.collection.IterableLike$class.foreach(IterableLike.scala:72) ~[na:na]
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:54) ~[na:na]
+	at scala.collection.TraversableLike$class.map(TraversableLike.scala:244) ~[na:na]
+	at scala.collection.AbstractTraversable.map(Traversable.scala:105) ~[na:na]
+	at views.html.Connections.index$.apply(index.template.scala:56) ~[na:na]
+	at views.html.Connections.index$.render(index.template.scala:72) ~[na:na]
+	at views.html.Connections.index.render(index.template.scala) ~[na:na]
+	at controllers.Connections.index(Connections.java:20) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$28$$anonfun$apply$28.apply(routes_routing.scala:381) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$28$$anonfun$apply$28.apply(routes_routing.scala:381) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[na:na]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[na:na]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[na:na]
+	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[na:na]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[na:na]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[na:na]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[na:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[na:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39) ~[na:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:385) ~[na:na]
+	... 4 common frames omitted
+
+2014-05-26 19:57:29,514 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-13 
+Shutting down connection pool...
+
+2014-05-26 19:57:29,515 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2014-05-26 19:57:29,528 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-13 
+Connection pool has been shutdown.
+
+2014-05-26 19:57:29,528 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-13 
+Connection pool has been shut down
+
+2014-05-26 19:57:29,650 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-13 
+JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-26 19:57:29,881 - [INFO] - from play in play-internal-execution-context-13 
+database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+
+2014-05-26 19:57:32,106 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-13 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2014-05-26 19:57:32,110 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-13 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2014-05-26 19:57:32,136 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-13 
+select count(*) from user t0
+
+2014-05-26 19:57:32,145 - [INFO] - from play in play-internal-execution-context-13 
+Application started (Dev)
+
+2014-05-26 19:57:32,184 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-78 
+select t0.id c0, t0.init_date_time c1, t0.close_date_time c2, t0.version c3, t1.id c4, t1.name c5, t1.password c6, t1.email c7, t1.creation_date c8, t1.version c9 from connection t0 left outer join user t1 on t1.id = t0.user_id  order by init_date_time desc 
+limit 101
+
+2014-05-26 20:01:41,918 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-13 
+Shutting down connection pool...
+
+2014-05-26 20:01:41,922 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2014-05-26 20:01:41,933 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-13 
+Connection pool has been shutdown.
+
+2014-05-26 20:01:41,933 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-13 
+Connection pool has been shut down
+
+2014-05-26 20:01:42,057 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-13 
+JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-26 20:01:42,267 - [INFO] - from play in play-internal-execution-context-13 
+database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+
+2014-05-26 20:01:44,975 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-13 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2014-05-26 20:01:44,980 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-13 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2014-05-26 20:01:45,005 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-13 
+select count(*) from user t0
+
+2014-05-26 20:01:45,017 - [INFO] - from play in play-internal-execution-context-13 
+Application started (Dev)
+
+2014-05-26 20:01:45,044 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-78 
+select t0.id c0, t0.init_date_time c1, t0.close_date_time c2, t0.version c3, t1.id c4, t1.name c5, t1.password c6, t1.email c7, t1.creation_date c8, t1.version c9 from connection t0 left outer join user t1 on t1.id = t0.user_id  order by init_date_time desc 
+limit 101
+
+2014-05-26 20:01:45,073 - [ERROR] - from play in play-internal-execution-context-13 
+Cannot invoke the action, eventually got an error: java.lang.NullPointerException
+
+2014-05-26 20:01:45,092 - [ERROR] - from application in play-internal-execution-context-13 
+
+
+! @6ibg92g62 - Internal server error, for (GET) [/forums_orm/connections] ->
+
+play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[na:na]
+	at play.api.DefaultApplication.handleError(Application.scala:399) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) ~[na:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) ~[na:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody0(Execution.scala:43) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody1$advice(Execution.scala:138) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:1) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete_aroundBody2(Promise.scala:248) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise$AjcClosure3.run(Promise.scala:1) ~[na:na]
+	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0proceed(FutureTraceAspect.aj:148) ~[na:na]
+	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0(FutureTraceAspect.aj:150) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:244) ~[na:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) ~[na:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[na:na]
+Caused by: java.lang.NullPointerException: null
+	at views.html.Connections.index$$anonfun$apply$1.apply(index.template.scala:62) ~[na:na]
+	at views.html.Connections.index$$anonfun$apply$1.apply(index.template.scala:56) ~[na:na]
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244) ~[na:na]
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244) ~[na:na]
+	at scala.collection.Iterator$class.foreach(Iterator.scala:727) ~[na:na]
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1157) ~[na:na]
+	at scala.collection.IterableLike$class.foreach(IterableLike.scala:72) ~[na:na]
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:54) ~[na:na]
+	at scala.collection.TraversableLike$class.map(TraversableLike.scala:244) ~[na:na]
+	at scala.collection.AbstractTraversable.map(Traversable.scala:105) ~[na:na]
+	at views.html.Connections.index$.apply(index.template.scala:56) ~[na:na]
+	at views.html.Connections.index$.render(index.template.scala:72) ~[na:na]
+	at views.html.Connections.index.render(index.template.scala) ~[na:na]
+	at controllers.Connections.index(Connections.java:20) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$28$$anonfun$apply$28.apply(routes_routing.scala:381) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$28$$anonfun$apply$28.apply(routes_routing.scala:381) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[na:na]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[na:na]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[na:na]
+	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[na:na]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[na:na]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[na:na]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[na:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[na:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39) ~[na:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:385) ~[na:na]
+	... 4 common frames omitted
+
+2014-05-26 20:03:01,511 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-13 
+Shutting down connection pool...
+
+2014-05-26 20:03:01,512 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2014-05-26 20:03:01,523 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-13 
+Connection pool has been shutdown.
+
+2014-05-26 20:03:01,523 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-13 
+Connection pool has been shut down
+
+2014-05-26 20:03:01,648 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-13 
+JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-26 20:03:01,885 - [INFO] - from play in play-internal-execution-context-13 
+database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+
+2014-05-26 20:03:04,111 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-13 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2014-05-26 20:03:04,115 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-13 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2014-05-26 20:03:04,133 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-13 
+select count(*) from user t0
+
+2014-05-26 20:03:04,139 - [INFO] - from play in play-internal-execution-context-13 
+Application started (Dev)
+
+2014-05-26 20:03:04,170 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-90 
+select t0.id c0, t0.init_date_time c1, t0.close_date_time c2, t0.version c3, t1.id c4, t1.name c5, t1.password c6, t1.email c7, t1.creation_date c8, t1.version c9 from connection t0 left outer join user t1 on t1.id = t0.user_id  order by init_date_time desc 
+limit 101
+
+2014-05-26 20:03:04,198 - [ERROR] - from play in play-internal-execution-context-13 
+Cannot invoke the action, eventually got an error: java.lang.NullPointerException
+
+2014-05-26 20:03:04,217 - [ERROR] - from application in play-internal-execution-context-13 
+
+
+! @6ibg97378 - Internal server error, for (GET) [/forums_orm/connections] ->
+
+play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[na:na]
+	at play.api.DefaultApplication.handleError(Application.scala:399) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) ~[na:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) ~[na:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody0(Execution.scala:43) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody1$advice(Execution.scala:138) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:1) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete_aroundBody2(Promise.scala:248) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise$AjcClosure3.run(Promise.scala:1) ~[na:na]
+	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0proceed(FutureTraceAspect.aj:148) ~[na:na]
+	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0(FutureTraceAspect.aj:150) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:244) ~[na:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) ~[na:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[na:na]
+Caused by: java.lang.NullPointerException: null
+	at views.html.Connections.index$$anonfun$apply$1.apply(index.template.scala:62) ~[na:na]
+	at views.html.Connections.index$$anonfun$apply$1.apply(index.template.scala:56) ~[na:na]
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244) ~[na:na]
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244) ~[na:na]
+	at scala.collection.Iterator$class.foreach(Iterator.scala:727) ~[na:na]
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1157) ~[na:na]
+	at scala.collection.IterableLike$class.foreach(IterableLike.scala:72) ~[na:na]
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:54) ~[na:na]
+	at scala.collection.TraversableLike$class.map(TraversableLike.scala:244) ~[na:na]
+	at scala.collection.AbstractTraversable.map(Traversable.scala:105) ~[na:na]
+	at views.html.Connections.index$.apply(index.template.scala:56) ~[na:na]
+	at views.html.Connections.index$.render(index.template.scala:72) ~[na:na]
+	at views.html.Connections.index.render(index.template.scala) ~[na:na]
+	at controllers.Connections.index(Connections.java:20) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$28$$anonfun$apply$28.apply(routes_routing.scala:381) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$28$$anonfun$apply$28.apply(routes_routing.scala:381) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[na:na]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[na:na]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[na:na]
+	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[na:na]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[na:na]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[na:na]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[na:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[na:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39) ~[na:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:385) ~[na:na]
+	... 4 common frames omitted
+
+2014-05-26 20:04:49,632 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-13 
+Shutting down connection pool...
+
+2014-05-26 20:04:49,636 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2014-05-26 20:04:49,643 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-13 
+Connection pool has been shutdown.
+
+2014-05-26 20:04:49,643 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-13 
+Connection pool has been shut down
+
+2014-05-26 20:04:49,762 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-13 
+JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-26 20:04:49,993 - [INFO] - from play in play-internal-execution-context-13 
+database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+
+2014-05-26 20:04:51,941 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-13 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2014-05-26 20:04:51,944 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-13 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2014-05-26 20:04:51,964 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-13 
+select count(*) from user t0
+
+2014-05-26 20:04:51,971 - [INFO] - from play in play-internal-execution-context-13 
+Application started (Dev)
+
+2014-05-26 20:04:52,003 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-93 
+select t0.id c0, t0.init_date_time c1, t0.close_date_time c2, t0.version c3, t1.id c4, t1.name c5, t1.password c6, t1.email c7, t1.creation_date c8, t1.version c9 from connection t0 left outer join user t1 on t1.id = t0.user_id  order by init_date_time desc 
+limit 101
+
+2014-05-26 20:06:40,088 - [ERROR] - from application in New I/O worker #2 
+
+
+! @6ibg9j9ai - Internal server error, for (GET) [/forums_orm/connections] ->
+
+play.PlayExceptions$TemplateCompilationException: Compilation error[`identifier' expected but `<' found]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:55) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[na:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[na:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166) ~[na:1.7.0_25]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) ~[na:1.7.0_25]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+
+2014-05-26 20:07:08,117 - [ERROR] - from application in New I/O worker #2 
+
+
+! @6ibg9kpn3 - Internal server error, for (GET) [/forums_orm/connections] ->
+
+play.PlayExceptions$TemplateCompilationException: Compilation error[Unmatched bracket]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:55) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[na:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[na:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166) ~[na:1.7.0_25]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) ~[na:1.7.0_25]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+
+2014-05-26 20:07:32,728 - [ERROR] - from application in New I/O worker #2 
+
+
+! @6ibg9macg - Internal server error, for (GET) [/forums_orm/connections] ->
+
+play.PlayExceptions$CompilationException: Compilation error['(' expected but ')' found.]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[na:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[na:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[na:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[na:na]
+	at com.typesafe.trace.FutureRunnable.run(FutureTrace.scala:119) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[na:na]
+
+2014-05-26 20:08:01,240 - [ERROR] - from application in New I/O worker #2 
+
+
+! @6ibg9o0h8 - Internal server error, for (GET) [/forums_orm/connections] ->
+
+play.PlayExceptions$CompilationException: Compilation error['(' expected but ')' found.]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[na:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[na:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[na:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[na:na]
+	at com.typesafe.trace.FutureRunnable.run(FutureTrace.scala:119) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[na:na]
+
+2014-05-26 20:08:12,184 - [ERROR] - from application in New I/O worker #2 
+
+
+! @6ibg9ogm4 - Internal server error, for (GET) [/forums_orm/connections] ->
+
+play.PlayExceptions$CompilationException: Compilation error['(' expected but ')' found.]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[na:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[na:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[na:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[na:na]
+	at com.typesafe.trace.FutureRunnable.run(FutureTrace.scala:119) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[na:na]
+
+2014-05-26 20:10:55,392 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-13 
+Shutting down connection pool...
+
+2014-05-26 20:10:55,393 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2014-05-26 20:10:55,404 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-13 
+Connection pool has been shutdown.
+
+2014-05-26 20:10:55,404 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-13 
+Connection pool has been shut down
+
+2014-05-26 20:10:55,512 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-13 
+JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-26 20:10:55,810 - [INFO] - from play in play-internal-execution-context-13 
+database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+
+2014-05-26 20:10:57,935 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-13 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2014-05-26 20:10:57,939 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-13 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2014-05-26 20:10:57,964 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-13 
+select count(*) from user t0
+
+2014-05-26 20:10:57,974 - [INFO] - from play in play-internal-execution-context-13 
+Application started (Dev)
+
+2014-05-26 20:10:58,001 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-101 
+select t0.id c0, t0.init_date_time c1, t0.close_date_time c2, t0.version c3, t1.id c4, t1.name c5, t1.password c6, t1.email c7, t1.creation_date c8, t1.version c9 from connection t0 left outer join user t1 on t1.id = t0.user_id  order by init_date_time desc 
+limit 101
+
+2014-05-26 20:11:30,182 - [ERROR] - from application in New I/O worker #2 
+
+
+! @6ibga9nch - Internal server error, for (GET) [/forums_orm/connections] ->
+
+play.PlayExceptions$TemplateCompilationException: Compilation error[`identifier' expected but `<' found]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:55) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[na:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[na:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166) ~[na:1.7.0_25]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) ~[na:1.7.0_25]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+
+2014-05-26 20:12:03,936 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-13 
+Shutting down connection pool...
+
+2014-05-26 20:12:03,938 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2014-05-26 20:12:03,950 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-13 
+Connection pool has been shutdown.
+
+2014-05-26 20:12:03,951 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-13 
+Connection pool has been shut down
+
+2014-05-26 20:12:04,041 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-13 
+JDBC URL = jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci, Username = forums, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2014-05-26 20:12:04,219 - [INFO] - from play in play-internal-execution-context-13 
+database [default] connected at jdbc:mysql://localhost/forums?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+
+2014-05-26 20:12:06,640 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-13 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2014-05-26 20:12:06,645 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-13 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2014-05-26 20:12:06,663 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-13 
+select count(*) from user t0
+
+2014-05-26 20:12:06,669 - [INFO] - from play in play-internal-execution-context-13 
+Application started (Dev)
+
+2014-05-26 20:12:06,697 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-108 
+select t0.id c0, t0.init_date_time c1, t0.close_date_time c2, t0.version c3, t1.id c4, t1.name c5, t1.password c6, t1.email c7, t1.creation_date c8, t1.version c9 from connection t0 left outer join user t1 on t1.id = t0.user_id  order by init_date_time desc 
+limit 101
+
+2014-05-26 20:17:31,523 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-122 
+select t0.id c0, t0.name c1, t0.password c2, t0.email c3, t0.creation_date c4, t0.version c5 from user t0 where t0.email = 'admin@email.com'  and t0.password = 'admin00' 
+
+2014-05-26 20:17:31,543 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-122 
+insert into connection (init_date_time, close_date_time, version, user_id) values (2014-05-26 20:17:31.537,'[SQL NULL of type 93]',1,1)
+
+2014-05-26 20:17:31,640 - [ERROR] - from play in play-internal-execution-context-13 
+Cannot invoke the action, eventually got an error: java.lang.NullPointerException
+
+2014-05-26 20:17:31,658 - [ERROR] - from application in play-internal-execution-context-13 
+
+
+! @6ibgb4ccd - Internal server error, for (POST) [/forums_orm/login] ->
+
+play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[na:na]
+	at play.api.DefaultApplication.handleError(Application.scala:399) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) ~[na:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) ~[na:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) ~[na:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody0(Execution.scala:43) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute_aroundBody1$advice(Execution.scala:138) ~[na:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:1) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete_aroundBody2(Promise.scala:248) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise$AjcClosure3.run(Promise.scala:1) ~[na:na]
+	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0proceed(FutureTraceAspect.aj:148) ~[na:na]
+	at com.typesafe.trace.FutureTraceAspect.ajc$around$com_typesafe_trace_FutureTraceAspect$4$3fd2d6f0(FutureTraceAspect.aj:150) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:244) ~[na:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) ~[na:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) ~[na:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[na:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[na:na]
+Caused by: java.lang.NullPointerException: null
+	at models.Connection.insert(Connection.java:52) ~[na:na]
+	at controllers.Users.authenticate(Users.java:53) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$4$$anonfun$apply$4.apply(routes_routing.scala:189) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$4$$anonfun$apply$4.apply(routes_routing.scala:189) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[na:na]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[na:na]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[na:na]
+	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[na:na]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[na:na]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[na:na]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[na:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[na:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:136) ~[na:na]
+	at com.typesafe.trace.FutureCallback.apply(FutureTrace.scala:127) ~[na:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[na:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[na:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39) ~[na:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:385) ~[na:na]
+	... 4 common frames omitted
 

@@ -35,7 +35,9 @@ POST	/forums_orm/messages/:messageId/update					controllers.Messages.updateValid
 GET		/forums_orm/messages/:messageId/delete					controllers.Messages.delete(messageId: Long)
 POST	/forums_orm/messages/:messageId/delete					controllers.Messages.deleteValidate(messageId: Long)
 
+GET		/forums_orm/connections                					controllers.Connections.index()
 
+GET		/forums_orm/users/register				        		controllers.Users.register()
 
 GET		/forums_orm/permissions/crud				        	controllers.Permissions.crud()
 
