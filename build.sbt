@@ -10,4 +10,4 @@ libraryDependencies ++= Seq(
 
 play.Project.playJavaSettings
 
-javacOptions += "-Xlint:unchecked" 
+# javacOptions += "-Xlint:unchecked" 
