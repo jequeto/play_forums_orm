@@ -21,13 +21,15 @@
 	    
     	<header class="">
 	        <div id="breadcrumbs" class="col-md-12">
-	        	<a href="@routes.Forums.index()">
-		    		<img src="@routes.Assets.at("images/logo.jpg")" height="25px" alt="Logo" class="miniLogo" />
-		    		<span class="glyphicon glyphicon-home"></span>
-		    		Home
-		    	</a>
-		    	@breadcrumbs
-				<div id="breadcrumbs_right" class="col-md-4">    			    			
+	        	<div id="breadcrumbs_left" class="col-md-6">
+		        	<a href="@routes.Forums.index()">
+			    		<img src="@routes.Assets.at("images/logo.jpg")" height="25px" alt="Logo" class="miniLogo" />
+			    		<span class="glyphicon glyphicon-home"></span>
+			    		Home
+			    	</a>
+			    	@breadcrumbs
+			    </div>
+				<div id="breadcrumbs_right" class="col-md-6">    			    			
 					@if(session().get("userEmail") != null) {
 				        userEmail: @session().get("userEmail") -
 				        userId: @session().get("userId") -

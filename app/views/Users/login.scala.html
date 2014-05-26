@@ -7,7 +7,7 @@
 	@helper.form(routes.Users.authenticate(), 'role -> "form"	) {
 		<p>
 			<label for="email">Email: </label>
-			<input type="email" id="email" name="email" placeholder="Email" value="@form("email").value" autocomplete="autocomplete">
+			<input type="email" id="email" name="email" placeholder="Email" value="@form("email").value" autocomplete="on">
 		</p>
 		<p>
 			<label for="password">Password: </label>
